@@ -1,100 +1,50 @@
-# vinext-starter
+# 새소망 방문요양센터
 
-A clean full-stack starter running on
-[vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and
-Drizzle support.
+새소망 방문요양센터의 Next.js App Router 홈페이지입니다. 현재 홈페이지와 Calm Navigator V2 시안을 로컬에서 비교할 수 있습니다.
 
-## Prerequisites
+## 필요 환경
 
 - Node.js `>=22.13.0`
 
-## Quick Start
+## 로컬 실행
 
 ```bash
 npm install
 npm run dev
+```
+
+개발 서버를 연 뒤 다음 경로를 확인합니다.
+
+- `/` — 현재 V1 홈페이지
+- `/v2` — Calm Navigator V2 시안
+- `/compare` — V1/V2, Desktop/Mobile 비교 화면
+
+프로덕션 빌드와 로컬 실행은 다음과 같습니다.
+
+```bash
 npm run build
+npm run start
 ```
 
-This starter does not use `wrangler.jsonc`.
+## 검증
 
-## Included Shape
-
-- edit site code under `app/`
-- `.openai/hosting.json` declares optional Sites D1 and R2 bindings
-- `vite.config.ts` simulates declared bindings for local development
-- `db/schema.ts` starts intentionally empty
-- `examples/d1/` contains an optional D1 example surface
-- `drizzle.config.ts` supports local migration generation when needed
-
-## Workspace Auth Headers
-
-Signed-in visitors receive both `oai-authenticated-user-id` and `oai-authenticated-user-email`. Private Sites require every visitor to sign in; public Sites may also have anonymous visitors, for whom neither header is present.
-
-The user ID is stable for the same user on the same Site and different across Sites. Email and name are intended for display or contact purposes.
-
-SIWC-authenticated workspace sites may also receive
-`oai-authenticated-user-full-name` when the user's SIWC profile has a non-empty
-`name` claim. The full-name value is percent-encoded UTF-8 and is accompanied by
-`oai-authenticated-user-full-name-encoding: percent-encoded-utf-8`.
-
-Treat the full name as optional and fall back to email when it is absent:
-
-```tsx
-import { headers } from "next/headers";
-
-export default async function Home() {
-  const requestHeaders = await headers();
-  const userId = requestHeaders.get("oai-authenticated-user-id");
-  const email = requestHeaders.get("oai-authenticated-user-email");
-  const encodedFullName = requestHeaders.get("oai-authenticated-user-full-name");
-  const fullName =
-    encodedFullName &&
-    requestHeaders.get("oai-authenticated-user-full-name-encoding") ===
-      "percent-encoded-utf-8"
-      ? decodeURIComponent(encodedFullName)
-      : null;
-
-  const displayName = fullName ?? email;
-  // ...
-}
+```bash
+npm test
+npm run lint
 ```
 
-## Optional Dispatch-Owned ChatGPT Sign-In
+`npm test`는 표준 Next.js build를 먼저 생성한 뒤 `.next`의 정적 HTML로 세 경로와 접근성 계약을 검증합니다.
 
-Import the ready-to-use helpers from `app/chatgpt-auth.ts` when the site needs
-optional or required ChatGPT sign-in:
+## Vercel Git 배포
 
-- Use `getChatGPTUser()` for optional signed-in UI.
-- Use `requireChatGPTUser(returnTo)` for server-rendered pages that should send
-  anonymous visitors through Sign in with ChatGPT.
-- Use `chatGPTSignInPath(returnTo)` and `chatGPTSignOutPath(returnTo)` for
-  browser links or actions.
-- Pass a same-origin relative `returnTo` path for the destination after sign-in
-  or sign-out. The helper validates and safely encodes it.
-- Mark protected pages with `export const dynamic = "force-dynamic"` because
-  they depend on per-request identity headers.
+Vercel에서 이 저장소를 Import하면 Next.js를 자동 감지합니다. 별도의 `vercel.json`이나 Output Directory 설정은 필요하지 않습니다.
 
-Dispatch owns `/signin-with-chatgpt`, `/signout-with-chatgpt`, `/callback`, the
-OAuth cookies, and identity header injection. Do not implement app routes for
-those reserved paths. Routes that do not import and call the helper remain
-anonymous-compatible.
+- Root Directory: 저장소의 `site` 폴더를 선택한 경우 그 경로, 저장소 루트가 곧 `site`인 경우 기본값
+- Build Command: 기본값 `next build`
+- Output Directory: 설정하지 않음
 
-SIWC establishes identity only; it does not prove workspace membership. Use the
-Sites hosting platform's access policy controls for workspace-wide restrictions,
-or enforce explicit server-side membership or allowlist checks.
+배포 전에는 Vercel 프로젝트의 Root Directory가 `package.json`이 있는 폴더를 가리키는지만 확인하세요.
 
-Use SIWC for account pages, user-specific dashboards, saved records, and write
-actions tied to the current ChatGPT user. Leave public content anonymous.
+## Canonical URL 환경 변수
 
-## Useful Commands
-
-- `npm run dev`: start local development
-- `npm run build`: verify the vinext build output
-- `npm test`: build the starter and verify its rendered loading skeleton
-- `npm run db:generate`: generate Drizzle migrations after schema changes
-
-## Learn More
-
-- [vinext Documentation](https://github.com/cloudflare/vinext)
-- [Drizzle D1 Guide](https://orm.drizzle.team/docs/get-started/d1-new)
+선택적으로 `NEXT_PUBLIC_SITE_URL`에 커스텀 canonical base URL(예: `https://example.com`)을 지정할 수 있습니다. 지정하지 않으면 Vercel에서는 `VERCEL_PROJECT_PRODUCTION_URL`을 사용하고, 로컬 기본값은 `http://localhost:3000`입니다.
