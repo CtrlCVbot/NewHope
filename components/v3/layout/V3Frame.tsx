@@ -7,19 +7,26 @@ import { Header } from "./Header";
 import { MenuOverlay } from "./MenuOverlay";
 import { ScrollTop } from "./ScrollTop";
 import { SmoothScrollProvider, useSmoothScroll } from "./SmoothScroll";
+import { PageLoader } from "./PageLoader";
+import { Hero } from "../sections/Hero";
 import styles from "./frame.module.css";
 
 function FrameInner({ content }: { content: V3Content }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [closing, setClosing] = useState(false);
+  const [loaderComplete, setLoaderComplete] = useState(false);
+  const [loaderActive, setLoaderActive] = useState(false);
+  const finishLoader = useCallback(() => { setLoaderActive(false); setLoaderComplete(true); }, []);
+  const startLoader = useCallback(() => setLoaderActive(true), []);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const pendingHref = useRef<string | null>(null);
   const wasOpen = useRef(false);
   const { lenis, reducedMotion, setScrollLocked } = useSmoothScroll();
+  const interactionLocked = menuOpen || loaderActive;
 
   // Keep the document in normal flow so Lenis never observes a collapsed scroll limit.
   useLayoutEffect(() => {
-    if (!menuOpen) return;
+    if (!interactionLocked) return;
     const root = document.documentElement;
     const body = document.body;
     const position = window.scrollY;
@@ -34,13 +41,13 @@ function FrameInner({ content }: { content: V3Content }) {
       body.style.paddingRight = previous.padding;
       window.scrollTo({ top: position, behavior: "instant" });
     };
-  }, [menuOpen]);
+  }, [interactionLocked]);
 
   useEffect(() => {
-    if (!menuOpen) return;
+    if (!interactionLocked) return;
     setScrollLocked(true);
     return () => setScrollLocked(false);
-  }, [menuOpen, setScrollLocked]);
+  }, [interactionLocked, setScrollLocked]);
 
   useEffect(() => {
     if (menuOpen) return;
@@ -68,12 +75,13 @@ function FrameInner({ content }: { content: V3Content }) {
   const navigate = (href: string) => { pendingHref.current = href; close(); };
 
   return <div className={styles.frame} data-v3-frame>
-    <div inert={menuOpen || undefined}>
+    <div inert={menuOpen || loaderActive || undefined}>
       <Header brand={content.brand} menuLabel={content.header.menuLabel} cta={content.header.cta} open={menuOpen} onOpen={() => setMenuOpen(true)} triggerRef={triggerRef} />
       <main className={styles.main}>
+        <Hero hero={content.hero} ready={loaderComplete} />
         {content.nav.map((item, index) => <section id={decodeURIComponent(item.href.slice(1))} key={item.href} className={styles.frameSection}>
           <p>0{index + 1} / {content.frame.sectionLabel}</p>
-          {index === 0 ? <h1>{content.hero.title.text}</h1> : <h2>{item.label}</h2>}
+          <h2>{item.label}</h2>
           <span>{index === 0 ? content.hero.subtitle : content.frame.sectionNotice}</span>
         </section>)}
       </main>
@@ -81,6 +89,7 @@ function FrameInner({ content }: { content: V3Content }) {
       <ScrollTop />
     </div>
     {menuOpen && <MenuOverlay closing={closing} reducedMotion={reducedMotion} nav={content.nav} brand={content.brand} description={content.frame.menuDescription} onClose={close} onClosed={finishClose} onNavigate={navigate} />}
+    <PageLoader brand={content.brand} onStart={startLoader} onComplete={finishLoader} />
   </div>;
 }
 

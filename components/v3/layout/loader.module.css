@@ -1,0 +1,5 @@
+.loader { position: fixed; z-index: 100; inset: 0; display: grid; place-items: center; overflow: hidden; color: var(--c-primary); will-change: opacity; }
+.window { position: absolute; width: 571px; height: 800px; background: transparent; box-shadow: 0 0 0 100vmax #fff; transform: scale(1); will-change: transform; }
+.wordmark { position: relative; margin: 0; color: var(--c-secondary); font: 400 clamp(2.5rem,6vw,5rem)/1 var(--f-serif); letter-spacing: -.06em; }
+.wordmark small { margin-left: .5rem; font: 400 1rem/1 var(--f-sans); letter-spacing: 0; }
+@media (prefers-reduced-motion: reduce) { .loader { display: none; } }

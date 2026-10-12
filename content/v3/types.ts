@@ -17,7 +17,7 @@ export type V3Content = {
   nav: { label: string; href: string }[];
   header: { menuLabel: string; cta: Link };
   frame: { sectionLabel: string; sectionNotice: string; menuDescription: string };
-  hero: { title: RichText; subtitle: string; image: Img; sideCard: { title: RichText; icon: string; popover: string; href: string }; scrollLabel: string };
+  hero: { title: RichText; titleLines?: string[]; subtitle: string; image: Img; sideCard: { title: RichText; icon: string; popover: string; href: string }; scrollLabel: string };
   intro: { label: string; headline: RichText; body: string; images: [Img, Img] };
   feature: { title: RichText; body: string; cta: Link; cardIntro: RichText; pills: Link[]; image: Img };
   services: { statement: RichText; statementBody: string; label: string; headline: RichText; points: string[]; image: Img; cardsLabel: string; cards: { title: string; subtitle: string; description: string; icon: string; image: Img }[] };
