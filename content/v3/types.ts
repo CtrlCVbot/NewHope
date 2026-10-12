@@ -16,6 +16,7 @@ export type V3Content = {
   brand: { name: string; tagline: string; wordmarkSvg: string; markSvg: string };
   nav: { label: string; href: string }[];
   header: { menuLabel: string; cta: Link };
+  frame: { sectionLabel: string; sectionNotice: string; menuDescription: string };
   hero: { title: RichText; subtitle: string; image: Img; sideCard: { title: RichText; icon: string; popover: string; href: string }; scrollLabel: string };
   intro: { label: string; headline: RichText; body: string; images: [Img, Img] };
   feature: { title: RichText; body: string; cta: Link; cardIntro: RichText; pills: Link[]; image: Img };
