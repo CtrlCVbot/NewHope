@@ -11,6 +11,7 @@ import { PageLoader } from "./PageLoader";
 import { Hero } from "../sections/Hero";
 import { Feature } from "../sections/Feature";
 import { Intro } from "../sections/Intro";
+import { Process } from "../sections/Process";
 import { Services } from "../sections/Services";
 import styles from "./frame.module.css";
 
@@ -86,6 +87,7 @@ function FrameInner({ content }: { content: V3Content }) {
           const id = decodeURIComponent(item.href.slice(1));
           if (index === 0) return <Fragment key={item.href}><Intro id={id} intro={content.intro} /><Feature feature={content.feature} /></Fragment>;
           if (index === 1) return <Services key={item.href} id={id} services={content.services} />;
+          if (index === 2) return <Process key={item.href} id={id} process={content.process} />;
           return <section id={id} key={item.href} className={styles.frameSection}>
             <p>0{index + 1} / {content.frame.sectionLabel}</p>
             <h2>{item.label}</h2>
