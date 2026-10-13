@@ -19,6 +19,12 @@ npm run dev
 - `/v2` — Calm Navigator V2 시안
 - `/compare` — V1/V2, Desktop/Mobile 비교 화면
 
+## V3 1차 검토
+
+- `/v3-design` — 1차 중립 prototype 검토 경로입니다. 11개 화면 블록과 placeholder 이미지 슬롯의 구조·동작을 확인합니다.
+- 현재 문구와 이미지는 실제 서비스·사진·브랜드 확정 전의 중립 placeholder이며, 운영 정보로 해석하거나 게시용으로 사용하지 않습니다.
+- 1차 기준은 구조와 상호작용을 고정합니다. 실제 문구, 사진, 브랜드 결정과 `/v3` 공개 경로는 2차 작업에서 분리해 반영합니다.
+
 프로덕션 빌드와 로컬 실행은 다음과 같습니다.
 
 ```bash
@@ -33,7 +39,7 @@ npm test
 npm run lint
 ```
 
-`npm test`는 표준 Next.js build를 먼저 생성한 뒤 `.next`의 정적 HTML로 세 경로와 접근성 계약을 검증합니다.
+`npm test`는 표준 Next.js build를 먼저 생성한 뒤 V1/V2와 V3 검토 경로의 실제 HTML·구조·접근성 계약을 검증합니다.
 
 ## Vercel Git 배포
 

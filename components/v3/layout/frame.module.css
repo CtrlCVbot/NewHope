@@ -23,8 +23,7 @@
 .menuToggle i:after { transform: translateY(10px); transition: width .3s ease; }
 .menuToggle:hover { opacity: .7; }
 .menuToggle:hover i:after { width: 50%; }
-.headerCta { display: flex; min-width: 204px; justify-content: space-between; gap: 1rem; align-items: center; padding: .7rem .8rem .7rem 1.5rem; border: 1px solid #fff8; border-radius: var(--r-pill); background: var(--g-cta); color: #fff; text-decoration: none; }
-.headerCta b { display: grid; width: 2.5rem; height: 2.5rem; place-items: center; border-radius: 50%; background: #fff; color: var(--c-primary); }
+.headerCta { min-width: 204px; }
 .main { min-height: 220svh; position: relative; }
 .main > :not(:first-child) { position: relative; z-index: 2; }
 .frameSection { min-height: 68svh; padding: clamp(8rem,16vw,15rem) max(2rem,calc((100vw - var(--container))/2)); display: flex; flex-direction: column; justify-content: flex-end; border-bottom: 1px solid var(--c-line); background: var(--c-cream); scroll-margin-top: 92px; }
@@ -74,8 +73,7 @@
   .brand small { display: none; }
   .scrolled .brand span { font-size: 32px; }
   .headerActions { gap: .75rem; }
-  .headerCta { min-width: 0; white-space: nowrap; padding: .55rem .75rem; }
-  .headerCta b { display: none; }
+  .header .headerCta { min-width: 0; white-space: nowrap; }
   .menuToggle { font-size: 0; width: 44px; height: 44px; justify-content: center; }
   .menuToggle i, .menuToggle i:after { width: 42px; }
   .frameSection { min-height: 62svh; padding: 8rem 1.25rem 4rem; }

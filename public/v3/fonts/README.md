@@ -1,5 +1,11 @@
 # WU-0 폰트 출처와 라이선스 기록
 
+## WU-10 V3 경량 폰트
+
+`NewHopeSansSubset.woff2`와 `NewHopeSerifSubset.woff2`는 현재 V3 소스의 문자와 ASCII `U+0020–U+007E`만 포함한 경량 폰트(subset)입니다. 원본 글자의 모양·폭을 유지하며, 두 파일 합계는 136,224B입니다. 포함되지 않은 문자는 등록된 원본 `Pretendard WU0`과 `MaruBuri WU0`로 표시하고, 2차 데이터 확정 때 경량 파일을 다시 생성합니다. 원본 파일과 라이선스는 변경하지 않습니다.
+
+재생성은 FontTools 4.60.1과 Brotli 1.2.0을 별도 로컬 폴더에 설치하고 그 폴더를 `PYTHONPATH`로 지정한 뒤 `python scripts/build-v3-font-subsets.py --manifest <evidence-output-path>`로 실행합니다. 전역 pip나 프로젝트 의존성은 변경하지 않습니다. 스크립트는 원본의 OFL 고지·저작권, 글자 폭·윤곽, 독립된 변형 폰트 이름, 두 번 생성한 결과의 동일성을 검증합니다.
+
 이 폴더에는 `/v3-design/fonts` 비교 화면이 실제로 로컬 로딩하는 폰트와 라이선스 고지만 둡니다. 사용자 결정에 따라 기본 세리프는 MaruBuri이며, 일반 `/v3-design` 프레임은 MaruBuri와 Pretendard만 로딩합니다.
 
 ## Noto Serif KR
