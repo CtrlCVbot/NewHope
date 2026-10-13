@@ -1,0 +1,20 @@
+.why { position: relative; width: 100%; min-height: 57.9375rem; overflow: hidden; background: #6c5275; }
+.background { position: absolute; inset: 0; }
+.background img { min-height: 125%; object-fit: cover; object-position: center; }
+.gradient { position: absolute; inset: 0; background: linear-gradient(188deg, transparent 6.22%, #613d6d 97.27%); pointer-events: none; }
+.logo { position: absolute; z-index: 2; top: 3.6594rem; right: 2rem; width: 54.3006rem; height: 9.3481rem; overflow: hidden; }
+.logo img { object-fit: contain; }
+.content { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 2rem; width: min(100%, 90rem); min-height: 57.9375rem; margin: 0 auto; padding: 26.8125rem 2rem 4rem; }
+.textWrap { display: flex; flex-direction: column; gap: 2rem; max-width: 34.8125rem; }
+.title { max-width: 10ch; margin: 0; color: #fff; font: 400 4.375rem/1 var(--f-serif); letter-spacing: -.0875rem; }
+.title em { color: #e8cb92; font-size: 1.1429em; font-style: normal; letter-spacing: -.15rem; }
+.wordMask { display: inline-block; overflow: hidden; vertical-align: bottom; }
+.word { display: inline-block; }
+.body { margin: 0; color: #ffffffcc; font: 400 1.125rem/1.45 var(--f-sans); letter-spacing: -.0225rem; }
+.blurWord { display: inline-block; }
+.footnote { max-width: 29.4375rem; margin: auto 0 0 auto; color: #ffffffcc; font: 400 1rem/1.4 var(--f-sans); letter-spacing: -.02rem; }
+@media (min-width: 1510px) { .logo { right: max(2rem, calc((100vw - 90rem) / 2)); } }
+@media (min-width: 2100px) { .logo { right: 15rem; } }
+@media (max-width: 890px) { .logo { width: 32rem; } }
+@media (max-width: 768px) { .why { min-height: auto; } .background img { min-height: 150%; } .logo { top: 2rem; width: 20rem; } .content { min-height: auto; padding: 12rem 1.5rem 4rem; } .title { font-size: 2.5rem; } .title em { font-size: 1.2em; } .body { font-size: 1rem; } .footnote { margin: 2rem 0 0; font-size: .875rem; } }
+@media (max-width: 450px) { .logo { top: 0; right: auto; left: 1.5rem; width: 15rem; } }

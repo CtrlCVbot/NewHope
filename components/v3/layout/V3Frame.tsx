@@ -15,6 +15,8 @@ import { Mission } from "../sections/Mission";
 import { Process } from "../sections/Process";
 import { Services } from "../sections/Services";
 import { CareTabs } from "../sections/CareTabs";
+import { Why } from "../sections/Why";
+import { CtaSection } from "../sections/CtaSection";
 import styles from "./frame.module.css";
 
 function FrameInner({ content }: { content: V3Content }) {
@@ -91,7 +93,8 @@ function FrameInner({ content }: { content: V3Content }) {
           if (index === 1) return <Services key={item.href} id={id} services={content.services} />;
           if (index === 2) return <Process key={item.href} id={id} process={content.process} />;
           if (index === 3) return <Mission key={item.href} id={id} mission={content.mission} />;
-          if (index === 4) return <CareTabs key={item.href} id={id} care={content.care} />;
+          if (index === 4) return <Fragment key={item.href}><CareTabs id={id} care={content.care} /><Why why={content.why} brand={content.brand} /></Fragment>;
+          if (index === 5) return <CtaSection key={item.href} id={id} cta={content.cta} />;
           return <section id={id} key={item.href} className={styles.frameSection}>
             <p>0{index + 1} / {content.frame.sectionLabel}</p>
             <h2>{item.label}</h2>
