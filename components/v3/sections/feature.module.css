@@ -1,0 +1,24 @@
+.feature { position: relative; width: 100%; overflow: clip; background: var(--c-primary); }
+.background { position: sticky; top: 0; z-index: 0; width: 100%; height: 927px; }
+.backgroundImage { width: 100%; height: 100%; object-fit: cover; object-position: center; transform: rotateY(180deg); }
+.gradient { position: absolute; inset: 0; background: linear-gradient(188deg, rgb(0 0 0 / 0%) 6.22%, #613d6d 97.27%); }
+.hero { position: sticky; top: 0; z-index: 1; width: 100%; height: 927px; margin-top: -927px; pointer-events: none; }
+.heroContent { width: 100%; max-width: 1440px; height: 100%; margin: 0 auto; padding: 0 32px; display: flex; flex-direction: column; justify-content: center; gap: 40px; pointer-events: auto; box-sizing: border-box; }
+.title { max-width: 654px; margin: 0; color: #fff; font: 400 70px/1 var(--f-serif); letter-spacing: -.02em; text-wrap: balance; word-break: keep-all; }.title em, .cardIntro em { background: var(--g-gold); background-clip: text; color: transparent; font-style: normal; }
+.body { max-width: 508px; margin: 0; color: rgb(255 255 255 / 80%); font: 400 18px/1.45 var(--f-sans); text-wrap: pretty; }
+.heroContent > [data-cta-glow] { align-self: flex-start; width: fit-content; flex: 0 0 auto; }
+.cardWrapper { position: relative; z-index: 2; display: flex; align-items: center; justify-content: flex-end; width: fit-content; max-width: 1440px; height: 927px; margin-left: auto; margin-right: 32px; padding: 0 32px; box-sizing: border-box; }
+.card { position: relative; display: flex; flex-direction: column; gap: 32px; width: 435px; padding: 40px; border: 1px solid rgb(255 255 255 / 60%); backdrop-filter: blur(20px); box-sizing: border-box; }
+.card::before { position: absolute; inset: 0; z-index: 0; background: linear-gradient(135deg, rgb(255 255 255 / 90%), rgb(255 255 255 / 69%)); content: ""; }.card > * { position: relative; z-index: 1; }
+.cardIntro { margin: 0; color: #613d6d; font: 400 24px/1.1 var(--f-sans); letter-spacing: -.05em; }
+.pills { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+.pill { display: inline-block; max-width: 100%; min-height: 44px; padding: 8px 20px; border: 1px solid rgb(11 28 52 / 10%); border-radius: 30px; color: #6c5275; font: 400 14px/25px var(--f-sans); letter-spacing: -.02em; overflow-wrap: anywhere; text-align: left; text-decoration: none; transition: transform .3s, border-color .3s, background .3s; box-sizing: border-box; }.pill:focus-visible { border-color: rgb(108 82 117 / 30%); outline: 2px solid #613d6d; outline-offset: 3px; background: rgb(108 82 117 / 5%); }
+@media (hover: hover) and (pointer: fine) { .pill:hover { border-color: rgb(108 82 117 / 30%); background: rgb(108 82 117 / 5%); } }
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) { .pill:hover { transform: translateY(-2px); } }
+@media (min-width: 1440px) { .cardWrapper { margin-right: max(32px, calc((100vw - 1440px) / 2)); } }
+@media (min-width: 1510px) { .heroContent, .cardWrapper { padding-left: 0; padding-right: 0; } }
+@media (min-width: 2100px) { .cardWrapper { margin-right: 240px; } }
+@media (max-width: 1200px) { .heroContent { max-width: 100%; }.card { max-width: 100%; } }
+@media (max-width: 1000px) { .hero { position: relative; }.cardWrapper { width: auto; height: auto; margin: 0; padding: 48px 32px; }.card { width: 100%; max-width: 100%; } }
+@media (max-width: 768px) { .hero { height: 100%; min-height: 80vh; }.heroContent { padding: 128px 24px 64px; justify-content: flex-start; gap: 32px; }.title { font-size: 48px; }.cardWrapper { padding: 48px 0; margin: 0 24px; }.card { padding: 32px; }.cardIntro { font-size: 15px; } }
+@media (max-width: 450px) { .title { font-size: 36px; } }
