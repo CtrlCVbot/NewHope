@@ -1,0 +1,47 @@
+.services { overflow: clip; background: #fbf8f5; color: #212121; }
+.statement { position: relative; overflow: hidden; padding: 11.0625rem 0 8rem; background: #6c5275; color: #fff; }
+.statement::before { position: absolute; inset: 0; background: radial-gradient(circle at 78% 20%, #b0a1bf42, transparent 38%), repeating-linear-gradient(45deg, #ffffff08 0 1px, transparent 1px 6px); content: ""; pointer-events: none; }
+.statementInner { position: relative; display: flex; align-items: flex-start; gap: 9.5625rem; width: min(100%, 90rem); margin: 0 auto; padding: 0 2rem; }
+.statement h2 { flex: 0 0 46.1875rem; margin: 0; color: #b0a1bf; font: 400 clamp(3.25rem, 7.02vw, 6.25rem)/1.1 var(--f-serif); letter-spacing: -.125rem; word-break: keep-all; }
+.statement h2 em { color: #fff; font-size: 1.24em; font-style: normal; letter-spacing: -.3875rem; }
+.statement p { width: min(100%, 46ch); padding-top: 12.6875rem; margin: 0; color: #ffffffcc; font: 400 1.125rem/1.45 var(--f-sans); word-break: keep-all; }
+.statementWord { display: inline-block; }
+.lead { position: relative; min-height: 56.5rem; background: #fbf8f5; }
+.leadCopy { position: relative; z-index: 2; display: flex; flex-direction: column; gap: 2rem; width: 50%; min-height: 56.5rem; padding: 12.9375rem 2rem; }
+.label { width: max-content; margin: 0; }
+.lead h3 { max-width: 35.375rem; margin: 0; color: #6c5275; font: 400 4.375rem/1.1 var(--f-serif); letter-spacing: -.0875rem; text-wrap: balance; word-break: keep-all; }
+.lead h3 em { background: var(--g-gold); background-clip: text; color: transparent; font-style: normal; }
+.wordMask { display: inline-block; overflow: hidden; vertical-align: bottom; }
+.word { display: inline-block; }
+.points { max-width: 31.3125rem; margin: 0; padding-top: 2rem; }
+.leadImageMask { position: absolute; top: 0; right: 0; width: min(50%, 50rem); height: 100%; overflow: hidden; background: #e5dfdb; --mask-x: 100%; }
+.leadImageMask::after { position: absolute; inset: 0; z-index: 5; background: #fff; content: ""; pointer-events: none; transform: translateX(var(--mask-x)); }
+.leadImage { width: 100%; height: 125%; min-height: 125%; object-fit: cover; object-position: center top; }
+.imageShade { position: absolute; inset: 0; background: linear-gradient(199deg, transparent 39.41%, #15031b 99.75%); opacity: 0; pointer-events: none; }
+.cardsSection { position: relative; padding: 10rem max(2rem, calc((100vw - 90rem) / 2 + 2rem)) 11.1875rem; overflow: hidden; background: #6c5275; }
+.cardsLabel { margin: 0 0 4.9375rem; background: var(--g-gold); background-clip: text; color: transparent; font: 400 1rem/1.5 var(--f-sans); letter-spacing: .1rem; text-transform: uppercase; }
+.cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 3.75rem; }
+.card { position: relative; display: block; height: 33rem; padding: 0; overflow: hidden; border: 0; border-radius: 0; background: #fbf8f5; color: #394854; text-align: left; }
+.cardImage { position: absolute; inset: 0; display: block; overflow: hidden; background: #d8d0cf; transition: transform .6s cubic-bezier(.16, 1, .3, 1); }
+.cardImage img { object-fit: cover; }
+.cardImage::after { position: absolute; inset: 0; background: linear-gradient(188deg, transparent 6.22%, #613d6d 97.27%), linear-gradient(179deg, transparent 41.43%, #00000080 99.06%); content: ""; }
+.cardDescription { position: absolute; inset: 0; z-index: 2; display: flex; align-items: flex-end; padding: 2.5rem; color: #fff; font: 400 .875rem/1.4 var(--f-sans); opacity: 0; transform: translateY(-2rem); transition: opacity .4s cubic-bezier(.16, 1, .3, 1) .1s, transform .6s cubic-bezier(.16, 1, .3, 1) .1s; }
+.cardFront { position: absolute; inset: 0; z-index: 3; display: flex; flex-direction: column; justify-content: flex-end; padding: 2.19rem 2.5rem 2.5rem; background: #fbf8f5; transition: transform .8s cubic-bezier(.16, 1, .3, 1); }
+.cardContent { display: flex; flex-direction: column; gap: 1.5rem; }
+.cardIcon { display: flex; align-items: center; justify-content: center; width: 6rem; height: 6rem; color: #a48859; }
+.cardIcon svg { width: 6rem; height: 6rem; margin-left: -2rem; }
+.cardTitle { font: 400 1.6875rem/1.05 var(--f-sans); letter-spacing: -.04em; }
+.cardSubtitle { color: #0b1c34cc; font: 400 1rem/1.5625 var(--f-sans); letter-spacing: -.02em; }
+.cardNoScript { display: block; color: #0b1c34cc; font: 400 .875rem/1.4 var(--f-sans); }
+.card[aria-expanded="true"] .cardFront { transform: translateY(-100%); }
+.card[aria-expanded="true"] .cardImage { transform: scale(1.1); }
+.card[aria-expanded="true"] .cardDescription { opacity: 1; transform: translateY(0); }
+.card:focus-visible { outline: 3px solid #e8cb92; outline-offset: 4px; }
+@media (max-width: 1200px) { .statementInner { flex-direction: column; gap: 2rem; } .statement h2, .statement p { flex: 1 1 0; } .statement p { padding-top: 0; } .leadCopy { width: 100%; } .cards { gap: .625rem; } .card { height: 26rem; } }
+@media (max-width: 768px) { .statementInner { padding: 0 1.5rem; } .statement h2 { font-size: 3rem; } .statement h2 em { font-size: 3.5rem; } .statement p { font-size: 1rem; } .leadCopy { padding: 12.9375rem 1.5rem; } .lead h3 { color: #fff; font-size: 2.5rem; } .lead h3 em { background: var(--g-gold); background-clip: text; color: transparent; } .points li { color: #fff; } .leadImageMask { width: 100%; height: 100%; } .leadImage { min-height: 140%; } .imageShade { opacity: 1; } .cardsSection { padding: 10rem 1.5rem 11.1875rem; } .cards { grid-template-columns: 1fr; gap: .625rem; } }
+@media (max-width: 450px) { .card { height: 24rem; } .cardFront { padding: 2.1875rem 1.5rem 2rem; } .cardDescription { padding: 1.5rem; } }
+@media (max-width: 280px) { .statement h2 { font-size: 2.25rem; } .cardTitle { font-size: 1.25rem; } .cardFront, .cardDescription { padding: 2.1875rem 1.5rem 2.5rem; } .cardDescription { font-size: .875rem; } }
+@media (prefers-reduced-motion: reduce) { .cardImage, .cardDescription, .cardFront { transition: none; } }
+.cardsSection[data-reduced="true"] .cardImage, .cardsSection[data-reduced="true"] .cardDescription, .cardsSection[data-reduced="true"] .cardFront { transition: none; }
+.cardsSection[data-reduced="true"] .card[aria-expanded="true"] .cardFront { visibility: hidden; transform: none; }
+.cardsSection[data-reduced="true"] .card[aria-expanded="true"] .cardImage { transform: none; }

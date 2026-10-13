@@ -11,6 +11,7 @@ import { PageLoader } from "./PageLoader";
 import { Hero } from "../sections/Hero";
 import { Feature } from "../sections/Feature";
 import { Intro } from "../sections/Intro";
+import { Services } from "../sections/Services";
 import styles from "./frame.module.css";
 
 function FrameInner({ content }: { content: V3Content }) {
@@ -81,11 +82,16 @@ function FrameInner({ content }: { content: V3Content }) {
       <Header brand={content.brand} menuLabel={content.header.menuLabel} cta={content.header.cta} open={menuOpen} onOpen={() => setMenuOpen(true)} triggerRef={triggerRef} />
       <main className={styles.main}>
         <Hero hero={content.hero} ready={loaderComplete} />
-        {content.nav.map((item, index) => index === 0 ? <Fragment key={item.href}><Intro id={decodeURIComponent(item.href.slice(1))} intro={content.intro} /><Feature feature={content.feature} /></Fragment> : <section id={decodeURIComponent(item.href.slice(1))} key={item.href} className={styles.frameSection}>
-          <p>0{index + 1} / {content.frame.sectionLabel}</p>
-          <h2>{item.label}</h2>
-          <span>{index === 0 ? content.hero.subtitle : content.frame.sectionNotice}</span>
-        </section>)}
+        {content.nav.map((item, index) => {
+          const id = decodeURIComponent(item.href.slice(1));
+          if (index === 0) return <Fragment key={item.href}><Intro id={id} intro={content.intro} /><Feature feature={content.feature} /></Fragment>;
+          if (index === 1) return <Services key={item.href} id={id} services={content.services} />;
+          return <section id={id} key={item.href} className={styles.frameSection}>
+            <p>0{index + 1} / {content.frame.sectionLabel}</p>
+            <h2>{item.label}</h2>
+            <span>{content.frame.sectionNotice}</span>
+          </section>;
+        })}
       </main>
       <Footer footer={content.footer} brand={content.brand} />
       <ScrollTop />
