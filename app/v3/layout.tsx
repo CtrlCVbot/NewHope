@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "../../styles/v3/tokens.css";
 import "../../styles/v3/base.css";
+import "../../styles/v3/saesomang-fonts.css";
 
 export const metadata: Metadata = {
   title: "새소망 방문요양센터 · 2차 프로토타입",
