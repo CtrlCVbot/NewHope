@@ -6,9 +6,9 @@ import { getV3Gsap } from "../motion/gsap";
 import { useReducedMotion } from "../motion/useReducedMotion";
 import styles from "./process.module.css";
 
-type Props = { process: V3Content["process"]; id: string };
+type Props = { process: V3Content["process"]; id: string; showNote?: boolean };
 
-export function Process({ process, id }: Props) {
+export function Process({ process, id, showNote = false }: Props) {
   const root = useRef<HTMLElement>(null);
   const steps = useRef<Array<HTMLButtonElement | null>>([]);
   const progressColumn = useRef<HTMLDivElement>(null);
@@ -119,7 +119,7 @@ export function Process({ process, id }: Props) {
     <div className={styles.approach}>
       <div className={styles.grid}>
         <header className={styles.stickySide}>
-          <h2 className={styles.heading}>{process.title.text}</h2>
+          <h2 className={styles.heading}>{process.title.text}</h2>{showNote && <p className={styles.note}>{process.note}</p>}
           <div className={styles.numberDisplay} data-process-number aria-hidden="true"><span>0</span><span className={styles.numberScroll}><span className={styles.numberWrapper} style={{ transform: `translateY(calc(var(--number-row-height) * -${current - 1}))` }}>{process.steps.map((_, index) => <span key={index}>{index + 1}.</span>)}</span></span></div>
         </header>
         <div ref={progressColumn} className={styles.progressColumn} aria-hidden="true">

@@ -2,6 +2,7 @@
 
 import { Fragment, useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import type { V3Content } from "@/content/v3/types";
+import type { SaesomangExtras } from "@/content/v3/saesomang";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 import { MenuOverlay } from "./MenuOverlay";
@@ -17,9 +18,15 @@ import { Services } from "../sections/Services";
 import { CareTabs } from "../sections/CareTabs";
 import { Why } from "../sections/Why";
 import { CtaSection } from "../sections/CtaSection";
+import { Faq } from "../sections/Faq";
+import { Stories } from "../sections/Stories";
+import { ConsultForm } from "../sections/ConsultForm";
+import { Location } from "../sections/Location";
+import { SaesomangFooter } from "./SaesomangFooter";
 import styles from "./frame.module.css";
 
-function FrameInner({ content }: { content: V3Content }) {
+type Variant = "design" | "saesomang";
+function FrameInner({ content, variant = "design", extras, whyWordmarkSvg }: { content: V3Content; variant?: Variant; extras?: SaesomangExtras; whyWordmarkSvg?: string }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [closing, setClosing] = useState(false);
   const [loaderComplete, setLoaderComplete] = useState(false);
@@ -84,10 +91,19 @@ function FrameInner({ content }: { content: V3Content }) {
 
   return <div className={styles.frame} data-v3-frame>
     <div inert={menuOpen || loaderActive || undefined}>
-      <Header brand={content.brand} menuLabel={content.header.menuLabel} cta={content.header.cta} open={menuOpen} onOpen={() => setMenuOpen(true)} triggerRef={triggerRef} />
+      <Header brand={content.brand} menuLabel={content.header.menuLabel} cta={content.header.cta} open={menuOpen} onOpen={() => setMenuOpen(true)} triggerRef={triggerRef} homeHref={variant === "saesomang" ? "#about" : undefined} useBrandAssets={variant === "saesomang"} />
       <main className={styles.main}>
-        <Hero hero={content.hero} ready={loaderComplete} />
-        {content.nav.map((item, index) => {
+        <Hero hero={content.hero} ready={loaderComplete} scrollHref={variant === "saesomang" ? "#process" : undefined} />
+        {variant === "saesomang" && extras ? <>
+          <Intro id="about" intro={content.intro} /><Feature feature={content.feature} /><Services id="services" services={content.services} iconAssets={["/v3/saesomang/icons/home.svg", "/v3/saesomang/icons/bath.svg", "/v3/saesomang/icons/chat.svg"]} />
+          <Process id="process" process={content.process} showNote />
+          <Faq id="faq" faq={extras.faq} />
+          <Mission id="promises" mission={content.mission} /><CareTabs id="care" care={content.care} />
+          <Stories id="stories" stories={extras.stories} storyNotice={extras.storyNotice} />
+          <Why why={content.why} brand={{ ...content.brand, wordmarkSvg: whyWordmarkSvg ?? content.brand.wordmarkSvg }} />
+          <CtaSection id="contact-cta" cta={content.cta} /><ConsultForm id="consult" consult={extras.consult} formConfirmation={extras.formConfirmation} contacts={extras.contacts} />
+          <Location id="location" brandName={content.brand.name} location={extras.location} contacts={extras.contacts} />
+        </> : content.nav.map((item, index) => {
           const id = decodeURIComponent(item.href.slice(1));
           if (index === 0) return <Fragment key={item.href}><Intro id={id} intro={content.intro} /><Feature feature={content.feature} /></Fragment>;
           if (index === 1) return <Services key={item.href} id={id} services={content.services} />;
@@ -102,14 +118,14 @@ function FrameInner({ content }: { content: V3Content }) {
           </section>;
         })}
       </main>
-      <Footer footer={content.footer} brand={content.brand} />
+      {variant === "saesomang" ? <SaesomangFooter footer={content.footer} brand={content.brand} /> : <Footer footer={content.footer} brand={content.brand} />}
       <ScrollTop />
     </div>
-    {menuOpen && <MenuOverlay closing={closing} reducedMotion={reducedMotion} nav={content.nav} brand={content.brand} description={content.frame.menuDescription} onClose={close} onClosed={finishClose} onNavigate={navigate} />}
-    <PageLoader brand={content.brand} onStart={startLoader} onComplete={finishLoader} />
+    {menuOpen && <MenuOverlay closing={closing} reducedMotion={reducedMotion} nav={content.nav} brand={content.brand} description={content.frame.menuDescription} menuAsset={variant === "saesomang" ? "/v3/saesomang/brand/menu.svg" : undefined} onClose={close} onClosed={finishClose} onNavigate={navigate} />}
+    <PageLoader brand={content.brand} onStart={startLoader} onComplete={finishLoader} storageKey={variant === "saesomang" ? "v3-pageLoaded" : undefined} />
   </div>;
 }
 
-export function V3Frame({ content }: { content: V3Content }) {
-  return <SmoothScrollProvider><FrameInner content={content} /></SmoothScrollProvider>;
+export function V3Frame({ content, variant, extras, whyWordmarkSvg }: { content: V3Content; variant?: Variant; extras?: SaesomangExtras; whyWordmarkSvg?: string }) {
+  return <SmoothScrollProvider><FrameInner content={content} variant={variant} extras={extras} whyWordmarkSvg={whyWordmarkSvg} /></SmoothScrollProvider>;
 }

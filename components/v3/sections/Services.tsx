@@ -8,15 +8,15 @@ import { ServicesLead } from "./ServicesLead";
 import { ServicesStatement } from "./ServicesStatement";
 import styles from "./services.module.css";
 
-type Props = { id: string; services: V3Content["services"] };
+type Props = { id: string; services: V3Content["services"]; iconAssets?: string[] };
 
-export function Services({ id, services }: Props) {
+export function Services({ id, services, iconAssets }: Props) {
   const reduced = useReducedMotion();
   const root = useRef<HTMLElement>(null);
 
   return <section id={id} ref={root} className={styles.services} data-v3-services data-services-root>
     <ServicesStatement statement={services.statement} statementBody={services.statementBody} reduced={reduced} />
     <ServicesLead label={services.label} headline={services.headline} points={services.points} image={services.image} reduced={reduced} />
-    <ServiceCards cards={services.cards} cardsLabel={services.cardsLabel} reduced={reduced} />
+    <ServiceCards cards={services.cards} cardsLabel={services.cardsLabel} reduced={reduced} iconAssets={iconAssets} />
   </section>;
 }

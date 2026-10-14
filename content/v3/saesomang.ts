@@ -8,9 +8,11 @@ type SaesomangStory = {
   href: string;
 };
 
-type SaesomangExtras = NonNullable<V3Content["extras"]> & {
+export type SaesomangExtras = NonNullable<V3Content["extras"]> & {
   stories: SaesomangStory[];
   storyNotice: string;
+  faq: NonNullable<NonNullable<V3Content["extras"]>["faq"]>;
+  consult: NonNullable<NonNullable<V3Content["extras"]>["consult"]>;
   contacts: { label: string; href: string }[];
   formConfirmation: string;
   location: NonNullable<V3Content["extras"]>["location"] & { navigationQuery: string };

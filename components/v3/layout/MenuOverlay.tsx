@@ -1,16 +1,17 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import type { Link } from "@/content/v3/types";
 import styles from "./frame.module.css";
 
 type Props = {
   closing: boolean; reducedMotion: boolean; nav: Link[];
-  brand: { name: string; tagline: string }; description: string;
+  brand: { name: string; tagline: string }; description: string; menuAsset?: string;
   onClose: () => void; onClosed: () => void; onNavigate: (href: string) => void;
 };
 
-export function MenuOverlay({ closing, reducedMotion, nav, brand, description, onClose, onClosed, onNavigate }: Props) {
+export function MenuOverlay({ closing, reducedMotion, nav, brand, description, menuAsset, onClose, onClosed, onNavigate }: Props) {
   const dialogRef = useRef<HTMLElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
   useEffect(() => { closeRef.current?.focus({ preventScroll: true }); }, []);
@@ -46,7 +47,7 @@ export function MenuOverlay({ closing, reducedMotion, nav, brand, description, o
             <span className={styles.labelMask}><span>{item.label}</span><span aria-hidden="true">{item.label}</span></span>
           </a>)}
         </nav>
-        <div className={styles.menuBrand}><strong>{brand.name}</strong><small>{brand.tagline}</small><p>{description}</p></div>
+        <div className={styles.menuBrand}>{menuAsset ? <Image src={menuAsset} alt="" width={320} height={96} /> : <><strong>{brand.name}</strong><small>{brand.tagline}</small></>}<p>{description}</p></div>
       </div>
     </section>
   </div>;

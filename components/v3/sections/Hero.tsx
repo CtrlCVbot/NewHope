@@ -10,9 +10,9 @@ import type { IconName } from "../ui/Icon";
 import type { V3Content } from "@/content/v3/types";
 import styles from "./hero.module.css";
 
-type Props = { hero: V3Content["hero"]; ready: boolean };
+type Props = { hero: V3Content["hero"]; ready: boolean; scrollHref?: string };
 
-export function Hero({ hero, ready }: Props) {
+export function Hero({ hero, ready, scrollHref = "#소개" }: Props) {
   const root = useRef<HTMLElement>(null);
   const card = useRef<HTMLAnchorElement>(null);
   const touchPointer = useRef(false);
@@ -74,7 +74,7 @@ export function Hero({ hero, ready }: Props) {
           <span className={styles.popover} data-hero-popover aria-hidden={!open}>{hero.sideCard.popover}</span>
           <Icon name={cardIcon} aria-hidden="true" /><span>{hero.sideCard.title.text}</span>
         </a></div>
-        <a className={styles.scroll} data-hero-scroll href="#소개"><Icon name="arrow-right" aria-hidden="true" /><span>{hero.scrollLabel}</span></a>
+        <a className={styles.scroll} data-hero-scroll href={scrollHref}><Icon name="arrow-right" aria-hidden="true" /><span>{hero.scrollLabel}</span></a>
       </div>
     </section><div className={styles.spacer} />
   </div>;

@@ -5,10 +5,9 @@ import { useGSAP } from "@gsap/react";
 import { getV3Gsap } from "../motion/gsap";
 import styles from "./loader.module.css";
 
-type Props = { brand: { name: string; tagline: string }; onStart: () => void; onComplete: () => void };
-const key = "v3-design-pageLoaded";
+type Props = { brand: { name: string; tagline: string }; onStart: () => void; onComplete: () => void; storageKey?: string };
 
-export function PageLoader({ brand, onStart, onComplete }: Props) {
+export function PageLoader({ brand, onStart, onComplete, storageKey = "v3-design-pageLoaded" }: Props) {
   const [reduced, setReduced] = useState<boolean | null>(null);
   const [show, setShow] = useState(false);
   const root = useRef<HTMLDivElement>(null);
@@ -33,12 +32,12 @@ export function PageLoader({ brand, onStart, onComplete }: Props) {
     const finish = () => complete();
     if (reduced) { finish(); return; }
     try {
-      if (sessionStorage.getItem(key)) { finish(); return; }
-      sessionStorage.setItem(key, "1");
+      if (sessionStorage.getItem(storageKey)) { finish(); return; }
+      sessionStorage.setItem(storageKey, "1");
     } catch { finish(); return; }
     const start = window.setTimeout(() => { onStart(); setShow(true); }, 0);
     return () => window.clearTimeout(start);
-  }, [complete, onStart, reduced]);
+  }, [complete, onStart, reduced, storageKey]);
 
   useEffect(() => {
     if (!show || !reduced) return;
