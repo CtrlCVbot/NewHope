@@ -50,7 +50,7 @@ function SaesomangServiceCard({ card, iconAsset }: { card: V3Content["services"]
 
 export function ServiceCards({ cards, cardsLabel, reduced, iconAssets, variant = "design" }: Props & { reduced: boolean | null; iconAssets?: string[] }) {
   const root = useRef<HTMLDivElement>(null);
-  useBlurReveal(root, "[data-services-card]", reduced, { duration: 0.9, stagger: 0.1, y: 60, blur: 0 });
+  useBlurReveal(root, "[data-services-card]", reduced, { duration: 0.9, stagger: 0.1, y: 60, blur: 0, perTarget: variant === "saesomang" });
 
   return <div ref={root} className={styles.cardsSection} aria-label={cardsLabel} data-services-cards data-reduced={reduced ? "true" : undefined}>
     <p className={styles.cardsLabel}>{cardsLabel}</p>

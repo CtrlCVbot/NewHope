@@ -49,6 +49,7 @@ export function Hero({ hero, ready, scrollHref = "#소개", variant = "design" }
         .to(lines, { yPercent: 0, duration: 1, stagger: .1, ease: "power2.out" }, .25)
         .to(subtitle, { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: .8, ease: "power2.out" }, .55)
         .to(revealCard, { autoAlpha: 1, y: 0, duration: .8, ease: "power2.out" }, .75);
+      if (variant === "saesomang") gsap.to(scope, { y: 150, opacity: .1, ease: "none", scrollTrigger: { trigger: scope, start: "top top", end: "+=1200px", scrub: 1 } });
     });
     document.fonts.ready.then(run);
     return () => { cancelled = true; };
