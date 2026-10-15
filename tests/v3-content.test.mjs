@@ -26,12 +26,13 @@ test("maps the approved V3 contract, brand paths, pending facts, and Kakao consu
     { label: "센터소개", href: "#about" }, { label: "방문요양·목욕", href: "#services" }, { label: "이용절차", href: "#process" },
     { label: "센터소식", href: "#stories" }, { label: "오시는길", href: "#location" }, { label: "카카오 상담 ↗", href: KAKAO_OPEN_CHAT_URL },
   ]);
-  assert.deepEqual([saesomangPhotoSlots.length, saesomangContent.feature.pills.length, saesomangContent.services.cards.length, saesomangContent.process.steps.length, saesomangContent.mission.items.length, saesomangContent.care.tabs.length, saesomangContent.extras.stories.length, saesomangContent.extras.faq.length], [14, 3, 3, 6, 4, 4, 3, 4]);
+  assert.deepEqual([saesomangPhotoSlots.length, saesomangContent.feature.pills.length, saesomangContent.services.cards.length, saesomangContent.process.steps.length, saesomangContent.mission.items.length, saesomangContent.care.tabs.length, saesomangContent.extras.stories.length, saesomangContent.extras.faq.length], [16, 3, 3, 6, 4, 4, 3, 4]);
   assert.deepEqual(saesomangPhotoSlots.map(({ src, kind }) => [src, kind]), [
     ["/v3/saesomang/images/hero.webp?v=wu18-20261015", "photo"],
     ["/v3/saesomang/illustrations/intro-home.svg", "diagram"], ["/v3/saesomang/illustrations/intro-conversation.svg", "diagram"],
     ["/v3/saesomang/illustrations/feature-support.svg", "diagram"], ["/v3/saesomang/illustrations/services-daily.svg", "diagram"],
     ["/v3/saesomang/images/card-1.webp?v=wu18-20261015", "photo"], ["/v3/saesomang/images/card-2.webp?v=wu18-20261015", "photo"], ["/v3/saesomang/images/card-3.webp?v=wu18-20261015", "photo"], ["/v3/saesomang/images/mission.webp?v=wu18-20261015", "photo"],
+    ["/v3/saesomang/images/intro-family-consultation.webp", "photo"], ["/v3/saesomang/images/feature-living-conversation.webp", "photo"],
     ["/v3/saesomang/illustrations/care-start.svg", "diagram"], ["/v3/saesomang/illustrations/care-prepare.svg", "diagram"], ["/v3/saesomang/illustrations/care-region.svg", "diagram"], ["/v3/saesomang/illustrations/care-dialogue.svg", "diagram"], ["/v3/saesomang/illustrations/why-garden.svg", "decorative"],
   ]);
   assert.equal(saesomangPhotoSlots[0].alt, "집 안에서 이동을 돕는 돌봄의 장면");
@@ -62,7 +63,25 @@ test("preserves source facts while applying the approved section-copy contract",
     ["2022. 10. 27.", "센터소개", "분당새소망방문요양센터 성남방문요양센터 성남재가복지센터 새소망방문요양센터 입니다.", "222912392169"],
     ["2022. 10. 27.", "오시는 길", "오시는 길", "222912387833"],
   ]);
-  assert.equal(saesomangContent.intro.body, "새소망 방문요양센터는 분당·성남에서 방문요양과 방문목욕 이용을 안내합니다. 어르신의 생활에서 어떤 도움이 필요한지, 가족이 무엇부터 준비해야 할지 함께 확인합니다.");
+  assert.deepEqual(saesomangContent.intro, {
+    label: "분당·성남 방문요양센터",
+    headline: { text: "어떤 도움이 필요한지, 함께 이야기해요." },
+    body: "익숙한 집에서의 생활을 떠올리며 필요한 도움을 살펴봅니다. 방문요양·방문목욕의 이용 방법과 준비할 내용을 차근차근 안내합니다.",
+    images: [{ src: "/v3/saesomang/images/intro-family-consultation.webp", alt: "가족이 함께 필요한 도움을 이야기하는 장면", kind: "photo" }],
+    details: [
+      { term: "무엇이 가장 불편한가요?", description: "생활에서 도움이 필요한 순간을 함께 살펴봅니다." },
+      { term: "어떤 서비스를 알아보고 있나요?", description: "방문요양·방문목욕의 이용 방법을 안내합니다." },
+      { term: "어느 지역과 일정이 필요한가요?", description: "방문 가능 여부와 일정은 상담에서 확인합니다." },
+    ],
+  });
+  assert.deepEqual(saesomangContent.feature, {
+    title: { text: "처음이라면, 세 가지만 생각해 보세요." },
+    body: "필요한 도움, 이용 절차, 희망하는 지역과 일정을 함께 살펴봅니다. 정확히 정리하지 못했어도 괜찮습니다. 먼저 알고 싶은 부분부터 확인해 보세요.",
+    cta: { label: "이용 순서 보기", href: "#process" },
+    cardIntro: { text: "궁금한 내용을 선택해 주세요." },
+    pills: [{ label: "이용 절차", href: "#process" }, { label: "서비스 종류", href: "#services" }, { label: "지역과 일정", href: "#location" }],
+    image: { src: "/v3/saesomang/images/feature-living-conversation.webp", alt: "거실에서 일상과 필요한 도움을 이야기하는 장면", kind: "photo" },
+  });
   const faqSection = pageSource.match(/<section id="faq"[\s\S]*?<\/section>/)?.[0] ?? "";
   const faq = [...faqSection.matchAll(/<details><summary>(.*?)<\/summary><p>(.*?)<\/p><\/details>/g)].map(([, question, answer]) => ({ question, answer }));
   assert.equal(faq.length, 3);

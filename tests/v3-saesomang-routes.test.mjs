@@ -11,7 +11,7 @@ const stories = [
   ["222912392169", "2022. 10. 27.", "분당새소망방문요양센터 성남방문요양센터 성남재가복지센터 새소망방문요양센터 입니다."],
   ["222912387833", "2022. 10. 27.", "오시는 길"],
 ];
-const photos = ["hero.webp", "card-1.webp", "card-2.webp", "card-3.webp", "mission.webp"];
+const photos = ["hero.webp", "intro-family-consultation.webp", "feature-living-conversation.webp", "card-1.webp", "card-2.webp", "card-3.webp"];
 
 test("renders visible phase-two V3 facts, assets, anchors, and section order", async () => {
   const response = await render("/v3");
@@ -36,7 +36,7 @@ test("renders visible phase-two V3 facts, assets, anchors, and section order", a
   assert.ok(kakaoLinks.length >= 4);
   for (const [tag] of kakaoLinks) assert.doesNotMatch(tag, /target="_blank"/);
   const photoTags = [...visible.matchAll(/<img\b[^>]*>/g)].filter(([tag]) => decodeURIComponent(tag.match(/\bsrc="([^"]+)"/)?.[1] ?? "").includes("/v3/saesomang/images/"));
-  assert.equal(photoTags.length, 5);
+  assert.equal(photoTags.length, 6);
   for (const [tag] of photoTags) assert.match(tag, /\balt="[^"]*"/);
   for (const photo of photos) assert.equal(photoTags.filter(([tag]) => decodeURIComponent(tag.match(/\bsrc="([^"]+)"/)?.[1] ?? "").includes(`/v3/saesomang/images/${photo}`)).length, 1, `expected one ${photo}`);
   const diagramTags = [...visible.matchAll(/<img\b[^>]*>/g)].filter(([tag]) => decodeURIComponent(tag.match(/\bsrc="([^"]+)"/)?.[1] ?? "").includes("/v3/saesomang/illustrations/"));

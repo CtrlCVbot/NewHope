@@ -29,6 +29,8 @@ export const saesomangPhotoSlots: Img[] = [
   { src: "/v3/saesomang/images/card-2.webp?v=wu18-20261015", alt: "가정에서 필요한 방문목욕을 안내하는 장면", kind: "photo" },
   { src: "/v3/saesomang/images/card-3.webp?v=wu18-20261015", alt: "말벗과 생활을 살피는 장면", kind: "photo" },
   { src: "/v3/saesomang/images/mission.webp?v=wu18-20261015", alt: "서로 손을 잡은 모습", kind: "photo" },
+  { src: "/v3/saesomang/images/intro-family-consultation.webp", alt: "가족이 함께 필요한 도움을 이야기하는 장면", kind: "photo" },
+  { src: "/v3/saesomang/images/feature-living-conversation.webp", alt: "거실에서 일상과 필요한 도움을 이야기하는 장면", kind: "photo" },
   { src: "/v3/saesomang/illustrations/care-start.svg", alt: "문의 시작을 나타낸 도해", kind: "diagram" },
   { src: "/v3/saesomang/illustrations/care-prepare.svg", alt: "이용 준비를 나타낸 도해", kind: "diagram" },
   { src: "/v3/saesomang/illustrations/care-region.svg", alt: "지역과 일정 확인을 위한 개념도이며 실제 지도나 확정 방문 범위를 뜻하지 않습니다", kind: "diagram" },
@@ -36,7 +38,7 @@ export const saesomangPhotoSlots: Img[] = [
   { src: "/v3/saesomang/illustrations/why-garden.svg", alt: "", kind: "decorative" },
 ];
 
-const [hero, , , feature, services, card1, card2, card3, mission, care1, care2, care3, care4, why] = saesomangPhotoSlots;
+const [hero, , , , services, card1, card2, card3, mission, introFamilyConsultation, featureLivingConversation, care1, care2, care3, care4, why] = saesomangPhotoSlots;
 
 const stories: SaesomangStory[] = [
   { date: "2026. 09. 16.", category: "센터소개", title: "따뜻한 돌봄이 필요한 순간, 새소망 방문요양센터가 함께합니다", id: "224413549928", href: "https://blog.naver.com/wish5288/224413549928" },
@@ -109,18 +111,18 @@ export const saesomangContent: V3Content & { extras: SaesomangExtras } = {
   },
   intro: {
     label: "분당·성남 방문요양센터",
-    headline: { text: "집에서 필요한 돌봄을, 차근차근 함께 살핍니다." },
-    body: "새소망 방문요양센터는 분당·성남에서 방문요양과 방문목욕 이용을 안내합니다. 어르신의 생활에서 어떤 도움이 필요한지, 가족이 무엇부터 준비해야 할지 함께 확인합니다.",
-    images: [{ ...mission, alt: "손을 맞잡고 이야기를 나누는 돌봄의 장면" }],
-    details: [{ term: "안내 서비스", description: "방문요양·방문목욕" }, { term: "함께 확인할 내용", description: "이용 절차·방문 지역·일정" }, { term: "문의 시작", description: "카카오 오픈채팅" }],
+    headline: { text: "어떤 도움이 필요한지, 함께 이야기해요." },
+    body: "익숙한 집에서의 생활을 떠올리며 필요한 도움을 살펴봅니다. 방문요양·방문목욕의 이용 방법과 준비할 내용을 차근차근 안내합니다.",
+    images: [introFamilyConsultation],
+    details: [{ term: "무엇이 가장 불편한가요?", description: "생활에서 도움이 필요한 순간을 함께 살펴봅니다." }, { term: "어떤 서비스를 알아보고 있나요?", description: "방문요양·방문목욕의 이용 방법을 안내합니다." }, { term: "어느 지역과 일정이 필요한가요?", description: "방문 가능 여부와 일정은 상담에서 확인합니다." }],
   },
   feature: {
-    title: { text: "처음 알아보신다면, 이 세 가지부터." },
-    body: "신청 순서와 서비스 종류를 먼저 살펴보고, 방문 지역과 일정은 상담에서 확인해 주세요.",
+    title: { text: "처음이라면, 세 가지만 생각해 보세요." },
+    body: "필요한 도움, 이용 절차, 희망하는 지역과 일정을 함께 살펴봅니다. 정확히 정리하지 못했어도 괜찮습니다. 먼저 알고 싶은 부분부터 확인해 보세요.",
     cta: { label: "이용 순서 보기", href: "#process" },
     cardIntro: { text: "궁금한 내용을 선택해 주세요." },
     pills: [{ label: "이용 절차", href: "#process" }, { label: "서비스 종류", href: "#services" }, { label: "지역과 일정", href: "#location" }],
-    image: feature,
+    image: featureLivingConversation,
   },
   services: {
     statement: { text: "어떤 도움이 필요하신가요?" },

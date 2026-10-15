@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "generatedBy": "scripts/build-v3-saesomang-assets.mjs",
-  "sourceType": "사진은 승인된 기존 자산 또는 블로그 원본이며, 실제 직원 또는 센터 사진이라고 주장하지 않음",
+  "sourceType": "사진은 승인된 기존 자산·블로그 원본 또는 사용자 요청으로 만든 가상 생성 장면이며, 실제 직원 또는 센터 사진이라고 주장하지 않음",
   "images": [
     {
       "name": "hero",
@@ -127,6 +127,56 @@
       },
       "file": "images/mission.webp",
       "bytes": 35006
+    },
+    {
+      "name": "intro-family-consultation",
+      "kind": "photo",
+      "sourceId": "introFamilyConsultation",
+      "sourcePath": "assets/v3/saesomang/source/wu24/intro-family-consultation.png",
+      "sourceSha256": "2651f0ccd8bff8dfbc4c01edec3eb36b714d9cc1be5e182d05bfe744e27857e1",
+      "sourceLicenseEvidence": "사용자 요청으로 2026-10-15 built-in image_gen에서 만든 가상 장면 NH24-I04",
+      "alt": "가족이 함께 필요한 도움을 이야기하는 장면",
+      "crop": {
+        "pixels": {
+          "left": 0,
+          "top": 0,
+          "width": 1536,
+          "height": 1024
+        },
+        "focalPoint": "family-conversation",
+        "preservesFullSource": false
+      },
+      "actualDimensions": {
+        "width": 1200,
+        "height": 800
+      },
+      "file": "images/intro-family-consultation.webp",
+      "bytes": 54516
+    },
+    {
+      "name": "feature-living-conversation",
+      "kind": "photo",
+      "sourceId": "featureLivingConversation",
+      "sourcePath": "assets/v3/saesomang/source/wu24/feature-living-conversation.png",
+      "sourceSha256": "e20eda94fe175c3f63393701878d786c46d86ef7bf6ef3682edbbd9c20133631",
+      "sourceLicenseEvidence": "사용자 요청으로 2026-10-15 built-in image_gen에서 만든 가상 장면 NH24-F01",
+      "alt": "거실에서 일상과 필요한 도움을 이야기하는 장면",
+      "crop": {
+        "pixels": {
+          "left": 0,
+          "top": 0,
+          "width": 1536,
+          "height": 1024
+        },
+        "focalPoint": "living-conversation",
+        "preservesFullSource": false
+      },
+      "actualDimensions": {
+        "width": 1200,
+        "height": 800
+      },
+      "file": "images/feature-living-conversation.webp",
+      "bytes": 59992
     },
     {
       "name": "intro-left",

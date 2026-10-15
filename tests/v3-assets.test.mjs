@@ -11,16 +11,16 @@ const root = path.resolve(import.meta.dirname, "..");
 const assets = path.join(root, "public", "v3", "saesomang");
 const manifestPath = path.join(assets, "assets-manifest.json");
 const execFile = promisify(execFileCallback);
-const photos = ["hero", "card-1", "card-2", "card-3", "mission"];
+const photos = ["hero", "card-1", "card-2", "card-3", "mission", "intro-family-consultation", "feature-living-conversation"];
 const diagrams = { "intro-left": "intro-home.svg", "intro-right": "intro-conversation.svg", feature: "feature-support.svg", services: "services-daily.svg", "care-1": "care-start.svg", "care-2": "care-prepare.svg", "care-3": "care-region.svg", "care-4": "care-dialogue.svg", why: "why-garden.svg" };
 const loadManifest = async () => JSON.parse(await readFile(manifestPath, "utf8"));
 
-test("maps five photos and nine unique SVG diagrams", async () => {
+test("maps seven photos and nine unique SVG diagrams", async () => {
   const manifest = await loadManifest();
-  assert.equal(manifest.schemaVersion, 2); assert.equal(manifest.images.length, 14);
+  assert.equal(manifest.schemaVersion, 2); assert.equal(manifest.images.length, 16);
   assert.deepEqual(manifest.images.filter(({ kind }) => kind === "photo").map(({ name }) => name).sort(), [...photos].sort());
   assert.deepEqual(Object.fromEntries(manifest.images.filter(({ kind }) => kind === "diagram").map(({ name, file }) => [name, path.basename(file)])), diagrams);
-  assert.equal(new Set(manifest.images.map(({ sourceSha256 }) => sourceSha256)).size, 14);
+  assert.equal(new Set(manifest.images.map(({ sourceSha256 }) => sourceSha256)).size, 16);
 });
 test("photo metadata and files prove no source enlargement", async () => {
   const manifest = await loadManifest();
@@ -56,6 +56,6 @@ test("keeps rasterized brand ink inside a transparent SVG border", async () => {
     for (let y = 0; y < info.height; y += 1) assert.equal(alpha(info.width - 1, y), 0, `${name} touches its right border`);
   }
 });
-test("regenerates identically and preserves an unowned image file", async () => {
+test("regenerates identically and preserves existing unowned image files", async () => {
   const owned = ["assets-manifest.json", "README.md", "og.webp", ...photos.map((name) => `images/${name}.webp`)]; const hashOwned = async () => Object.fromEntries(await Promise.all(owned.map(async (file) => [file, createHash("sha256").update(await readFile(path.join(assets, file))).digest("hex")]))); const preserved = path.join(assets, "images", "hero-1x.webp"); const preservedBefore = createHash("sha256").update(await readFile(preserved)).digest("hex"); const before = await hashOwned(); await execFile(process.execPath, [path.join(root, "scripts", "build-v3-saesomang-assets.mjs")], { cwd: root }); const afterFirst = await hashOwned(); await execFile(process.execPath, [path.join(root, "scripts", "build-v3-saesomang-assets.mjs")], { cwd: root }); assert.deepEqual(afterFirst, await hashOwned()); assert.deepEqual(before, afterFirst); assert.equal(createHash("sha256").update(await readFile(preserved)).digest("hex"), preservedBefore);
 });

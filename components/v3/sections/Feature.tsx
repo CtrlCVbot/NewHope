@@ -28,9 +28,9 @@ export function Feature({ feature, variant = "design", showMedia = true }: Props
   useReveal(root, "[data-feature-card]", isSaesomang ? reduced : true, { duration: 0.9, stagger: 0.1, y: 28, triggerSelector: isSaesomang ? "[data-feature-card]" : undefined });
 
   const diagram = feature.image.kind === "diagram" || feature.image.kind === "decorative";
-  return <section ref={root} className={`${styles.feature} ${diagram ? styles.diagramFeature : ""} ${!showMedia ? styles.saesomangFeature : ""}`} data-v3-feature data-media-kind={showMedia ? feature.image.kind : "none"}>
+  return <section ref={root} className={`${styles.feature} ${diagram ? styles.diagramFeature : ""} ${isSaesomang ? styles.saesomangFeature : ""}`} data-v3-feature data-media-kind={showMedia ? feature.image.kind : "none"}>
     {showMedia && <div className={styles.background} data-feature-bg aria-hidden="true">
-      <Image className={styles.backgroundImage} src={feature.image.src} alt="" fill sizes="100vw" priority={false} />
+      <Image className={styles.backgroundImage} src={feature.image.src} alt="" fill sizes={isSaesomang ? "(max-width: 1023px) calc(100vw - 48px), 1200px" : "100vw"} priority={false} />
       {!diagram && <div className={styles.gradient} />}
     </div>}
     <div className={styles.hero}>
