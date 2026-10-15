@@ -5,7 +5,7 @@
   font-family: var(--f-sans);
 }
 .saesomangFrame { width: min(100%, 1440px); margin-inline: auto; }
-:global(.saesomangScope) { background: linear-gradient(to bottom, var(--c-primary-darkest) 0 min(100svh, 860px), var(--c-cream) min(100svh, 860px)); }
+:global(.saesomangScope) { background: var(--c-cream); }
 .saesomangFrame .header { right: 0; left: 0; width: auto; }
 .frame * { box-sizing: border-box; }
 .frame a:focus-visible, .frame button:focus-visible { outline: 2px solid var(--c-teal); outline-offset: 4px; }
@@ -16,6 +16,7 @@
   transition: height .3s var(--e-standard), padding .3s var(--e-standard), background .3s var(--e-standard);
 }
 .header.scrolled { height: 80px; padding: 16px 32px; background: var(--c-cream); color: var(--c-primary); border-color: transparent; box-shadow: var(--sh-header); }
+:global(.saesomangScope) .header:not(.scrolled) { background: transparent; border-color: transparent; box-shadow: none; }
 .brand { display: flex; gap: .6rem; align-items: baseline; color: inherit; text-decoration: none; font-family: var(--f-serif); }
 .brand span { font-size: 68px; letter-spacing: -.06em; line-height: 1; }
 .brand small { font-size: .8rem; }
@@ -93,6 +94,7 @@
   .menuBrand strong { font-size: 40px; }
 }
 @media (max-width: 480px) { .menu nav a { font-size: 28px; } }
+@media (min-width: 1441px) { :global(.saesomangScope) .header:not(.scrolled) { padding-inline: calc((100vw - 1440px) / 2 + 32px); } }
 @media (prefers-reduced-motion: reduce) {
   .header, .scrollTop, .scrollTop svg, .menuToggle, .menuToggle i:after, .close, .labelMask > span { transition: none; }
   .backdrop, .menu, .menuInner, .menu nav a { animation: none; }

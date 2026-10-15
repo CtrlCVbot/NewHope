@@ -45,6 +45,17 @@ test("keeps eight outlined brand SVGs safe and the five service icons stable", a
   for (const name of names) { const svg = await readFile(path.join(assets, "brand", name), "utf8"); assert.match(svg, /<title>[^<]+<\/title>/); assert.match(svg, /aria-label="[^"]+"/); assert.match(svg, /<path\b/); assert.doesNotMatch(svg, /<text\b|<(?:image|use|foreignObject|script)\b|(?:href|xlink:href)\s*=/i); }
   assert.equal(new Set(iconHashes).size, manifest.brand.icons.length);
 });
+test("keeps rasterized brand ink inside a transparent SVG border", async () => {
+  const manifest = await loadManifest();
+  for (const name of [...manifest.brand.variants, ...manifest.brand.symbols]) {
+    const { data, info } = await sharp(path.join(assets, "brand", name)).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
+    const alpha = (x, y) => data[(y * info.width + x) * info.channels + 3];
+    for (let x = 0; x < info.width; x += 1) assert.equal(alpha(x, 0), 0, `${name} touches its top border`);
+    for (let x = 0; x < info.width; x += 1) assert.equal(alpha(x, info.height - 1), 0, `${name} touches its bottom border`);
+    for (let y = 0; y < info.height; y += 1) assert.equal(alpha(0, y), 0, `${name} touches its left border`);
+    for (let y = 0; y < info.height; y += 1) assert.equal(alpha(info.width - 1, y), 0, `${name} touches its right border`);
+  }
+});
 test("regenerates identically and preserves an unowned image file", async () => {
   const owned = ["assets-manifest.json", "README.md", "og.webp", ...photos.map((name) => `images/${name}.webp`)]; const hashOwned = async () => Object.fromEntries(await Promise.all(owned.map(async (file) => [file, createHash("sha256").update(await readFile(path.join(assets, file))).digest("hex")]))); const preserved = path.join(assets, "images", "hero-1x.webp"); const preservedBefore = createHash("sha256").update(await readFile(preserved)).digest("hex"); const before = await hashOwned(); await execFile(process.execPath, [path.join(root, "scripts", "build-v3-saesomang-assets.mjs")], { cwd: root }); const afterFirst = await hashOwned(); await execFile(process.execPath, [path.join(root, "scripts", "build-v3-saesomang-assets.mjs")], { cwd: root }); assert.deepEqual(afterFirst, await hashOwned()); assert.deepEqual(before, afterFirst); assert.equal(createHash("sha256").update(await readFile(preserved)).digest("hex"), preservedBefore);
 });

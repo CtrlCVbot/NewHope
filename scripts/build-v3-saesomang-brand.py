@@ -45,7 +45,7 @@ def combo(w,h,title,label,symbol,ws,wx,wy,ss=0,sx=0,sy=0,color=PRIMARY):
 BRAND.mkdir(parents=True, exist_ok=True)
 variants = {
  "header-full.svg": combo(352,88,"새소망 방문요양센터 전체형 로고","새소망 방문요양센터",symbol_paths(PRIMARY,6,12),55,84,47,20,84,72),
- "header-short.svg": combo(200,64,"새소망 축약형 로고","새소망",symbol_paths(PRIMARY,8,8,.75),52,66,45),
+ "header-short.svg": combo(224,64,"새소망 축약형 로고","새소망",symbol_paths(PRIMARY,8,8,.75),52,66,45),
  "menu.svg": combo(430,128,"새소망 메뉴 로고","새소망 방문요양센터",symbol_paths(PRIMARY,38,28,1.1),72,126,69,22,128,106),
  "why.svg": combo(900,250,"새소망 Why 섹션 로고","새소망 방문요양센터",symbol_paths(WHITE,112,42,2.1),150,268,141,34,271,199,WHITE),
  "footer.svg": combo(360,108,"새소망 푸터 로고","새소망 방문요양센터",symbol_paths(LIGHT,20,24,.9),60,88,61,22,90,92,LIGHT),
