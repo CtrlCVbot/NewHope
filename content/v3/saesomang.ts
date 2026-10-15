@@ -1,4 +1,6 @@
-import type { Img, V3Content } from "./types";
+import type { ContactLink, Img, V3Content } from "./types";
+
+export const KAKAO_OPEN_CHAT_URL = "https://open.kakao.com/o/ggmGtL5e";
 
 type SaesomangStory = {
   date: string;
@@ -12,9 +14,8 @@ export type SaesomangExtras = NonNullable<V3Content["extras"]> & {
   stories: SaesomangStory[];
   storyNotice: string;
   faq: NonNullable<NonNullable<V3Content["extras"]>["faq"]>;
-  consult: NonNullable<NonNullable<V3Content["extras"]>["consult"]>;
-  contacts: { label: string; href: string }[];
-  formConfirmation: string;
+  consultation: NonNullable<NonNullable<V3Content["extras"]>["consultation"]>;
+  contacts: ContactLink[];
   location: NonNullable<V3Content["extras"]>["location"] & { navigationQuery: string };
 };
 
@@ -55,21 +56,18 @@ const extras: SaesomangExtras = {
     { question: "방문목욕도 상담할 수 있나요?", answer: "네. 가정에서 필요한 방문목욕과 방문요양을 현재 상황에 맞춰 안내합니다." },
     { question: "이용 전에 무엇을 준비해야 하나요?", answer: "이용 절차와 필요한 준비는 개인 상황에 따라 다를 수 있습니다. 최신 장기요양 기준을 확인한 뒤 상담해 주세요." },
   ],
-  consult: {
-    title: "상담 안내",
-    fields: [
-      { label: "이름", name: "name", type: "text" },
-      { label: "연락처", name: "phone", type: "tel" },
-      { label: "남기고 싶은 이야기", name: "message", type: "textarea" },
-    ],
-    notice: "작성하신 내용은 이 화면에서만 확인되며 외부로 전송되거나 저장되지 않습니다.",
+  consultation: {
+    label: "카카오 오픈채팅 상담",
+    title: { text: "돌봄에 관한 궁금한 점, 카카오에서 시작하세요.", emphasis: ["카카오에서"] },
+    body: "새소망 방문요양센터 오픈채팅에서 이용에 관한 질문을 남겨주세요.",
+    button: { label: "카카오 오픈채팅으로 상담하기", href: KAKAO_OPEN_CHAT_URL },
+    notice: "카카오 오픈채팅으로 이동합니다. 그룹방에는 연락처·건강정보·서류 사진을 올리지 마세요.",
   },
-  formConfirmation: "이 양식은 외부 전송·저장 기능이 없는 안내용 화면입니다. 전화, 카카오 오픈채팅 또는 네이버 블로그로 실제 상담을 요청해 주세요.",
   contacts: [
-    { label: "TEL 031-726-5288", href: "tel:031-726-5288" },
-    { label: "Mobile 010-5384-2146", href: "tel:010-5384-2146" },
-    { label: "카카오 오픈채팅 ↗", href: "https://open.kakao.com/o/ggmGtL5e" },
-    { label: "네이버 블로그 ↗", href: "https://blog.naver.com/wish5288" },
+    { label: "TEL 031-726-5288", href: "tel:031-726-5288", kind: "center-info" },
+    { label: "Mobile 010-5384-2146", href: "tel:010-5384-2146", kind: "center-info" },
+    { label: "카카오 상담 ↗", href: KAKAO_OPEN_CHAT_URL, kind: "consult" },
+    { label: "네이버 블로그 ↗", href: "https://blog.naver.com/wish5288", kind: "reference" },
   ],
   location: {
     address: "경기도 성남시 분당구 미금로 215 청솔마을 대원상가 207호\n청솔마을대원8단지아파트상가 2층",
@@ -97,9 +95,9 @@ export const saesomangContent: V3Content & { extras: SaesomangExtras } = {
     { label: "이용절차", href: "#process" },
     { label: "센터소식", href: "#stories" },
     { label: "오시는길", href: "#location" },
-    { label: "상담", href: "#consult" },
+    { label: "카카오 상담 ↗", href: KAKAO_OPEN_CHAT_URL },
   ],
-  header: { menuLabel: "메뉴", cta: { label: "상담 시작하기", href: "#consult" } },
+  header: { menuLabel: "메뉴", cta: { label: "카카오 상담", href: KAKAO_OPEN_CHAT_URL } },
   frame: { sectionLabel: "새소망 방문요양센터", sectionNotice: "분당·성남 가까이에서 생활에 맞는 돌봄을 함께 살핍니다.", menuDescription: "필요한 도움과 이용 절차를 차분히 안내합니다." },
   hero: {
     title: { text: "익숙한 집에서, 오늘의 삶을 이어갑니다.", emphasis: ["오늘의 삶"] },
@@ -171,10 +169,10 @@ export const saesomangContent: V3Content & { extras: SaesomangExtras } = {
     image: why,
   },
   cta: {
-    label: "상담 안내",
-    title: { text: "부담 없이, 오늘의 이야기를 들려주세요.", emphasis: ["오늘의 이야기"] },
-    body: "전화, 카카오 오픈채팅, 네이버 블로그로 상담을 요청할 수 있습니다.",
-    button: { label: "상담 시작하기", href: "#consult" },
+    label: "카카오 오픈채팅 상담",
+    title: { text: "돌봄에 관한 궁금한 점, 카카오에서 시작하세요.", emphasis: ["카카오에서"] },
+    body: "새소망 방문요양센터 오픈채팅에서 이용에 관한 질문을 남겨주세요.",
+    button: { label: "카카오 오픈채팅으로 상담하기", href: KAKAO_OPEN_CHAT_URL },
   },
   extras,
   footer: {

@@ -43,7 +43,11 @@ export function MenuOverlay({ closing, reducedMotion, nav, brand, description, m
       <button ref={closeRef} className={styles.close} type="button" aria-label="메뉴 닫기" onClick={onClose}><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m4 4 8 8m0-8-8 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" /></svg></button>
       <div className={styles.menuInner}>
         <nav aria-label="주요 메뉴">
-          {nav.map((item, index) => <a key={item.href} data-v3-menu-link style={{ "--delay": `${200 + index * 100}ms` } as React.CSSProperties} href={item.href} onClick={(event) => { event.preventDefault(); if (!closing) onNavigate(item.href); }}>
+          {nav.map((item, index) => <a key={item.href} data-v3-menu-link style={{ "--delay": `${200 + index * 100}ms` } as React.CSSProperties} href={item.href} onClick={(event) => {
+            if (closing) return;
+            if (item.href.startsWith("#")) { event.preventDefault(); onNavigate(item.href); return; }
+            onClose();
+          }}>
             <span className={styles.labelMask}><span>{item.label}</span><span aria-hidden="true">{item.label}</span></span>
           </a>)}
         </nav>

@@ -9,6 +9,8 @@
 .heading :global(em) { font-size: 1.1429em; letter-spacing: -.15rem; }
 .body { max-width: 34.8125rem; margin: -3rem 0 0; color: #ffffffcc; font: 400 1.125rem/1.45 var(--f-sans); letter-spacing: -.0225rem; }
 .buttonHolder { width: fit-content; }
-@media (max-width: 768px) { .cta { min-height: auto; padding: 5rem 1.5rem; } .content { gap: 2rem; } .headingMask { margin-top: 0; } .heading { font-size: 2.5rem; } .heading :global(em) { font-size: 1.2em; } .body { margin-top: 0; font-size: 1rem; } }
+.consultationGuide { display: grid; gap: 1.25rem; width: min(100%, 37rem); padding: 1.5rem; border: 1px solid #ffffff40; border-radius: 1.25rem; background: #ffffff0d; scroll-margin-top: 9rem; }
+.consultationNotice { margin: 0; color: #ffffffcc; font: 400 .875rem/1.6 var(--f-sans); }
+@media (max-width: 768px) { .cta { min-height: auto; padding: 5rem 1.5rem; } .content { gap: 2rem; } .headingMask { margin-top: 0; } .heading { font-size: 2.5rem; } .heading :global(em) { font-size: 1.2em; } .body { margin-top: 0; font-size: 1rem; } .consultationGuide { padding: 1.25rem; scroll-margin-top: 8rem; text-align: left; } }
 @media (max-width: 500px) { .label { font-size: .875rem; } }
 @media (prefers-reduced-motion: reduce) { .texture::after { transition: none; opacity: 0; } }

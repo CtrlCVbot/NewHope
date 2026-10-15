@@ -20,7 +20,7 @@ import { Why } from "../sections/Why";
 import { CtaSection } from "../sections/CtaSection";
 import { Faq } from "../sections/Faq";
 import { Stories } from "../sections/Stories";
-import { ConsultForm } from "../sections/ConsultForm";
+import { ConsultationGuide } from "../sections/ConsultationGuide";
 import { Location } from "../sections/Location";
 import { SaesomangFooter } from "./SaesomangFooter";
 import styles from "./frame.module.css";
@@ -67,7 +67,7 @@ function FrameInner({ content, variant = "design", extras, whyWordmarkSvg }: { c
   useEffect(() => {
     if (menuOpen) return;
     const href = pendingHref.current;
-    if (!href) return;
+    if (!href?.startsWith("#")) return;
     const frame = requestAnimationFrame(() => {
       pendingHref.current = null;
       const target = document.getElementById(decodeURIComponent(href.slice(1)));
@@ -87,7 +87,7 @@ function FrameInner({ content, variant = "design", extras, whyWordmarkSvg }: { c
     wasOpen.current = menuOpen;
   }, [menuOpen]);
   const close = () => setClosing(true);
-  const navigate = (href: string) => { pendingHref.current = href; close(); };
+  const navigate = (href: string) => { if (!href.startsWith("#")) return; pendingHref.current = href; close(); };
 
   return <div className={styles.frame} data-v3-frame>
     <div inert={menuOpen || loaderActive || undefined}>
@@ -101,7 +101,7 @@ function FrameInner({ content, variant = "design", extras, whyWordmarkSvg }: { c
           <Mission id="promises" mission={content.mission} /><CareTabs id="care" care={content.care} />
           <Stories id="stories" stories={extras.stories} storyNotice={extras.storyNotice} />
           <Why why={content.why} brand={{ ...content.brand, wordmarkSvg: whyWordmarkSvg ?? content.brand.wordmarkSvg }} />
-          <CtaSection id="contact-cta" cta={content.cta} /><ConsultForm id="consult" consult={extras.consult} formConfirmation={extras.formConfirmation} contacts={extras.contacts} />
+          <CtaSection id="contact-cta" cta={content.cta}><ConsultationGuide id="consult" guide={extras.consultation} /></CtaSection>
           <Location id="location" brandName={content.brand.name} location={extras.location} contacts={extras.contacts} />
         </> : content.nav.map((item, index) => {
           const id = decodeURIComponent(item.href.slice(1));
@@ -118,7 +118,7 @@ function FrameInner({ content, variant = "design", extras, whyWordmarkSvg }: { c
           </section>;
         })}
       </main>
-      {variant === "saesomang" ? <SaesomangFooter footer={content.footer} brand={content.brand} /> : <Footer footer={content.footer} brand={content.brand} />}
+      {variant === "saesomang" && extras ? <SaesomangFooter footer={{ ...content.footer, links: extras.contacts, legal: [] }} brand={content.brand} /> : <Footer footer={content.footer} brand={content.brand} />}
       <ScrollTop />
     </div>
     {menuOpen && <MenuOverlay closing={closing} reducedMotion={reducedMotion} nav={content.nav} brand={content.brand} description={content.frame.menuDescription} menuAsset={variant === "saesomang" ? "/v3/saesomang/brand/menu.svg" : undefined} onClose={close} onClosed={finishClose} onNavigate={navigate} />}

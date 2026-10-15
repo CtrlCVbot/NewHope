@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import type { PointerEvent } from "react";
+import type { PointerEvent, ReactNode } from "react";
 import type { V3Content } from "@/content/v3/types";
 import { GoldLabel } from "../ui/GoldLabel";
 import { RichText } from "../ui/RichText";
@@ -10,9 +10,9 @@ import { useReducedMotion } from "../motion/useReducedMotion";
 import { useWordReveal } from "../motion/useWordReveal";
 import styles from "./cta-section.module.css";
 
-type Props = { id: string; cta: V3Content["cta"] };
+type Props = { id: string; cta: V3Content["cta"]; children?: ReactNode };
 
-export function CtaSection({ id, cta }: Props) {
+export function CtaSection({ id, cta, children }: Props) {
   const root = useRef<HTMLElement>(null);
   const reduced = useReducedMotion();
   const [spotlight, setSpotlight] = useState(false);
@@ -33,6 +33,7 @@ export function CtaSection({ id, cta }: Props) {
       <div className={styles.headingMask}><h2 className={styles.heading} data-cta-section-heading aria-label={cta.title.text}><RichText value={cta.title} tone="cta" /></h2></div>
       <p className={styles.body} data-cta-section-body>{cta.body}</p>
       <div className={styles.buttonHolder}><CtaButton href={cta.button.href} glow data-cta-section-button>{cta.button.label}</CtaButton></div>
+      {children}
     </div>
   </section>;
 }

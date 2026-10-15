@@ -1,4 +1,5 @@
 export type Link = { label: string; href: string };
+export type ContactLink = Link & { kind: "center-info" | "consult" | "reference" };
 
 export type Img = { src: string; alt: string };
 
@@ -8,7 +9,7 @@ export type Story = { date: string; title: string; href: string };
 
 export type Faq = { question: string; answer: string };
 
-export type ConsultForm = { title: string; fields: { label: string; name: string; type: "text" | "tel" | "textarea" }[]; notice: string };
+export type ConsultationGuide = { label: string; title: RichText; body: string; button: Link; notice: string };
 
 export type Location = { address: string; directions: string; transitNote?: string };
 
@@ -26,6 +27,6 @@ export type V3Content = {
   care: { label: string; tabs: { text: string; image: Img }[] };
   why: { title: RichText; body: string; footnote: string; image: Img };
   cta: { label: string; title: RichText; body: string; button: Link };
-  extras?: { stories?: Story[]; faq?: Faq[]; consult?: ConsultForm; location?: Location };
+  extras?: { stories?: Story[]; faq?: Faq[]; consultation?: ConsultationGuide; location?: Location };
   footer: { copyright: string; fax?: string; links: Link[]; legal: Link[] };
 };
