@@ -28,7 +28,7 @@ export const saesomangPhotoSlots: Img[] = [
   { src: "/v3/saesomang/images/service-daily-living.webp", alt: "가정에서 식사를 준비하며 일상 도움을 나누는 가상 예시 장면", kind: "photo" },
   { src: "/v3/saesomang/images/service-bath-preparation.webp", alt: "방문목욕 전 필요한 물품을 살피는 가상 예시 장면", kind: "photo" },
   { src: "/v3/saesomang/images/service-companionship.webp", alt: "집에서 이야기를 나누며 하루를 살피는 가상 예시 장면", kind: "photo" },
-  { src: "/v3/saesomang/images/mission.webp?v=wu18-20261015", alt: "서로 손을 잡은 모습", kind: "photo" },
+  { src: "/v3/saesomang/images/mission-listening.webp", alt: "어르신이 화초 이야기를 하고 옆의 사람이 귀 기울여 듣는 가상 장면", kind: "photo" },
   { src: "/v3/saesomang/images/intro-family-consultation.webp", alt: "가족이 함께 필요한 도움을 이야기하는 장면", kind: "photo" },
   { src: "/v3/saesomang/images/feature-living-conversation.webp", alt: "거실에서 일상과 필요한 도움을 이야기하는 장면", kind: "photo" },
   { src: "/v3/saesomang/illustrations/care-start.svg", alt: "문의 시작을 나타낸 도해", kind: "diagram" },
@@ -152,7 +152,7 @@ export const saesomangContent: V3Content & { extras: SaesomangExtras } = {
   },
   mission: {
     label: "돌봄의 약속",
-    title: { text: "돌봄을 이어가는 네 가지 약속." },
+    title: { text: "도움이 필요한 순간에도, 어르신의 뜻을 먼저." },
     items: ["먼저 듣기 — 어떤 도움이 필요한지 이야기를 듣습니다.", "알기 쉽게 설명하기 — 이용 절차를 차근차근 안내합니다.", "궁금한 점 살피기 — 알아보기 어려웠던 내용을 함께 확인합니다.", "변화 함께 확인하기 — 이용 과정에서 생긴 질문을 나눕니다."],
     image: mission,
   },

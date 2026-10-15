@@ -129,6 +129,31 @@
       "bytes": 35006
     },
     {
+      "name": "mission-listening",
+      "kind": "photo",
+      "sourceId": "missionListening",
+      "sourcePath": "assets/v3/saesomang/source/wu26/mission-listening.png",
+      "sourceSha256": "d82a2334094c8893c22403c77425b87a9b385e5da249d94c39993ed5f871e065",
+      "sourceLicenseEvidence": "사용자 요청으로 2026-10-15 built-in image_gen에서 만든 가상 장면 M01",
+      "alt": "어르신이 화초 이야기를 하고 옆의 사람이 귀 기울여 듣는 가상 장면",
+      "crop": {
+        "pixels": {
+          "left": 0,
+          "top": 0,
+          "width": 1536,
+          "height": 1024
+        },
+        "focalPoint": "full-scene-preserved",
+        "preservesFullSource": true
+      },
+      "actualDimensions": {
+        "width": 1200,
+        "height": 800
+      },
+      "file": "images/mission-listening.webp",
+      "bytes": 81190
+    },
+    {
       "name": "intro-family-consultation",
       "kind": "photo",
       "sourceId": "introFamilyConsultation",

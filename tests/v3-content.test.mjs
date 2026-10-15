@@ -31,11 +31,13 @@ test("maps the approved V3 contract, brand paths, pending facts, and Kakao consu
     ["/v3/saesomang/images/hero.webp?v=wu18-20261015", "photo"],
     ["/v3/saesomang/illustrations/intro-home.svg", "diagram"], ["/v3/saesomang/illustrations/intro-conversation.svg", "diagram"],
     ["/v3/saesomang/illustrations/feature-support.svg", "diagram"], ["/v3/saesomang/illustrations/services-daily.svg", "diagram"],
-    ["/v3/saesomang/images/service-daily-living.webp", "photo"], ["/v3/saesomang/images/service-bath-preparation.webp", "photo"], ["/v3/saesomang/images/service-companionship.webp", "photo"], ["/v3/saesomang/images/mission.webp?v=wu18-20261015", "photo"],
+    ["/v3/saesomang/images/service-daily-living.webp", "photo"], ["/v3/saesomang/images/service-bath-preparation.webp", "photo"], ["/v3/saesomang/images/service-companionship.webp", "photo"], ["/v3/saesomang/images/mission-listening.webp", "photo"],
     ["/v3/saesomang/images/intro-family-consultation.webp", "photo"], ["/v3/saesomang/images/feature-living-conversation.webp", "photo"],
     ["/v3/saesomang/illustrations/care-start.svg", "diagram"], ["/v3/saesomang/illustrations/care-prepare.svg", "diagram"], ["/v3/saesomang/illustrations/care-region.svg", "diagram"], ["/v3/saesomang/illustrations/care-dialogue.svg", "diagram"], ["/v3/saesomang/illustrations/why-garden.svg", "decorative"],
   ]);
   assert.equal(saesomangPhotoSlots[0].alt, "집 안에서 이동을 돕는 돌봄의 장면");
+  assert.equal(saesomangContent.mission.title.text, "도움이 필요한 순간에도, 어르신의 뜻을 먼저.");
+  assert.equal(saesomangContent.mission.image.alt, "어르신이 화초 이야기를 하고 옆의 사람이 귀 기울여 듣는 가상 장면");
   assert.deepEqual(saesomangBrandAssets, { headerFullSvg: "/v3/saesomang/brand/header-full.svg", headerShortSvg: "/v3/saesomang/brand/header-short.svg", menuSvg: "/v3/saesomang/brand/menu.svg", whySvg: "/v3/saesomang/brand/why.svg", footerSvg: "/v3/saesomang/brand/footer.svg", loaderSvg: "/v3/saesomang/brand/symbol-small.svg" });
   assert.deepEqual(pendingFactChecks.excludedFromVisibleContent, ["급여 범위 6항목", "버스 노선"]);
   const visible = JSON.stringify(saesomangContent);

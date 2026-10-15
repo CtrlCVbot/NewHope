@@ -15,3 +15,17 @@
 @media (max-width: 768px) { :global(.saesomangScope) .title { font-size: 2.5rem; } }
 :global(.saesomangScope) .mission:not(:has(.image)) .wrapper{display:block}.mission:not(:has(.image)) .content{max-width:75rem;margin-inline:auto}.mission:not(:has(.image)) .textContent{max-width:40.5rem}
 :global(.saesomangScope) .mission:not(:has(.image)) .content{padding:0 2rem}.mission:not(:has(.image)) .textContent{margin-inline:auto;padding:6rem 0}.mission:not(:has(.image)) .title,.mission:not(:has(.image)) .list li{color:var(--c-primary)}
+
+/* WU-26 M01 stays scoped to the local Saesomang route; the design variant keeps its original layout. */
+:global(.saesomangScope) .saesomangMission{position:relative;background:var(--c-cream);padding:7.5rem 2rem 14.5rem}
+:global(.saesomangScope) .saesomangMission::after{position:absolute;z-index:0;right:0;bottom:0;left:0;height:6rem;content:"";background:linear-gradient(to bottom,var(--c-cream),var(--c-primary));pointer-events:none}
+:global(.saesomangScope) .saesomangWrapper{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(20rem,35rem);gap:clamp(3rem,7vw,8rem);align-items:center;max-width:75rem;margin-inline:auto}
+:global(.saesomangScope) .saesomangContent{min-width:0;display:flex;flex-direction:column;align-items:flex-start;gap:1.75rem}
+:global(.saesomangScope) .saesomangTitle{max-width:39rem;margin:0;color:var(--c-primary);font:400 clamp(2.5rem,4.2vw,3.75rem)/1.18 var(--f-serif);letter-spacing:-.035em;word-break:keep-all;overflow-wrap:anywhere}
+:global(.saesomangScope) .saesomangTitle em{background:var(--g-gold);background-clip:text;color:transparent;font-style:normal}
+:global(.saesomangScope) .saesomangList{max-width:38rem;margin:0}
+:global(.saesomangScope) .saesomangPhoto{position:relative;width:100%;max-width:35rem;aspect-ratio:3/2;margin:0;overflow:hidden;justify-self:end;background:#ded3ca}
+:global(.saesomangScope) .saesomangPhoto img{display:block;width:100%;height:100%;object-fit:contain}
+:global(.saesomangScope) .saesomangMask{position:absolute;inset:0;z-index:1;pointer-events:none;background:var(--c-cream);transform:translateX(100%);--mask-x:100%;transform:translateX(var(--mask-x))}
+@media(max-width:960px){:global(.saesomangScope) .saesomangMission{padding-block:5.5rem 12.5rem}:global(.saesomangScope) .saesomangWrapper{grid-template-columns:1fr;gap:2.5rem}:global(.saesomangScope) .saesomangContent{order:2}:global(.saesomangScope) .saesomangPhoto{order:1;max-width:35rem;justify-self:start}}
+@media(max-width:500px){:global(.saesomangScope) .saesomangMission{padding-inline:1.25rem}:global(.saesomangScope) .saesomangTitle{font-size:2.5rem;line-height:1.22}}
