@@ -9,8 +9,8 @@ export function Stories({ id = "stories", stories, storyNotice }: Props) {
   return <section id={id} className={styles.stories} data-v3-stories>
     <div className={styles.inner}>
       <header className={styles.sectionHeader}>
-        <GoldLabel>센터 소식</GoldLabel>
-        <h2>센터가 전하는 제도·운영 정보입니다.</h2>
+        <GoldLabel>센터 이야기</GoldLabel>
+        <h2>센터 이야기와 이용 안내.</h2>
         <p className={styles.note}>{storyNotice}</p>
       </header>
       <ul className={styles.storyList} aria-label="센터 소식 목록">
@@ -21,6 +21,7 @@ export function Stories({ id = "stories", stories, storyNotice }: Props) {
           </a>
         </li>)}
       </ul>
+      <a className={styles.story} href="https://blog.naver.com/wish5288" target="_blank" rel="noreferrer">블로그에서 더 보기 <Icon name="arrow-up-right" /></a>
     </div>
   </section>;
 }

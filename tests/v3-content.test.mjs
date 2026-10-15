@@ -26,7 +26,7 @@ test("maps the approved V3 contract, brand paths, pending facts, and Kakao consu
     { label: "센터소개", href: "#about" }, { label: "방문요양·목욕", href: "#services" }, { label: "이용절차", href: "#process" },
     { label: "센터소식", href: "#stories" }, { label: "오시는길", href: "#location" }, { label: "카카오 상담 ↗", href: KAKAO_OPEN_CHAT_URL },
   ]);
-  assert.deepEqual([saesomangPhotoSlots.length, saesomangContent.feature.pills.length, saesomangContent.services.cards.length, saesomangContent.process.steps.length, saesomangContent.mission.items.length, saesomangContent.care.tabs.length, saesomangContent.extras.stories.length, saesomangContent.extras.faq.length], [14, 6, 3, 6, 7, 4, 7, 3]);
+  assert.deepEqual([saesomangPhotoSlots.length, saesomangContent.feature.pills.length, saesomangContent.services.cards.length, saesomangContent.process.steps.length, saesomangContent.mission.items.length, saesomangContent.care.tabs.length, saesomangContent.extras.stories.length, saesomangContent.extras.faq.length], [14, 3, 3, 6, 4, 4, 3, 4]);
   assert.ok(saesomangPhotoSlots.every(({ src }) => src.startsWith("/v3/saesomang/images/") && src.endsWith(".webp")));
   assert.equal(saesomangPhotoSlots[0].alt, "집 안에서 이동을 돕는 돌봄의 장면");
   assert.deepEqual(saesomangBrandAssets, { headerFullSvg: "/v3/saesomang/brand/header-full.svg", headerShortSvg: "/v3/saesomang/brand/header-short.svg", whySvg: "/v3/saesomang/brand/why.svg" });
@@ -40,20 +40,27 @@ test("maps the approved V3 contract, brand paths, pending facts, and Kakao consu
   assert.match(saesomangContent.extras.consultation.notice, /그룹방에는 연락처·건강정보·서류 사진을 올리지 마세요/);
 });
 
-test("preserves V1 arrays and exact visible facts while separating center information", async () => {
+test("preserves source facts while applying the approved section-copy contract", async () => {
   const [pageSource, { KAKAO_OPEN_CHAT_URL, saesomangContent }] = await Promise.all([readFile(new URL("../app/page.tsx", import.meta.url), "utf8"), loadTsModule("../content/v3/saesomang.ts")]);
   const services = extractV1Array(pageSource, "services");
   const processSteps = extractV1Array(pageSource, "processSteps");
   const posts = extractV1Array(pageSource, "posts");
-  assert.deepEqual(saesomangContent.services.cards.map(({ title, description }) => [title, description]), services.map(([title, description]) => [title, description]));
+  assert.equal(services.length, 3);
+  assert.equal(processSteps.length, 6);
+  assert.equal(posts.length, 7);
+  assert.deepEqual(saesomangContent.services.cards.map(({ title }) => title), ["방문요양", "방문목욕", "일상과 정서 지원"]);
   assert.deepEqual(saesomangContent.process.steps.map(({ title, description }) => [title, description]), processSteps);
-  assert.deepEqual(saesomangContent.extras.stories.map(({ date, category, title, id }) => [date, category, title, id]), posts);
-  assert.equal(saesomangContent.intro.body, "새소망 방문요양센터는 장기요양 1~5등급 어르신을 대상으로 요양보호사 파견, 방문요양, 방문목욕과 어르신 케어를 안내합니다. 성남·분당을 중심으로 수도권 방문 상담도 함께 살핍니다.");
-  assert.ok(pageSource.includes(saesomangContent.intro.body));
+  assert.deepEqual(saesomangContent.extras.stories.map(({ date, category, title, id }) => [date, category, title, id]), [
+    ["2026. 09. 16.", "센터소개", "따뜻한 돌봄이 필요한 순간, 새소망 방문요양센터가 함께합니다", "224413549928"],
+    ["2022. 10. 27.", "센터소개", "분당새소망방문요양센터 성남방문요양센터 성남재가복지센터 새소망방문요양센터 입니다.", "222912392169"],
+    ["2022. 10. 27.", "오시는 길", "오시는 길", "222912387833"],
+  ]);
+  assert.equal(saesomangContent.intro.body, "센터를 알아보는 시간부터 이용에 필요한 안내까지, 궁금한 점을 차근차근 확인해 보세요.");
   const faqSection = pageSource.match(/<section id="faq"[\s\S]*?<\/section>/)?.[0] ?? "";
   const faq = [...faqSection.matchAll(/<details><summary>(.*?)<\/summary><p>(.*?)<\/p><\/details>/g)].map(([, question, answer]) => ({ question, answer }));
   assert.equal(faq.length, 3);
-  assert.deepEqual(saesomangContent.extras.faq, faq);
+  assert.equal(saesomangContent.extras.faq.length, 4);
+  assert.equal(saesomangContent.extras.faq[0].question, "등급을 아직 받지 않았는데 문의할 수 있나요?");
   const expectedContacts = [
     { label: "TEL 031-726-5288", href: "tel:031-726-5288", kind: "center-info" },
     { label: "Mobile 010-5384-2146", href: "tel:010-5384-2146", kind: "center-info" },
@@ -66,5 +73,11 @@ test("preserves V1 arrays and exact visible facts while separating center inform
   for (const value of ["031-726-5288", "010-5384-2146", "031-712-8718"]) assert.ok(pageSource.includes(value));
   assert.deepEqual(saesomangContent.extras.location, { address: "경기도 성남시 분당구 미금로 215 청솔마을 대원상가 207호\n청솔마을대원8단지아파트상가 2층", directions: "미금역 1번 출구에서 도보 5~10분입니다.", navigationQuery: "청솔마을대원8단지아파트상가" });
   assert.equal(saesomangContent.extras.consultation.title.text, "돌봄에 관한 궁금한 점, 카카오에서 시작하세요.");
+  assert.deepEqual(saesomangContent.care.tabs.map(({ text, body }) => [text, body]), [
+    ["문의 시작", "궁금한 서비스 종류와 일반적인 이용 절차를 오픈채팅에서 확인합니다."],
+    ["이용 준비", "이용 전에 확인할 사항을 정리합니다."],
+    ["지역·일정 확인", "필요한 지역과 일정에 관한 안내를 받습니다."],
+    ["이용 중 소통", "이용 과정에서 생긴 질문을 나눕니다."],
+  ]);
   assert.equal(saesomangContent.footer.copyright, "© 2026 새소망 방문요양센터");
 });

@@ -53,10 +53,11 @@ test("server-renders standalone Phase 2 extras with an anchor-only Kakao guide",
       React.createElement(location, { brandName: content.brand.name, location: extras.location, contacts: extras.contacts }),
       React.createElement(footer, { brand: content.brand, footer: { ...content.footer, links: extras.contacts, legal: [] } }),
     ));
-    assert.equal((html.match(/data-story-id=/g) ?? []).length, 7);
-    assert.equal((html.match(/<details/g) ?? []).length, 3);
-    assert.match(html, /센터가 전하는 제도·운영 정보입니다\./);
-    assert.match(html, /먼저 궁금한 이야기들입니다\./);
+    assert.equal((html.match(/data-story-id=/g) ?? []).length, 3);
+    assert.equal((html.match(/<details/g) ?? []).length, 4);
+    assert.match(html, /센터 이야기와 이용 안내\./);
+    assert.match(html, /이용 전 자주 묻는 질문입니다\./);
+    assert.match(html, /블로그에서 더 보기/);
     assert.match(html, /카카오 오픈채팅으로 이동합니다\. 그룹방에는 연락처·건강정보·서류 사진을 올리지 마세요\./);
     assert.match(html, /href="https:\/\/open\.kakao\.com\/o\/ggmGtL5e"/);
     assert.equal((html.match(/<form\b|<input\b|<textarea\b/g) ?? []).length, 0);
