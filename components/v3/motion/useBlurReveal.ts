@@ -4,20 +4,21 @@ import type { RefObject } from "react";
 import { useGSAP } from "@gsap/react";
 import { getV3Gsap } from "./gsap";
 
-type BlurRevealOptions = { duration?: number; stagger?: number; y?: number; blur?: number };
+type BlurRevealOptions = { duration?: number; stagger?: number; y?: number; blur?: number; triggerSelector?: string };
 
 /** Reveals only elements inside `root`, preserving pre-existing inline styles on cleanup. */
 export function useBlurReveal(
   root: RefObject<HTMLElement | null>,
   selector: string,
   reduced: boolean | null,
-  { duration = 0.9, stagger = 0.1, y = 30, blur = 12 }: BlurRevealOptions = {},
+  { duration = 0.9, stagger = 0.1, y = 30, blur = 12, triggerSelector }: BlurRevealOptions = {},
 ) {
   useGSAP((_, contextSafe) => {
     if (reduced === null || reduced) return;
     const scope = root.current;
     const targets = scope?.querySelectorAll<HTMLElement>(selector);
-    if (!scope || !targets?.length) return;
+    const trigger = triggerSelector ? scope?.querySelector<HTMLElement>(triggerSelector) : scope;
+    if (!scope || !trigger || !targets?.length) return;
 
     const original = Array.from(targets, (target) => ({
       target,
@@ -41,7 +42,7 @@ export function useBlurReveal(
           duration,
           stagger,
           ease: "power2.out",
-          scrollTrigger: { trigger: scope, start: "top 80%", once: true },
+          scrollTrigger: { trigger, start: "top 80%", once: true },
         },
       );
     });
@@ -57,5 +58,5 @@ export function useBlurReveal(
         target.style.filter = filter;
       });
     };
-  }, { scope: root, dependencies: [selector, reduced, duration, stagger, y, blur], revertOnUpdate: true });
+  }, { scope: root, dependencies: [selector, reduced, duration, stagger, y, blur, triggerSelector], revertOnUpdate: true });
 }

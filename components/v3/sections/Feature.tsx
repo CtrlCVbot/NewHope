@@ -10,7 +10,7 @@ import { GlassCard } from "../ui/GlassCard";
 import { richTextSegments } from "../ui/richTextSegments";
 import styles from "./feature.module.css";
 
-type Props = { feature: V3Content["feature"] };
+type Props = { feature: V3Content["feature"]; variant?: "design" | "saesomang" };
 
 function Title({ value }: { value: V3Content["feature"]["title"] }) {
   return <h2 className={styles.title} data-feature-title aria-label={value.text}>{richTextSegments(value).map((segment, index) => segment.emphasized ? <em key={index}>{segment.text}</em> : <span key={index}>{segment.text}</span>)}</h2>;
@@ -20,10 +20,12 @@ function CardIntro({ value }: { value: V3Content["feature"]["cardIntro"] }) {
   return <p className={styles.cardIntro} data-feature-card-intro>{richTextSegments(value).map((segment, index) => segment.emphasized ? <em key={index}>{segment.text}</em> : <span key={index}>{segment.text}</span>)}</p>;
 }
 
-export function Feature({ feature }: Props) {
+export function Feature({ feature, variant = "design" }: Props) {
   const root = useRef<HTMLElement>(null);
   const reduced = useReducedMotion();
-  useReveal(root, "[data-feature-reveal]", reduced, { duration: 0.9, stagger: 0.1, y: 28 });
+  const isSaesomang = variant === "saesomang";
+  useReveal(root, isSaesomang ? "[data-feature-copy], [data-feature-cta]" : "[data-feature-reveal]", reduced, { duration: 0.9, stagger: 0.1, y: 28, triggerSelector: isSaesomang ? "[data-feature-copy]" : undefined });
+  useReveal(root, "[data-feature-card]", isSaesomang ? reduced : true, { duration: 0.9, stagger: 0.1, y: 28, triggerSelector: isSaesomang ? "[data-feature-card]" : undefined });
 
   const diagram = feature.image.kind === "diagram" || feature.image.kind === "decorative";
   return <section ref={root} className={`${styles.feature} ${diagram ? styles.diagramFeature : ""}`} data-v3-feature data-media-kind={feature.image.kind}>
