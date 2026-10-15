@@ -11,7 +11,7 @@ const stories = [
   ["222912392169", "2022. 10. 27.", "분당새소망방문요양센터 성남방문요양센터 성남재가복지센터 새소망방문요양센터 입니다."],
   ["222912387833", "2022. 10. 27.", "오시는 길"],
 ];
-const photos = ["hero.webp", "intro-family-consultation.webp", "feature-living-conversation.webp", "card-1.webp", "card-2.webp", "card-3.webp"];
+const photos = ["hero.webp", "intro-family-consultation.webp", "feature-living-conversation.webp", "service-daily-living.webp", "service-bath-preparation.webp", "service-companionship.webp"];
 
 test("renders visible phase-two V3 facts, assets, anchors, and section order", async () => {
   const response = await render("/v3");

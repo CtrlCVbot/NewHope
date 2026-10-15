@@ -40,11 +40,11 @@ function ServiceCard({ card, iconAsset }: { card: V3Content["services"]["cards"]
   </button>;
 }
 
-function SaesomangServiceCard({ card, iconAsset }: { card: V3Content["services"]["cards"][number]; iconAsset?: string }) {
+function SaesomangServiceCard({ card, cardId, iconAsset }: { card: V3Content["services"]["cards"][number]; cardId: string; iconAsset?: string }) {
   const icon = iconNames.includes(card.icon as IconName) ? card.icon as IconName : "leaf";
-  return <article className={`${styles.card} ${styles.saesomangCard}`} data-services-card>
-    <span className={styles.cardImage} aria-hidden="true"><Image src={card.image.src} alt="" fill sizes="(max-width: 768px) calc(100vw - 48px), 380px" /></span>
-    <div className={styles.saesomangCardContent}><span className={styles.cardIcon}>{iconAsset ? <Image src={iconAsset} alt="" width={32} height={32} aria-hidden="true" /> : <Icon name={icon} />}</span><h3 className={styles.cardTitle}>{card.title}</h3><p className={styles.cardSubtitle}>{card.subtitle}</p><p className={styles.cardDescription} data-services-description>{card.description}</p></div>
+  return <article className={`${styles.card} ${styles.saesomangCard}`} data-services-card aria-labelledby={cardId} tabIndex={0}>
+    <span className={styles.cardImage}><Image src={card.image.src} alt={card.image.alt} fill sizes="(max-width: 768px) calc(100vw - 48px), 380px" /></span>
+    <div className={styles.saesomangCardContent}><span className={styles.cardIcon}>{iconAsset ? <Image src={iconAsset} alt="" width={32} height={32} aria-hidden="true" /> : <Icon name={icon} />}</span><h3 id={cardId} className={styles.cardTitle}>{card.title}</h3><p className={styles.cardSubtitle}>{card.subtitle}</p><p className={styles.cardDescription} data-services-description>{card.description}</p></div>
   </article>;
 }
 
@@ -54,6 +54,6 @@ export function ServiceCards({ cards, cardsLabel, reduced, iconAssets, variant =
 
   return <div ref={root} className={styles.cardsSection} aria-label={cardsLabel} data-services-cards data-reduced={reduced ? "true" : undefined}>
     <p className={styles.cardsLabel}>{cardsLabel}</p>
-    <div className={styles.cards}>{cards.slice(0, 3).map((card, index) => variant === "saesomang" ? <SaesomangServiceCard key={`${card.title}-${card.subtitle}`} card={card} iconAsset={iconAssets?.[index]} /> : <ServiceCard key={`${card.title}-${card.subtitle}`} card={card} iconAsset={iconAssets?.[index]} />)}</div>
+    <div className={styles.cards}>{cards.slice(0, 3).map((card, index) => variant === "saesomang" ? <SaesomangServiceCard key={`${card.title}-${card.subtitle}`} card={card} cardId={`saesomang-service-card-${index + 1}`} iconAsset={iconAssets?.[index]} /> : <ServiceCard key={`${card.title}-${card.subtitle}`} card={card} iconAsset={iconAssets?.[index]} />)}</div>
   </div>;
 }

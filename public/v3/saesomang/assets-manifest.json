@@ -29,38 +29,13 @@
       "bytes": 44840
     },
     {
-      "name": "card-1",
+      "name": "service-daily-living",
       "kind": "photo",
-      "sourceId": "cleaning",
-      "sourcePath": "assets/v3/saesomang/source/cleaning-hands-blog.png",
-      "sourceSha256": "5c246fa6fd99212ece6239311a1c412c9821239e73ef23c7167e482b345fc37f",
-      "sourceLicenseEvidence": "블로그 원본, 사용자 재사용 권한 확인 2026-10-15",
-      "alt": "집 안의 식탁을 닦으며 생활을 돕는 장면",
-      "crop": {
-        "pixels": {
-          "left": 0,
-          "top": 0,
-          "width": 966,
-          "height": 809
-        },
-        "focalPoint": "hands-and-face-preserved",
-        "preservesFullSource": false
-      },
-      "actualDimensions": {
-        "width": 900,
-        "height": 754
-      },
-      "file": "images/card-1.webp",
-      "bytes": 32254
-    },
-    {
-      "name": "card-2",
-      "kind": "photo",
-      "sourceId": "bathing",
-      "sourcePath": "public/service-bathing-v2.png",
-      "sourceSha256": "acd8336791367d1ba226a395e716249bbdfe952e0214c94a92a8b7e39166a40c",
-      "sourceLicenseEvidence": "기존 승인 자산, 사용자 재사용 권한 확인 2026-10-13",
-      "alt": "방문목욕 안내 장면",
+      "sourceId": "dailyLiving",
+      "sourcePath": "assets/v3/saesomang/source/wu25/NH24-I01-daily-living.png",
+      "sourceSha256": "ec01a0e297b5255f2ac611df585ca60989fe6a1dbd1f8200dc76302d4e56c88d",
+      "sourceLicenseEvidence": "사용자 요청으로 2026-10-15 built-in image_gen에서 만든 가상 장면 NH24-I01",
+      "alt": "가정에서 식사를 준비하며 일상 도움을 나누는 가상 예시 장면",
       "crop": {
         "pixels": {
           "left": 0,
@@ -68,24 +43,49 @@
           "width": 1536,
           "height": 1024
         },
-        "focalPoint": "bathing-care",
-        "preservesFullSource": false
+        "focalPoint": "full-scene-preserved",
+        "preservesFullSource": true
       },
       "actualDimensions": {
         "width": 1200,
         "height": 800
       },
-      "file": "images/card-2.webp",
-      "bytes": 55368
+      "file": "images/service-daily-living.webp",
+      "bytes": 50474
     },
     {
-      "name": "card-3",
+      "name": "service-bath-preparation",
+      "kind": "photo",
+      "sourceId": "bathPreparation",
+      "sourcePath": "assets/v3/saesomang/source/wu25/NH24-I03-bath-preparation.png",
+      "sourceSha256": "4fa346bf05a79a1f5ff15168a7619507bbb162b1cd37fc4aeb98a2305227c4f8",
+      "sourceLicenseEvidence": "사용자 요청으로 2026-10-15 built-in image_gen에서 만든 가상 장면 NH24-I03",
+      "alt": "방문목욕 전 필요한 물품을 살피는 가상 예시 장면",
+      "crop": {
+        "pixels": {
+          "left": 0,
+          "top": 0,
+          "width": 1536,
+          "height": 1024
+        },
+        "focalPoint": "full-scene-preserved",
+        "preservesFullSource": true
+      },
+      "actualDimensions": {
+        "width": 1200,
+        "height": 800
+      },
+      "file": "images/service-bath-preparation.webp",
+      "bytes": 51898
+    },
+    {
+      "name": "service-companionship",
       "kind": "photo",
       "sourceId": "companionship",
-      "sourcePath": "public/service-companionship-v2.png",
-      "sourceSha256": "7f593d5f9004a624e54c8fe32e65ab8935fd1f005d4fd118be0abf1e0e7e5a1d",
-      "sourceLicenseEvidence": "기존 승인 자산, 사용자 재사용 권한 확인 2026-10-13",
-      "alt": "말벗과 생활을 살피는 장면",
+      "sourcePath": "assets/v3/saesomang/source/wu25/NH24-I02-companionship.png",
+      "sourceSha256": "fa7b6b427ee0c23dab1d6a8f178c072b7a39b83a149858d43420d40083e848a8",
+      "sourceLicenseEvidence": "사용자 요청으로 2026-10-15 built-in image_gen에서 만든 가상 장면 NH24-I02",
+      "alt": "집에서 이야기를 나누며 하루를 살피는 가상 예시 장면",
       "crop": {
         "pixels": {
           "left": 0,
@@ -93,15 +93,15 @@
           "width": 1536,
           "height": 1024
         },
-        "focalPoint": "care-interaction",
-        "preservesFullSource": false
+        "focalPoint": "full-scene-preserved",
+        "preservesFullSource": true
       },
       "actualDimensions": {
         "width": 1200,
         "height": 800
       },
-      "file": "images/card-3.webp",
-      "bytes": 47082
+      "file": "images/service-companionship.webp",
+      "bytes": 83360
     },
     {
       "name": "mission",

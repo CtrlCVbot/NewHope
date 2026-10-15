@@ -11,7 +11,7 @@ const root = path.resolve(import.meta.dirname, "..");
 const assets = path.join(root, "public", "v3", "saesomang");
 const manifestPath = path.join(assets, "assets-manifest.json");
 const execFile = promisify(execFileCallback);
-const photos = ["hero", "card-1", "card-2", "card-3", "mission", "intro-family-consultation", "feature-living-conversation"];
+const photos = ["hero", "service-daily-living", "service-bath-preparation", "service-companionship", "mission", "intro-family-consultation", "feature-living-conversation"];
 const diagrams = { "intro-left": "intro-home.svg", "intro-right": "intro-conversation.svg", feature: "feature-support.svg", services: "services-daily.svg", "care-1": "care-start.svg", "care-2": "care-prepare.svg", "care-3": "care-region.svg", "care-4": "care-dialogue.svg", why: "why-garden.svg" };
 const loadManifest = async () => JSON.parse(await readFile(manifestPath, "utf8"));
 
@@ -26,6 +26,20 @@ test("photo metadata and files prove no source enlargement", async () => {
   const manifest = await loadManifest();
   for (const image of manifest.images.filter(({ kind }) => kind === "photo")) { const metadata = await sharp(path.join(assets, image.file)).metadata(); assert.equal(metadata.format, "webp"); assert.deepEqual({ width: metadata.width, height: metadata.height }, image.actualDimensions); assert.ok(image.actualDimensions.width <= image.crop.pixels.width, `${image.name} width enlarged`); assert.ok(image.actualDimensions.height <= image.crop.pixels.height, `${image.name} height enlarged`); }
   assert.equal(manifest.images.find(({ name }) => name === "mission").crop.preservesFullSource, true);
+});
+test("maps the three service cards to the approved WU25 scenes at 3:2", async () => {
+  const manifest = await loadManifest();
+  const expected = [
+    ["service-daily-living", "dailyLiving", "assets/v3/saesomang/source/wu25/NH24-I01-daily-living.png"],
+    ["service-bath-preparation", "bathPreparation", "assets/v3/saesomang/source/wu25/NH24-I03-bath-preparation.png"],
+    ["service-companionship", "companionship", "assets/v3/saesomang/source/wu25/NH24-I02-companionship.png"],
+  ];
+  for (const [name, sourceId, sourcePath] of expected) {
+    const image = manifest.images.find((entry) => entry.name === name);
+    assert.equal(image.sourceId, sourceId); assert.equal(image.sourcePath, sourcePath);
+    assert.deepEqual(image.actualDimensions, { width: 1200, height: 800 });
+    assert.deepEqual(image.crop.pixels, { left: 0, top: 0, width: 1536, height: 1024 }); assert.equal(image.crop.preservesFullSource, true);
+  }
 });
 test("hashes, rights evidence, SVG dimensions, and SVG safety are recorded", async () => {
   const manifest = await loadManifest();

@@ -31,7 +31,7 @@ test("maps the approved V3 contract, brand paths, pending facts, and Kakao consu
     ["/v3/saesomang/images/hero.webp?v=wu18-20261015", "photo"],
     ["/v3/saesomang/illustrations/intro-home.svg", "diagram"], ["/v3/saesomang/illustrations/intro-conversation.svg", "diagram"],
     ["/v3/saesomang/illustrations/feature-support.svg", "diagram"], ["/v3/saesomang/illustrations/services-daily.svg", "diagram"],
-    ["/v3/saesomang/images/card-1.webp?v=wu18-20261015", "photo"], ["/v3/saesomang/images/card-2.webp?v=wu18-20261015", "photo"], ["/v3/saesomang/images/card-3.webp?v=wu18-20261015", "photo"], ["/v3/saesomang/images/mission.webp?v=wu18-20261015", "photo"],
+    ["/v3/saesomang/images/service-daily-living.webp", "photo"], ["/v3/saesomang/images/service-bath-preparation.webp", "photo"], ["/v3/saesomang/images/service-companionship.webp", "photo"], ["/v3/saesomang/images/mission.webp?v=wu18-20261015", "photo"],
     ["/v3/saesomang/images/intro-family-consultation.webp", "photo"], ["/v3/saesomang/images/feature-living-conversation.webp", "photo"],
     ["/v3/saesomang/illustrations/care-start.svg", "diagram"], ["/v3/saesomang/illustrations/care-prepare.svg", "diagram"], ["/v3/saesomang/illustrations/care-region.svg", "diagram"], ["/v3/saesomang/illustrations/care-dialogue.svg", "diagram"], ["/v3/saesomang/illustrations/why-garden.svg", "decorative"],
   ]);
