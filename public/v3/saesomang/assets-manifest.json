@@ -1,513 +1,249 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "generatedBy": "scripts/build-v3-saesomang-assets.mjs",
-  "sourceLicenseEvidence": "사용자 재사용 권한 확인 2026-10-13",
-  "sourceType": "원본의 촬영 또는 생성 여부는 확인하지 않음",
-  "note": "2x 출력은 1536x1024 원본을 확대하며 새 디테일을 만들지 않습니다.",
+  "sourceType": "사진은 승인된 기존 자산 또는 블로그 원본이며, 실제 직원 또는 센터 사진이라고 주장하지 않음",
   "images": [
     {
       "name": "hero",
-      "role": "hero",
-      "alt": "집 안에서 이동을 돕는 돌봄의 장면",
-      "source": "hero",
+      "kind": "photo",
+      "sourceId": "hero",
       "sourcePath": "public/hero-care.png",
       "sourceSha256": "ef5737dd1c0cd5834a86299f5be8232877212eb710da8fbd18c33eaba25bcbf6",
-      "sourceLicenseEvidence": "사용자 재사용 권한 확인 2026-10-13",
+      "sourceLicenseEvidence": "기존 승인 자산, 사용자 재사용 권한 확인 2026-10-13",
+      "alt": "집 안에서 이동을 돕는 돌봄의 장면",
       "crop": {
-        "normalized": {
-          "left": 0,
-          "top": 0.02,
-          "width": 1,
-          "height": 0.96
-        },
         "pixels": {
           "left": 0,
-          "top": 20,
+          "top": 18,
           "width": 1536,
-          "height": 983
+          "height": 989
         },
-        "focalPoint": "care-interaction"
+        "focalPoint": "care-interaction",
+        "preservesFullSource": false
       },
-      "oneX": {
-        "file": "images/hero-1x.webp",
+      "actualDimensions": {
         "width": 1440,
-        "height": 927,
-        "bytes": 41688
+        "height": 927
       },
-      "twoX": {
-        "file": "images/hero.webp",
-        "width": 2880,
-        "height": 1854,
-        "bytes": 96788
-      }
-    },
-    {
-      "name": "intro-left",
-      "role": "intro-left",
-      "alt": "어르신과 대화하며 생활을 살피는 장면",
-      "source": "companionship",
-      "sourcePath": "public/service-companionship-v2.png",
-      "sourceSha256": "7f593d5f9004a624e54c8fe32e65ab8935fd1f005d4fd118be0abf1e0e7e5a1d",
-      "sourceLicenseEvidence": "사용자 재사용 권한 확인 2026-10-13",
-      "crop": {
-        "normalized": {
-          "left": 0.5,
-          "top": 0,
-          "width": 0.31,
-          "height": 1
-        },
-        "pixels": {
-          "left": 768,
-          "top": 0,
-          "width": 476,
-          "height": 1024
-        },
-        "focalPoint": "care-interaction"
-      },
-      "oneX": {
-        "file": "images/intro-left-1x.webp",
-        "width": 338,
-        "height": 670,
-        "bytes": 15686
-      },
-      "twoX": {
-        "file": "images/intro-left.webp",
-        "width": 676,
-        "height": 1340,
-        "bytes": 33956
-      }
-    },
-    {
-      "name": "intro-right",
-      "role": "intro-right",
-      "alt": "일상 활동을 돕는 돌봄의 장면",
-      "source": "homecare",
-      "sourcePath": "public/service-homecare-v2.png",
-      "sourceSha256": "0f3d48de6ce2a7050a4f682ff95720e188dc5bcd2ccde1233c8e3f1fbd2d77ad",
-      "sourceLicenseEvidence": "사용자 재사용 권한 확인 2026-10-13",
-      "crop": {
-        "normalized": {
-          "left": 0.3,
-          "top": 0,
-          "width": 0.67,
-          "height": 1
-        },
-        "pixels": {
-          "left": 461,
-          "top": 0,
-          "width": 1029,
-          "height": 1024
-        },
-        "focalPoint": "care-interaction"
-      },
-      "oneX": {
-        "file": "images/intro-right-1x.webp",
-        "width": 496,
-        "height": 519,
-        "bytes": 14698
-      },
-      "twoX": {
-        "file": "images/intro-right.webp",
-        "width": 992,
-        "height": 1038,
-        "bytes": 36502
-      }
-    },
-    {
-      "name": "feature",
-      "role": "feature",
-      "alt": "집 안에서 이동을 돕는 돌봄의 장면",
-      "source": "hero",
-      "sourcePath": "public/hero-care.png",
-      "sourceSha256": "ef5737dd1c0cd5834a86299f5be8232877212eb710da8fbd18c33eaba25bcbf6",
-      "sourceLicenseEvidence": "사용자 재사용 권한 확인 2026-10-13",
-      "crop": {
-        "normalized": {
-          "left": 0,
-          "top": 0,
-          "width": 1,
-          "height": 1
-        },
-        "pixels": {
-          "left": 0,
-          "top": 0,
-          "width": 1536,
-          "height": 1024
-        },
-        "focalPoint": "care-interaction"
-      },
-      "oneX": {
-        "file": "images/feature-1x.webp",
-        "width": 1232,
-        "height": 928,
-        "bytes": 37960
-      },
-      "twoX": {
-        "file": "images/feature.webp",
-        "width": 2464,
-        "height": 1856,
-        "bytes": 89934
-      }
-    },
-    {
-      "name": "services",
-      "role": "services",
-      "alt": "생활 가까이 필요한 도움을 살피는 장면",
-      "source": "homecare",
-      "sourcePath": "public/service-homecare-v2.png",
-      "sourceSha256": "0f3d48de6ce2a7050a4f682ff95720e188dc5bcd2ccde1233c8e3f1fbd2d77ad",
-      "sourceLicenseEvidence": "사용자 재사용 권한 확인 2026-10-13",
-      "crop": {
-        "normalized": {
-          "left": 0.44,
-          "top": 0,
-          "width": 0.52,
-          "height": 1
-        },
-        "pixels": {
-          "left": 676,
-          "top": 0,
-          "width": 799,
-          "height": 1024
-        },
-        "focalPoint": "care-interaction"
-      },
-      "oneX": {
-        "file": "images/services-1x.webp",
-        "width": 880,
-        "height": 1360,
-        "bytes": 42916
-      },
-      "twoX": {
-        "file": "images/services.webp",
-        "width": 1760,
-        "height": 2720,
-        "bytes": 105118
-      }
+      "file": "images/hero.webp",
+      "bytes": 44840
     },
     {
       "name": "card-1",
-      "role": "card-1",
-      "alt": "방문요양으로 일상을 돕는 장면",
-      "source": "homecare",
-      "sourcePath": "public/service-homecare-v2.png",
-      "sourceSha256": "0f3d48de6ce2a7050a4f682ff95720e188dc5bcd2ccde1233c8e3f1fbd2d77ad",
-      "sourceLicenseEvidence": "사용자 재사용 권한 확인 2026-10-13",
+      "kind": "photo",
+      "sourceId": "cleaning",
+      "sourcePath": "assets/v3/saesomang/source/cleaning-hands-blog.png",
+      "sourceSha256": "5c246fa6fd99212ece6239311a1c412c9821239e73ef23c7167e482b345fc37f",
+      "sourceLicenseEvidence": "블로그 원본, 사용자 재사용 권한 확인 2026-10-15",
+      "alt": "집 안의 식탁을 닦으며 생활을 돕는 장면",
       "crop": {
-        "normalized": {
-          "left": 0.4,
-          "top": 0,
-          "width": 0.6,
-          "height": 1
-        },
         "pixels": {
-          "left": 614,
+          "left": 0,
           "top": 0,
-          "width": 922,
-          "height": 1024
+          "width": 966,
+          "height": 809
         },
-        "focalPoint": "care-interaction"
+        "focalPoint": "hands-and-face-preserved",
+        "preservesFullSource": false
       },
-      "oneX": {
-        "file": "images/card-1-1x.webp",
-        "width": 928,
-        "height": 1232,
-        "bytes": 42514
+      "actualDimensions": {
+        "width": 900,
+        "height": 754
       },
-      "twoX": {
-        "file": "images/card-1.webp",
-        "width": 1856,
-        "height": 2464,
-        "bytes": 102554
-      }
+      "file": "images/card-1.webp",
+      "bytes": 32254
     },
     {
       "name": "card-2",
-      "role": "card-2",
-      "alt": "방문목욕 안내 장면",
-      "source": "bathing",
+      "kind": "photo",
+      "sourceId": "bathing",
       "sourcePath": "public/service-bathing-v2.png",
       "sourceSha256": "acd8336791367d1ba226a395e716249bbdfe952e0214c94a92a8b7e39166a40c",
-      "sourceLicenseEvidence": "사용자 재사용 권한 확인 2026-10-13",
+      "sourceLicenseEvidence": "기존 승인 자산, 사용자 재사용 권한 확인 2026-10-13",
+      "alt": "방문목욕 안내 장면",
       "crop": {
-        "normalized": {
-          "left": 0.4,
-          "top": 0,
-          "width": 0.6,
-          "height": 1
-        },
         "pixels": {
-          "left": 614,
+          "left": 0,
           "top": 0,
-          "width": 922,
+          "width": 1536,
           "height": 1024
         },
-        "focalPoint": "care-interaction"
+        "focalPoint": "bathing-care",
+        "preservesFullSource": false
       },
-      "oneX": {
-        "file": "images/card-2-1x.webp",
-        "width": 928,
-        "height": 1232,
-        "bytes": 68020
+      "actualDimensions": {
+        "width": 1200,
+        "height": 800
       },
-      "twoX": {
-        "file": "images/card-2.webp",
-        "width": 1856,
-        "height": 2464,
-        "bytes": 160970
-      }
+      "file": "images/card-2.webp",
+      "bytes": 55368
     },
     {
       "name": "card-3",
-      "role": "card-3",
-      "alt": "말벗과 생활을 살피는 장면",
-      "source": "companionship",
+      "kind": "photo",
+      "sourceId": "companionship",
       "sourcePath": "public/service-companionship-v2.png",
       "sourceSha256": "7f593d5f9004a624e54c8fe32e65ab8935fd1f005d4fd118be0abf1e0e7e5a1d",
-      "sourceLicenseEvidence": "사용자 재사용 권한 확인 2026-10-13",
+      "sourceLicenseEvidence": "기존 승인 자산, 사용자 재사용 권한 확인 2026-10-13",
+      "alt": "말벗과 생활을 살피는 장면",
       "crop": {
-        "normalized": {
-          "left": 0.38,
-          "top": 0,
-          "width": 0.62,
-          "height": 1
-        },
         "pixels": {
-          "left": 584,
+          "left": 0,
           "top": 0,
-          "width": 952,
+          "width": 1536,
           "height": 1024
         },
-        "focalPoint": "care-interaction"
+        "focalPoint": "care-interaction",
+        "preservesFullSource": false
       },
-      "oneX": {
-        "file": "images/card-3-1x.webp",
-        "width": 928,
-        "height": 1232,
-        "bytes": 46598
+      "actualDimensions": {
+        "width": 1200,
+        "height": 800
       },
-      "twoX": {
-        "file": "images/card-3.webp",
-        "width": 1856,
-        "height": 2464,
-        "bytes": 110656
-      }
+      "file": "images/card-3.webp",
+      "bytes": 47082
     },
     {
       "name": "mission",
-      "role": "mission",
-      "alt": "대화하며 함께하는 돌봄의 장면",
-      "source": "companionship",
-      "sourcePath": "public/service-companionship-v2.png",
-      "sourceSha256": "7f593d5f9004a624e54c8fe32e65ab8935fd1f005d4fd118be0abf1e0e7e5a1d",
-      "sourceLicenseEvidence": "사용자 재사용 권한 확인 2026-10-13",
+      "kind": "photo",
+      "sourceId": "hands",
+      "sourcePath": "assets/v3/saesomang/source/hands-care-blog.png",
+      "sourceSha256": "7cd3a30ed3d0a3c8c180ce450eea9c04487eb76d2089c217393b841c613b0034",
+      "sourceLicenseEvidence": "블로그 원본, 사용자 재사용 권한 확인 2026-10-15",
+      "alt": "손을 맞잡고 함께하는 돌봄의 장면",
       "crop": {
-        "normalized": {
-          "left": 0.5,
-          "top": 0,
-          "width": 0.36,
-          "height": 1
-        },
         "pixels": {
-          "left": 768,
+          "left": 0,
           "top": 0,
-          "width": 553,
-          "height": 1024
+          "width": 966,
+          "height": 809
         },
-        "focalPoint": "caregiver-and-elder-conversation"
+        "focalPoint": "full-hands-scene",
+        "preservesFullSource": true
       },
-      "oneX": {
-        "file": "images/mission-1x.webp",
-        "width": 880,
-        "height": 1764,
-        "bytes": 47784
+      "actualDimensions": {
+        "width": 966,
+        "height": 809
       },
-      "twoX": {
-        "file": "images/mission.webp",
-        "width": 1760,
-        "height": 3528,
-        "bytes": 117876
-      }
+      "file": "images/mission.webp",
+      "bytes": 35006
+    },
+    {
+      "name": "intro-left",
+      "kind": "diagram",
+      "sourceId": "illustration-intro-left",
+      "sourcePath": "illustrations/intro-home.svg",
+      "sourceSha256": "722f5e0ff4e6cc972dc981454e241e367d4cfb97649057f01039b94c9aa3500a",
+      "sourceLicenseEvidence": "프로젝트 고유 SVG 도해, 2026-10-15",
+      "alt": "집 안에서 편안히 머무는 공간을 표현한 도해",
+      "file": "illustrations/intro-home.svg",
+      "width": 480,
+      "height": 720,
+      "bytes": 1743
+    },
+    {
+      "name": "intro-right",
+      "kind": "diagram",
+      "sourceId": "illustration-intro-right",
+      "sourcePath": "illustrations/intro-conversation.svg",
+      "sourceSha256": "804a3cc43ba8ffb4d4c50a6be72892cad96d8f804d99d3e8063e85ccb89916cc",
+      "sourceLicenseEvidence": "프로젝트 고유 SVG 도해, 2026-10-15",
+      "alt": "대화와 안부를 나누는 돌봄을 표현한 도해",
+      "file": "illustrations/intro-conversation.svg",
+      "width": 640,
+      "height": 620,
+      "bytes": 1517
+    },
+    {
+      "name": "feature",
+      "kind": "diagram",
+      "sourceId": "illustration-feature",
+      "sourcePath": "illustrations/feature-support.svg",
+      "sourceSha256": "e1f935aeb5de69e52e7d84c110f20cee5728c02f1309c55e99718197e6a207f8",
+      "sourceLicenseEvidence": "프로젝트 고유 SVG 도해, 2026-10-15",
+      "alt": "일상 지원을 표현한 도해",
+      "file": "illustrations/feature-support.svg",
+      "width": 1200,
+      "height": 900,
+      "bytes": 1532
+    },
+    {
+      "name": "services",
+      "kind": "diagram",
+      "sourceId": "illustration-services",
+      "sourcePath": "illustrations/services-daily.svg",
+      "sourceSha256": "08230d2c6df6b8768caa47ec61fc572bfcc9d8639c825ac53157a94be83a8665",
+      "sourceLicenseEvidence": "프로젝트 고유 SVG 도해, 2026-10-15",
+      "alt": "하루의 생활 지원을 표현한 도해",
+      "file": "illustrations/services-daily.svg",
+      "width": 720,
+      "height": 1000,
+      "bytes": 1491
     },
     {
       "name": "care-1",
-      "role": "care-1",
-      "alt": "가족 같은 마음으로 이동을 돕는 장면",
-      "source": "hero",
-      "sourcePath": "public/hero-care.png",
-      "sourceSha256": "ef5737dd1c0cd5834a86299f5be8232877212eb710da8fbd18c33eaba25bcbf6",
-      "sourceLicenseEvidence": "사용자 재사용 권한 확인 2026-10-13",
-      "crop": {
-        "normalized": {
-          "left": 0.36,
-          "top": 0,
-          "width": 0.64,
-          "height": 1
-        },
-        "pixels": {
-          "left": 553,
-          "top": 0,
-          "width": 983,
-          "height": 1024
-        },
-        "focalPoint": "care-interaction"
-      },
-      "oneX": {
-        "file": "images/care-1-1x.webp",
-        "width": 674,
-        "height": 927,
-        "bytes": 29236
-      },
-      "twoX": {
-        "file": "images/care-1.webp",
-        "width": 1348,
-        "height": 1854,
-        "bytes": 66776
-      }
+      "kind": "diagram",
+      "sourceId": "illustration-care-1",
+      "sourcePath": "illustrations/care-start.svg",
+      "sourceSha256": "caf02891465eb651b5f267c43e8cf7f1718dd46035fd218d305dd435ae591fd4",
+      "sourceLicenseEvidence": "프로젝트 고유 SVG 도해, 2026-10-15",
+      "alt": "돌봄 시작 단계를 표현한 도해",
+      "file": "illustrations/care-start.svg",
+      "width": 720,
+      "height": 900,
+      "bytes": 1517
     },
     {
       "name": "care-2",
-      "role": "care-2",
-      "alt": "생활 가까이 필요한 도움을 살피는 장면",
-      "source": "homecare",
-      "sourcePath": "public/service-homecare-v2.png",
-      "sourceSha256": "0f3d48de6ce2a7050a4f682ff95720e188dc5bcd2ccde1233c8e3f1fbd2d77ad",
-      "sourceLicenseEvidence": "사용자 재사용 권한 확인 2026-10-13",
-      "crop": {
-        "normalized": {
-          "left": 0.38,
-          "top": 0,
-          "width": 0.62,
-          "height": 1
-        },
-        "pixels": {
-          "left": 584,
-          "top": 0,
-          "width": 952,
-          "height": 1024
-        },
-        "focalPoint": "care-interaction"
-      },
-      "oneX": {
-        "file": "images/care-2-1x.webp",
-        "width": 674,
-        "height": 927,
-        "bytes": 30566
-      },
-      "twoX": {
-        "file": "images/care-2.webp",
-        "width": 1348,
-        "height": 1854,
-        "bytes": 68910
-      }
+      "kind": "diagram",
+      "sourceId": "illustration-care-2",
+      "sourcePath": "illustrations/care-prepare.svg",
+      "sourceSha256": "cdf30b5a3c5ede87277b1544817324d39cecd42e4e9eb7fa45f4805e62b4f34a",
+      "sourceLicenseEvidence": "프로젝트 고유 SVG 도해, 2026-10-15",
+      "alt": "돌봄 준비 단계를 표현한 도해",
+      "file": "illustrations/care-prepare.svg",
+      "width": 720,
+      "height": 900,
+      "bytes": 1345
     },
     {
       "name": "care-3",
-      "role": "care-3",
-      "alt": "방문목욕 안내 장면",
-      "source": "bathing",
-      "sourcePath": "public/service-bathing-v2.png",
-      "sourceSha256": "acd8336791367d1ba226a395e716249bbdfe952e0214c94a92a8b7e39166a40c",
-      "sourceLicenseEvidence": "사용자 재사용 권한 확인 2026-10-13",
-      "crop": {
-        "normalized": {
-          "left": 0.38,
-          "top": 0,
-          "width": 0.62,
-          "height": 1
-        },
-        "pixels": {
-          "left": 584,
-          "top": 0,
-          "width": 952,
-          "height": 1024
-        },
-        "focalPoint": "care-interaction"
-      },
-      "oneX": {
-        "file": "images/care-3-1x.webp",
-        "width": 674,
-        "height": 927,
-        "bytes": 48088
-      },
-      "twoX": {
-        "file": "images/care-3.webp",
-        "width": 1348,
-        "height": 1854,
-        "bytes": 110864
-      }
+      "kind": "diagram",
+      "sourceId": "illustration-care-3",
+      "sourcePath": "illustrations/care-region.svg",
+      "sourceSha256": "92be9ac591982cd53bd52028235be50ad22429d48acf83d8c71e79be73aec1d6",
+      "sourceLicenseEvidence": "프로젝트 고유 SVG 도해, 2026-10-15",
+      "alt": "방문 가능 지역을 표현한 도해",
+      "file": "illustrations/care-region.svg",
+      "width": 720,
+      "height": 900,
+      "bytes": 1702
     },
     {
       "name": "care-4",
-      "role": "care-4",
-      "alt": "편안한 일상을 함께하는 대화 장면",
-      "source": "companionship",
-      "sourcePath": "public/service-companionship-v2.png",
-      "sourceSha256": "7f593d5f9004a624e54c8fe32e65ab8935fd1f005d4fd118be0abf1e0e7e5a1d",
-      "sourceLicenseEvidence": "사용자 재사용 권한 확인 2026-10-13",
-      "crop": {
-        "normalized": {
-          "left": 0,
-          "top": 0,
-          "width": 1,
-          "height": 1
-        },
-        "pixels": {
-          "left": 0,
-          "top": 0,
-          "width": 1536,
-          "height": 1024
-        },
-        "focalPoint": "care-interaction"
-      },
-      "oneX": {
-        "file": "images/care-4-1x.webp",
-        "width": 1232,
-        "height": 928,
-        "bytes": 47802
-      },
-      "twoX": {
-        "file": "images/care-4.webp",
-        "width": 2464,
-        "height": 1856,
-        "bytes": 107724
-      }
+      "kind": "diagram",
+      "sourceId": "illustration-care-4",
+      "sourcePath": "illustrations/care-dialogue.svg",
+      "sourceSha256": "76fff171c6f694dd646749f560b5f7ed19c508484174c825e6a90457fa6d5e3a",
+      "sourceLicenseEvidence": "프로젝트 고유 SVG 도해, 2026-10-15",
+      "alt": "상담과 대화를 표현한 도해",
+      "file": "illustrations/care-dialogue.svg",
+      "width": 720,
+      "height": 900,
+      "bytes": 1502
     },
     {
       "name": "why",
-      "role": "why",
-      "alt": "어르신의 이야기를 듣는 돌봄의 장면",
-      "source": "companionship",
-      "sourcePath": "public/service-companionship-v2.png",
-      "sourceSha256": "7f593d5f9004a624e54c8fe32e65ab8935fd1f005d4fd118be0abf1e0e7e5a1d",
-      "sourceLicenseEvidence": "사용자 재사용 권한 확인 2026-10-13",
-      "crop": {
-        "normalized": {
-          "left": 0,
-          "top": 0.04,
-          "width": 1,
-          "height": 0.92
-        },
-        "pixels": {
-          "left": 0,
-          "top": 41,
-          "width": 1536,
-          "height": 942
-        },
-        "focalPoint": "care-interaction"
-      },
-      "oneX": {
-        "file": "images/why-1x.webp",
-        "width": 1920,
-        "height": 1266,
-        "bytes": 76440
-      },
-      "twoX": {
-        "file": "images/why.webp",
-        "width": 3840,
-        "height": 2532,
-        "bytes": 183412
-      }
+      "kind": "diagram",
+      "sourceId": "illustration-why",
+      "sourcePath": "illustrations/why-garden.svg",
+      "sourceSha256": "0afd7ffeaac19aadc6f59ce5806edb83e98a23a3158165da07dba3b512dc5e14",
+      "sourceLicenseEvidence": "프로젝트 고유 SVG 도해, 2026-10-15",
+      "alt": "집에서 자라는 일상을 표현한 도해",
+      "file": "illustrations/why-garden.svg",
+      "width": 1600,
+      "height": 1000,
+      "bytes": 1689
     }
   ],
   "brand": {
@@ -535,6 +271,6 @@
     "height": 630,
     "source": "public/hero-care.png",
     "brand": "brand/header-full.svg",
-    "copy": "익숙한 집에서, 오늘의 삶을 이어갑니다."
+    "copy": "익숙한 집에서, 편안한 하루를."
   }
 }

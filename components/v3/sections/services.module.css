@@ -18,6 +18,7 @@
 .leadImageMask::after { position: absolute; inset: 0; z-index: 5; background: #fff; content: ""; pointer-events: none; transform: translateX(var(--mask-x)); }
 .leadImage { width: 100%; height: 125%; min-height: 125%; object-fit: cover; object-position: center top; }
 .imageShade { position: absolute; inset: 0; background: linear-gradient(199deg, transparent 39.41%, #15031b 99.75%); opacity: 0; pointer-events: none; }
+.diagramLead { min-height: 56.5rem; }.diagramLead .leadImageMask { background: #efe8df; }.diagramLead .leadImageMask::after { display: none; }.diagramLead .leadImage { min-height: 0; height: 100%; object-fit: contain; padding: 3rem; box-sizing: border-box; transform: none !important; }
 .cardsSection { position: relative; padding: 10rem max(2rem, calc((100vw - 90rem) / 2 + 2rem)) 11.1875rem; overflow: hidden; background: #6c5275; }
 .cardsLabel { margin: 0 0 4.9375rem; background: var(--g-gold); background-clip: text; color: transparent; font: 400 1rem/1.5 var(--f-sans); letter-spacing: .1rem; text-transform: uppercase; }
 .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 3.75rem; }
@@ -38,7 +39,9 @@
 .card[aria-expanded="true"] .cardDescription { opacity: 1; transform: translateY(0); }
 .card:focus-visible { outline: 3px solid #e8cb92; outline-offset: 4px; }
 @media (max-width: 1200px) { .statementInner { flex-direction: column; gap: 2rem; } .statement h2, .statement p { flex: 1 1 0; } .statement p { padding-top: 0; } .leadCopy { width: 100%; } .cards { gap: .625rem; } .card { height: 26rem; } }
+@media (min-width: 769px) and (max-width: 1200px) { .diagramLead .leadCopy { width: 50%; min-height: 56.5rem; }.diagramLead .leadImageMask { width: 50%; } }
 @media (max-width: 768px) { .statementInner { padding: 0 1.5rem; } .statement h2 { font-size: 3rem; } .statement h2 em { font-size: 3.5rem; } .statement p { font-size: 1rem; } .leadCopy { padding: 12.9375rem 1.5rem; } .lead h3 { color: #fff; font-size: 2.5rem; } .lead h3 em { background: var(--g-gold); background-clip: text; color: transparent; } .points li { color: #fff; } .leadImageMask { width: 100%; height: 100%; } .leadImage { min-height: 140%; } .imageShade { opacity: 1; } .cardsSection { padding: 10rem 1.5rem 11.1875rem; } .cards { grid-template-columns: 1fr; gap: .625rem; } }
+@media (max-width: 768px) { .diagramLead { display: flex; flex-direction: column; min-height: 0; }.diagramLead .leadImageMask { position: relative; order: -1; height: min(78vw, 34rem); }.diagramLead .leadCopy { min-height: 0; padding: 4rem 1.5rem; }.diagramLead h3, .diagramLead .points li { color: #6c5275; } }
 @media (max-width: 450px) { .card { height: 24rem; } .cardFront { padding: 2.1875rem 1.5rem 2rem; } .cardDescription { padding: 1.5rem; } }
 @media (max-width: 280px) { .statement h2 { font-size: 2.25rem; } .cardTitle { font-size: 1.25rem; } .cardFront, .cardDescription { padding: 2.1875rem 1.5rem 2.5rem; } .cardDescription { font-size: .875rem; } }
 @media (prefers-reduced-motion: reduce) { .cardImage, .cardDescription, .cardFront { transition: none; } }

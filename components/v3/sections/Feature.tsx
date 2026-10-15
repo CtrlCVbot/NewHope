@@ -25,10 +25,11 @@ export function Feature({ feature }: Props) {
   const reduced = useReducedMotion();
   useReveal(root, "[data-feature-reveal]", reduced, { duration: 0.9, stagger: 0.1, y: 28 });
 
-  return <section ref={root} className={styles.feature} data-v3-feature>
+  const diagram = feature.image.kind === "diagram" || feature.image.kind === "decorative";
+  return <section ref={root} className={`${styles.feature} ${diagram ? styles.diagramFeature : ""}`} data-v3-feature data-media-kind={feature.image.kind}>
     <div className={styles.background} data-feature-bg aria-hidden="true">
       <Image className={styles.backgroundImage} src={feature.image.src} alt="" fill sizes="100vw" priority={false} />
-      <div className={styles.gradient} />
+      {!diagram && <div className={styles.gradient} />}
     </div>
     <div className={styles.hero}>
       <div className={styles.heroContent}>

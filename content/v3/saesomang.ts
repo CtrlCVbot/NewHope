@@ -20,20 +20,20 @@ export type SaesomangExtras = NonNullable<V3Content["extras"]> & {
 };
 
 export const saesomangPhotoSlots: Img[] = [
-  { src: "/v3/saesomang/images/hero.webp", alt: "집 안에서 이동을 돕는 돌봄의 장면" },
-  { src: "/v3/saesomang/images/intro-left.webp", alt: "편안하게 대화를 나누는 장면" },
-  { src: "/v3/saesomang/images/intro-right.webp", alt: "일상 활동을 돕는 장면" },
-  { src: "/v3/saesomang/images/feature.webp", alt: "집 안에서 이동을 돕는 장면" },
-  { src: "/v3/saesomang/images/services.webp", alt: "일상 가까이 필요한 도움을 살피는 장면" },
-  { src: "/v3/saesomang/images/card-1.webp", alt: "가정에서 일상을 돕는 방문요양 장면" },
-  { src: "/v3/saesomang/images/card-2.webp", alt: "가정에서 필요한 방문목욕을 안내하는 장면" },
-  { src: "/v3/saesomang/images/card-3.webp", alt: "말벗과 생활을 살피는 장면" },
-  { src: "/v3/saesomang/images/mission.webp", alt: "함께 대화를 나누는 돌봄의 장면" },
-  { src: "/v3/saesomang/images/care-1.webp", alt: "일상의 움직임을 돕는 장면" },
-  { src: "/v3/saesomang/images/care-2.webp", alt: "생활 가까이 필요한 도움을 나누는 장면" },
-  { src: "/v3/saesomang/images/care-3.webp", alt: "편안한 목욕을 안내하는 장면" },
-  { src: "/v3/saesomang/images/care-4.webp", alt: "말벗이 되어 일상을 함께하는 장면" },
-  { src: "/v3/saesomang/images/why.webp", alt: "편안한 일상을 함께 살피는 장면" },
+  { src: "/v3/saesomang/images/hero.webp?v=wu18-20261015", alt: "집 안에서 이동을 돕는 돌봄의 장면", kind: "photo" },
+  { src: "/v3/saesomang/illustrations/intro-home.svg", alt: "집에서의 일상을 상징하는 도해", kind: "diagram" },
+  { src: "/v3/saesomang/illustrations/intro-conversation.svg", alt: "대화와 안내를 상징하는 도해", kind: "diagram" },
+  { src: "/v3/saesomang/illustrations/feature-support.svg", alt: "필요한 도움을 함께 살피는 과정을 나타낸 도해", kind: "diagram" },
+  { src: "/v3/saesomang/illustrations/services-daily.svg", alt: "일상 가까이 필요한 도움을 나타낸 도해", kind: "diagram" },
+  { src: "/v3/saesomang/images/card-1.webp?v=wu18-20261015", alt: "집 안의 식탁을 닦으며 생활을 돕는 장면", kind: "photo" },
+  { src: "/v3/saesomang/images/card-2.webp?v=wu18-20261015", alt: "가정에서 필요한 방문목욕을 안내하는 장면", kind: "photo" },
+  { src: "/v3/saesomang/images/card-3.webp?v=wu18-20261015", alt: "말벗과 생활을 살피는 장면", kind: "photo" },
+  { src: "/v3/saesomang/images/mission.webp?v=wu18-20261015", alt: "서로 손을 잡은 모습", kind: "photo" },
+  { src: "/v3/saesomang/illustrations/care-start.svg", alt: "문의 시작을 나타낸 도해", kind: "diagram" },
+  { src: "/v3/saesomang/illustrations/care-prepare.svg", alt: "이용 준비를 나타낸 도해", kind: "diagram" },
+  { src: "/v3/saesomang/illustrations/care-region.svg", alt: "지역과 일정 확인을 위한 개념도이며 실제 지도나 확정 방문 범위를 뜻하지 않습니다", kind: "diagram" },
+  { src: "/v3/saesomang/illustrations/care-dialogue.svg", alt: "이용 중 소통을 나타낸 도해", kind: "diagram" },
+  { src: "/v3/saesomang/illustrations/why-garden.svg", alt: "", kind: "decorative" },
 ];
 
 const [hero, introLeft, introRight, feature, services, card1, card2, card3, mission, care1, care2, care3, care4, why] = saesomangPhotoSlots;
@@ -152,10 +152,11 @@ export const saesomangContent: V3Content & { extras: SaesomangExtras } = {
   },
   care: {
     label: "상담 이후 흐름",
+    rotation: "manual",
     tabs: [
       { text: "문의 시작", body: "궁금한 서비스 종류와 일반적인 이용 절차를 오픈채팅에서 확인합니다.", image: care1 },
       { text: "이용 준비", body: "이용 전에 확인할 사항을 정리합니다.", image: care2 },
-      { text: "지역·일정 확인", body: "필요한 지역과 일정에 관한 안내를 받습니다.", image: care3 },
+      { text: "지역·일정 확인", body: "필요한 지역과 일정에 관한 안내를 받습니다. 이 그림은 실제 지도나 확정 방문 범위가 아닌 개념도입니다.", image: care3 },
       { text: "이용 중 소통", body: "이용 과정에서 생긴 질문을 나눕니다.", image: care4 },
     ],
   },

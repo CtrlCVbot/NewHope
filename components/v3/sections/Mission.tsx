@@ -19,9 +19,10 @@ export function Mission({ id, mission }: Props) {
   const reduced = useReducedMotion();
   useReveal(root, "[data-mission-reveal]", reduced, { duration: 0.8, stagger: 0.08, y: 24 });
   useMaskReveal(root, "[data-mission-mask]", reduced, { axis: "x" });
+  const photoLayout = mission.image.kind === "photo";
   useParallax(root, "[data-mission-parallax]", reduced, { amount: -20 });
 
-  return <section id={id} ref={root} className={styles.mission} data-v3-mission>
+  return <section id={id} ref={root} className={`${styles.mission} ${photoLayout ? styles.photoMission : ""}`} data-v3-mission>
     <div className={styles.wrapper}>
       <div className={styles.content}>
         <div className={styles.textContent}>
@@ -31,8 +32,8 @@ export function Mission({ id, mission }: Props) {
         </div>
       </div>
       <div className={styles.image} data-mission-image>
-        <Image src={mission.image.src} alt={mission.image.alt} fill sizes="(max-width: 768px) 100vw, 50vw" data-mission-parallax />
-        <div className={styles.gradient} aria-hidden="true" />
+        <Image src={mission.image.src} alt={mission.image.alt} fill sizes="(max-width: 768px) 100vw, 50vw" {...(!photoLayout ? { "data-mission-parallax": true } : {})} />
+        {!photoLayout && <div className={styles.gradient} aria-hidden="true" />}
         <div className={styles.mask} data-mission-mask aria-hidden="true" />
       </div>
     </div>

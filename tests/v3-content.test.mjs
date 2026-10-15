@@ -27,7 +27,13 @@ test("maps the approved V3 contract, brand paths, pending facts, and Kakao consu
     { label: "센터소식", href: "#stories" }, { label: "오시는길", href: "#location" }, { label: "카카오 상담 ↗", href: KAKAO_OPEN_CHAT_URL },
   ]);
   assert.deepEqual([saesomangPhotoSlots.length, saesomangContent.feature.pills.length, saesomangContent.services.cards.length, saesomangContent.process.steps.length, saesomangContent.mission.items.length, saesomangContent.care.tabs.length, saesomangContent.extras.stories.length, saesomangContent.extras.faq.length], [14, 3, 3, 6, 4, 4, 3, 4]);
-  assert.ok(saesomangPhotoSlots.every(({ src }) => src.startsWith("/v3/saesomang/images/") && src.endsWith(".webp")));
+  assert.deepEqual(saesomangPhotoSlots.map(({ src, kind }) => [src, kind]), [
+    ["/v3/saesomang/images/hero.webp?v=wu18-20261015", "photo"],
+    ["/v3/saesomang/illustrations/intro-home.svg", "diagram"], ["/v3/saesomang/illustrations/intro-conversation.svg", "diagram"],
+    ["/v3/saesomang/illustrations/feature-support.svg", "diagram"], ["/v3/saesomang/illustrations/services-daily.svg", "diagram"],
+    ["/v3/saesomang/images/card-1.webp?v=wu18-20261015", "photo"], ["/v3/saesomang/images/card-2.webp?v=wu18-20261015", "photo"], ["/v3/saesomang/images/card-3.webp?v=wu18-20261015", "photo"], ["/v3/saesomang/images/mission.webp?v=wu18-20261015", "photo"],
+    ["/v3/saesomang/illustrations/care-start.svg", "diagram"], ["/v3/saesomang/illustrations/care-prepare.svg", "diagram"], ["/v3/saesomang/illustrations/care-region.svg", "diagram"], ["/v3/saesomang/illustrations/care-dialogue.svg", "diagram"], ["/v3/saesomang/illustrations/why-garden.svg", "decorative"],
+  ]);
   assert.equal(saesomangPhotoSlots[0].alt, "집 안에서 이동을 돕는 돌봄의 장면");
   assert.deepEqual(saesomangBrandAssets, { headerFullSvg: "/v3/saesomang/brand/header-full.svg", headerShortSvg: "/v3/saesomang/brand/header-short.svg", whySvg: "/v3/saesomang/brand/why.svg" });
   assert.deepEqual(pendingFactChecks.excludedFromVisibleContent, ["급여 범위 6항목", "버스 노선"]);
@@ -36,6 +42,7 @@ test("maps the approved V3 contract, brand paths, pending facts, and Kakao consu
   assert.equal(saesomangContent.header.cta.label, "카카오 상담");
   assert.equal(saesomangContent.header.cta.href, KAKAO_OPEN_CHAT_URL);
   assert.equal(saesomangContent.cta.button.href, KAKAO_OPEN_CHAT_URL);
+  assert.equal(saesomangContent.care.rotation, "manual");
   assert.equal(saesomangContent.extras.consultation.button.href, KAKAO_OPEN_CHAT_URL);
   assert.match(saesomangContent.extras.consultation.notice, /그룹방에는 연락처·건강정보·서류 사진을 올리지 마세요/);
 });
@@ -76,7 +83,7 @@ test("preserves source facts while applying the approved section-copy contract",
   assert.deepEqual(saesomangContent.care.tabs.map(({ text, body }) => [text, body]), [
     ["문의 시작", "궁금한 서비스 종류와 일반적인 이용 절차를 오픈채팅에서 확인합니다."],
     ["이용 준비", "이용 전에 확인할 사항을 정리합니다."],
-    ["지역·일정 확인", "필요한 지역과 일정에 관한 안내를 받습니다."],
+    ["지역·일정 확인", "필요한 지역과 일정에 관한 안내를 받습니다. 이 그림은 실제 지도나 확정 방문 범위가 아닌 개념도입니다."],
     ["이용 중 소통", "이용 과정에서 생긴 질문을 나눕니다."],
   ]);
   assert.equal(saesomangContent.footer.copyright, "© 2026 새소망 방문요양센터");

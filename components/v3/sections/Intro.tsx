@@ -33,8 +33,14 @@ export function Intro({ intro, id }: Props) {
     <div className={styles.container}>
       <header className={styles.header}><p className={styles.label} data-intro-label data-intro-reveal>{intro.label}</p><Headline value={intro.headline} /></header>
       <div className={styles.grid}>
-        <figure className={`${styles.image} ${styles.left}`} data-intro-image="left" data-intro-mask-y><Image src={intro.images[0].src} alt={intro.images[0].alt} fill sizes="(max-width: 768px) 100vw, 338px" data-intro-parallax /></figure>
-        <figure className={`${styles.image} ${styles.right}`} data-intro-image="right" data-intro-mask-x><Image src={intro.images[1].src} alt={intro.images[1].alt} fill sizes="(max-width: 768px) 100vw, 578px" data-intro-parallax /></figure>
+        {intro.images.map((image, index) => {
+          const diagram = image.kind === "diagram" || image.kind === "decorative";
+          const side = index === 0 ? styles.left : styles.right;
+          const mask = index === 0 ? "data-intro-mask-y" : "data-intro-mask-x";
+          return <figure key={image.src} className={`${styles.image} ${side} ${diagram ? styles.diagram : ""}`} data-intro-image={index === 0 ? "left" : "right"} data-media-kind={image.kind} {...{ [mask]: true }}>
+            <Image src={image.src} alt={image.alt} fill sizes={index === 0 ? "(max-width: 768px) 100vw, 338px" : "(max-width: 768px) 100vw, 578px"} {...(!diagram ? { "data-intro-parallax": true } : {})} />
+          </figure>;
+        })}
         <div className={styles.bodyWrap} data-intro-reveal><p className={styles.body} data-intro-body>{intro.body}</p></div>
       </div>
     </div>

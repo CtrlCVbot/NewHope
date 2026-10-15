@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 1000" role="img" aria-labelledby="daily-title daily-desc">
+ <title id="daily-title">식탁과 쉼이 있는 집의 하루</title><desc id="daily-desc">비껴본 식탁, 물컵, 의자와 열린 동선으로 편안한 일상 공간을 표현한 도해</desc>
+ <rect width="720" height="1000" rx="55" fill="#f5f0eb"/><path d="M75 844V167h570v677" fill="#e8dfd6" stroke="#6c5275" stroke-width="11"/><path d="M104 195h512v210H104" fill="#d9c4ab"/>
+ <path d="M440 195l-83 210M560 195l-164 210" stroke="#fffaf4" stroke-width="24" opacity=".75"/><path d="M154 719c-20-140 111-211 222-143 109 67 68 239-72 242-82 2-138-35-150-99z" fill="#c4a58a" stroke="#6c5275" stroke-width="11"/>
+ <ellipse cx="309" cy="657" rx="122" ry="74" fill="#f5f0eb" stroke="#6c5275" stroke-width="9"/><circle cx="309" cy="657" r="37" fill="#74c1cd"/><path d="M277 654c21-16 43-16 64 0M284 674h51" stroke="#f5f0eb" stroke-width="8" stroke-linecap="round"/>
+ <path d="M157 608c-76 7-99 85-49 133 33 31 89 20 112-20M462 616c73-11 106 75 63 128-31 38-93 31-116-9" fill="none" stroke="#6c5275" stroke-width="26" stroke-linecap="round"/>
+ <path d="M512 810c0-101 128-129 164-44 17 41-1 85-37 107H496c10-18 16-39 16-63z" fill="#b0a1bf"/><path d="M542 812c0-61 78-77 98-29 9 21 2 57-8 90h-98c5-19 8-40 8-61z" fill="#e8dfd6"/>
+ <path d="M109 893c135-51 245-35 334 10M457 902c76-35 142-30 193 9" fill="none" stroke="#3a1f3a" stroke-width="10" stroke-linecap="round"/>
+</svg>

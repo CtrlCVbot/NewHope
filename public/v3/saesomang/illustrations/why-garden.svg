@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="garden-title garden-desc">
+ <title id="garden-title">집에서 자라는 두 갈래의 새싹</title><desc id="garden-desc">넓은 보라 바탕에서 집 형태의 공간과 새싹, 부드러운 호가 확장되는 장식 도해</desc>
+ <rect width="1600" height="1000" rx="72" fill="#3a1f3a"/><path d="M75 806C319 575 510 565 732 742s457 173 793-104" fill="none" stroke="#6c5275" stroke-width="118" stroke-linecap="round"/><path d="M104 816c249-204 426-201 625-42 205 164 453 167 768-93" fill="none" stroke="#b0a1bf" stroke-width="12" stroke-linecap="round"/>
+ <path d="M494 726V391l306-238 306 238v335" fill="#6c5275" stroke="#f5f0eb" stroke-width="15" stroke-linejoin="round"/><path d="M550 704V415l250-192 250 192v289" fill="#3a1f3a"/>
+ <path d="M800 204v286" stroke="#f5f0eb" stroke-width="12" stroke-linecap="round"/><path d="M801 487c-135-97-205-210-143-290 101 20 169 113 143 290z" fill="#74c1cd" stroke="#f5f0eb" stroke-width="12" stroke-linejoin="round"/><path d="M801 487c135-97 205-210 143-290-101 20-169 113-143 290z" fill="#c4a58a" stroke="#f5f0eb" stroke-width="12" stroke-linejoin="round"/>
+ <path d="M633 704c0-114 74-176 167-176s167 62 167 176" fill="#e8dfd6"/><path d="M660 704c0-94 61-145 140-145s140 51 140 145" fill="#f5f0eb"/>
+ <path d="M235 319c83-78 173-104 272-82M1095 235c124-39 218-5 304 85" fill="none" stroke="#d9c4ab" stroke-width="17" stroke-linecap="round"/>
+ <circle cx="281" cy="284" r="18" fill="#74c1cd"/><circle cx="1361" cy="315" r="18" fill="#c4a58a"/><path d="M214 849h1175" stroke="#f5f0eb" stroke-width="10" stroke-linecap="round" opacity=".7"/>
+</svg>

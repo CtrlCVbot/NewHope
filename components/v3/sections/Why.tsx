@@ -28,10 +28,11 @@ export function Why({ why, brand }: Props) {
   const reduced = useReducedMotion();
   useWordReveal(root, "[data-why-word], [data-why-logo-reveal]", reduced, { duration: 1, stagger: 0.06 });
   useBlurReveal(root, "[data-why-blur]", reduced, { duration: 0.9, stagger: 0.035, y: 30, blur: 12 });
-  useParallax(root, "[data-why-image]", reduced, { amount: -20 });
+  const diagram = why.image.kind === "diagram" || why.image.kind === "decorative";
+  useParallax(root, diagram ? "[data-why-diagram-static]" : "[data-why-image]", reduced, { amount: -20 });
 
-  return <section ref={root} className={styles.why} data-v3-why>
-    <div className={styles.background} aria-hidden="true"><Image src={why.image.src} alt="" fill sizes="100vw" data-why-image /><div className={styles.gradient} /></div>
+  return <section ref={root} className={`${styles.why} ${diagram ? styles.diagramWhy : ""}`} data-v3-why data-media-kind={why.image.kind}>
+    <div className={styles.background} aria-hidden="true"><Image src={why.image.src} alt="" fill sizes="100vw" {...(!diagram ? { "data-why-image": true } : {})} />{!diagram && <div className={styles.gradient} />}</div>
     <div className={styles.logo} data-why-logo><Image src={brand.wordmarkSvg} alt={brand.name} fill sizes="(max-width: 450px) 240px, (max-width: 890px) 512px, 869px" data-why-logo-reveal /></div>
     <div className={styles.content}>
       <div className={styles.textWrap}>

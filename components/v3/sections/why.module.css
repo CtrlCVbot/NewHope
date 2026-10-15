@@ -2,6 +2,7 @@
 .background { position: absolute; inset: 0; }
 .background img { min-height: 125%; object-fit: cover; object-position: center; }
 .gradient { position: absolute; inset: 0; background: linear-gradient(188deg, transparent 6.22%, #613d6d 97.27%); pointer-events: none; }
+.diagramWhy .background { display: flex; align-items: center; justify-content: center; background: #6c5275; }.diagramWhy .background img { min-height: 0; width: 100%; height: 100%; object-fit: contain; object-position: center; opacity: .28; transform: none !important; }
 .logo { position: absolute; z-index: 2; top: 3.6594rem; right: 2rem; width: 54.3006rem; height: 9.3481rem; overflow: hidden; }
 .logo img { object-fit: contain; }
 .content { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 2rem; width: min(100%, 90rem); min-height: 57.9375rem; margin: 0 auto; padding: 26.8125rem 2rem 4rem; }
@@ -17,4 +18,5 @@
 @media (min-width: 2100px) { .logo { right: 15rem; } }
 @media (max-width: 890px) { .logo { width: 32rem; } }
 @media (max-width: 768px) { .why { min-height: auto; } .background img { min-height: 150%; } .logo { top: 2rem; width: 20rem; } .content { min-height: auto; padding: 12rem 1.5rem 4rem; } .title { font-size: 2.5rem; } .title em { font-size: 1.2em; } .body { font-size: 1rem; } .footnote { margin: 2rem 0 0; font-size: .875rem; } }
+@media (max-width: 768px) { .diagramWhy .background img { min-height: 0; } }
 @media (max-width: 450px) { .logo { top: 0; right: auto; left: 1.5rem; width: 15rem; } }

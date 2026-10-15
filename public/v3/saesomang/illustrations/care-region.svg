@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 900" role="img" aria-labelledby="region-title region-desc">
+ <title id="region-title">지역 확인을 위한 부드러운 개념도</title><desc id="region-desc">중앙의 집과 위치 표시, 점선 연결로 지역 상담 확인을 표현한 개념 도해</desc>
+ <rect width="720" height="900" rx="54" fill="#f5f0eb"/><path d="M96 223c82-70 167-66 241-27 52-74 162-95 267-18 66 48 61 159 0 213 63 67 40 177-53 206-67 20-103-24-161 23-70 56-179 28-204-54-51-30-70-106-31-157-56-53-50-139-59-186z" fill="#e8dfd6" stroke="#6c5275" stroke-width="11"/>
+ <path d="M122 292c65-54 133-57 199-19M402 217c64-43 129-33 181 19M127 453c48-30 101-31 151-3M451 450c55-38 111-34 153-2M213 585c42-19 85-15 124 11" fill="none" stroke="#c4a58a" stroke-width="34" stroke-linecap="round"/>
+ <path d="M355 578V435l110-72 110 72v143" fill="#d9c4ab" stroke="#6c5275" stroke-width="11" stroke-linejoin="round"/><path d="M404 578v-102h122v102" fill="#f5f0eb"/><path d="M376 443h178" stroke="#6c5275" stroke-width="10"/>
+ <path d="M462 204c-54 0-84 58-54 99l54 76 54-76c30-41 0-99-54-99z" fill="#74c1cd" stroke="#6c5275" stroke-width="10"/><circle cx="462" cy="260" r="19" fill="#f5f0eb"/>
+ <path d="M177 339c67 29 129 45 181 84M532 329c-28 39-40 66-43 112M260 629c45-9 72-25 105-51" fill="none" stroke="#6c5275" stroke-width="9" stroke-linecap="round" stroke-dasharray="5 22"/>
+ <circle cx="174" cy="340" r="17" fill="#b0a1bf"/><circle cx="535" cy="329" r="17" fill="#b0a1bf"/><circle cx="260" cy="629" r="17" fill="#b0a1bf"/>
+ <path d="M120 737c122 37 239 32 350-16 49-21 94-25 130-14" fill="none" stroke="#3a1f3a" stroke-width="12" stroke-linecap="round"/>
+</svg>

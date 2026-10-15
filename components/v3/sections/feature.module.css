@@ -2,6 +2,9 @@
 .background { position: sticky; top: 0; z-index: 0; width: 100%; height: 927px; }
 .backgroundImage { width: 100%; height: 100%; object-fit: cover; object-position: center; transform: rotateY(180deg); }
 .gradient { position: absolute; inset: 0; background: linear-gradient(188deg, rgb(0 0 0 / 0%) 6.22%, #613d6d 97.27%); }
+.diagramFeature { background: var(--c-cream); }.diagramFeature .background { right: 0; left: auto; width: 50%; margin-left: auto; background: #efe8df; }.diagramFeature .backgroundImage { object-fit: contain; object-position: center; transform: none; }.diagramFeature .hero { color: var(--c-primary); }.diagramFeature .title { color: var(--c-primary); }.diagramFeature .body { color: rgb(108 82 117 / 85%); }.diagramFeature .cardWrapper { justify-content: flex-start; margin-left: 0; margin-right: auto; }.diagramFeature .card { border-color: rgb(108 82 117 / 18%); }
+@media (min-width: 769px) { .diagramFeature .title, .diagramFeature .body { max-width: min(654px, calc(50% - 4rem)); } }
+@media (min-width: 769px) and (max-width: 1200px) { .diagramFeature .title { font-size: clamp(2.75rem, 5.2vw, 3.5rem); }.diagramFeature .heroContent { gap: 2rem; } }
 .hero { position: sticky; top: 0; z-index: 1; width: 100%; height: 927px; margin-top: -927px; pointer-events: none; }
 .heroContent { width: 100%; max-width: 1440px; height: 100%; margin: 0 auto; padding: 0 32px; display: flex; flex-direction: column; justify-content: center; gap: 40px; pointer-events: auto; box-sizing: border-box; }
 .title { max-width: 654px; margin: 0; color: #fff; font: 400 70px/1 var(--f-serif); letter-spacing: -.02em; text-wrap: balance; word-break: keep-all; }.title em, .cardIntro em { background: var(--g-gold); background-clip: text; color: transparent; font-style: normal; }
@@ -21,4 +24,5 @@
 @media (max-width: 1200px) { .heroContent { max-width: 100%; }.card { max-width: 100%; } }
 @media (max-width: 1000px) { .hero { position: relative; }.cardWrapper { width: auto; height: auto; margin: 0; padding: 48px 32px; }.card { width: 100%; max-width: 100%; } }
 @media (max-width: 768px) { .hero { height: 100%; min-height: 80vh; }.heroContent { padding: 128px 24px 64px; justify-content: flex-start; gap: 32px; }.title { font-size: 48px; }.cardWrapper { padding: 48px 0; margin: 0 24px; }.card { padding: 32px; }.cardIntro { font-size: 15px; } }
+@media (max-width: 768px) { .diagramFeature .background { position: relative; width: 100%; height: min(72vw, 420px); }.diagramFeature .hero { height: auto; min-height: 0; margin-top: 0; }.diagramFeature .heroContent { padding-top: 64px; }.diagramFeature .cardWrapper { margin: 0 24px; } }
 @media (max-width: 450px) { .title { font-size: 36px; } }

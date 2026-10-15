@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 900" role="img" aria-labelledby="dialogue-title dialogue-desc">
+ <title id="dialogue-title">책 곁에서 이어지는 일상 소통</title><desc id="dialogue-desc">큰 말풍선, 열린 책, 햇빛과 식물로 일상 질문과 대화를 표현한 도해</desc>
+ <rect width="720" height="900" rx="54" fill="#f5f0eb"/><path d="M80 116h560v337H80z" fill="#d9c4ab"/><path d="M366 116l-96 337M517 116L357 453" stroke="#fffaf4" stroke-width="29" opacity=".8"/>
+ <path d="M161 533c0-126 189-147 236-33 35 86-37 162-139 148H161z" fill="#b0a1bf" stroke="#6c5275" stroke-width="11"/><path d="M256 648l-39 54 79-46" fill="#b0a1bf" stroke="#6c5275" stroke-width="11" stroke-linejoin="round"/>
+ <path d="M227 579c32-25 67-25 100 0M255 612h44" stroke="#f5f0eb" stroke-width="12" stroke-linecap="round"/>
+ <path d="M115 778c107-62 215-64 323-4 78 44 139 42 188 17" fill="none" stroke="#6c5275" stroke-width="13" stroke-linecap="round"/>
+ <path d="M284 790V641c72-36 139-30 198 18v131c-67-42-133-44-198 0z" fill="#e8dfd6" stroke="#6c5275" stroke-width="10" stroke-linejoin="round"/><path d="M383 657v120" stroke="#6c5275" stroke-width="8"/><path d="M314 694h43M314 720h43M411 694h42M411 720h42" stroke="#c4a58a" stroke-width="9" stroke-linecap="round"/>
+ <path d="M555 592c-38-21-27-69 6-72 5-35 54-38 61-1 32 4 39 50 8 67-20 12-51 13-75 6z" fill="#74c1cd" stroke="#6c5275" stroke-width="9"/><path d="M590 597v-92" stroke="#6c5275" stroke-width="8"/>
+</svg>

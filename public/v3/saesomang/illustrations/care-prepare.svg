@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 900" role="img" aria-labelledby="prepare-title prepare-desc">
+ <title id="prepare-title">차분하게 준비하는 수첩</title><desc id="prepare-desc">펼친 수첩의 세 가지 체크 표시와 연필, 책갈피를 표현한 도해</desc>
+ <rect width="720" height="900" rx="54" fill="#f5f0eb"/><path d="M102 187c104-39 190-26 258 27 72-53 158-66 258-27v520c-106-39-193-24-258 32-65-56-152-71-258-32z" fill="#e8dfd6" stroke="#6c5275" stroke-width="12" stroke-linejoin="round"/>
+ <path d="M360 214v521" stroke="#6c5275" stroke-width="10"/><path d="M130 224c95-25 165-12 218 31v434c-56-36-128-47-218-24zM372 255c54-43 125-56 218-31v441c-91-23-163-12-218 24z" fill="#fffaf4"/>
+ <path d="M169 348l20 21 39-48M169 472l20 21 39-48M169 596l20 21 39-48" fill="none" stroke="#6c5275" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/><path d="M247 345h67M247 469h67M247 593h67M407 346h126M407 469h126M407 593h126" stroke="#b0a1bf" stroke-width="12" stroke-linecap="round"/>
+ <path d="M495 134l64 29-150 328-77 24 22-77z" fill="#c4a58a" stroke="#3a1f3a" stroke-width="10" stroke-linejoin="round"/><path d="M495 134l64 29-16 34-64-29z" fill="#3a1f3a"/>
+ <path d="M485 708l53 91-65-21-46 28 2-98" fill="#74c1cd" stroke="#6c5275" stroke-width="10" stroke-linejoin="round"/>
+</svg>

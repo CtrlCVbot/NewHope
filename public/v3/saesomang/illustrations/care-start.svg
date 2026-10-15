@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 900" role="img" aria-labelledby="start-title start-desc">
+ <title id="start-title">열린 문에서 시작하는 첫 문의</title><desc id="start-desc">열린 문, 마주 보는 말풍선, 발자국으로 첫 상담의 시작을 나타낸 도해</desc>
+ <rect width="720" height="900" rx="54" fill="#f5f0eb"/><path d="M175 740V184h333v556" fill="#d9c4ab" stroke="#6c5275" stroke-width="12"/><path d="M229 740V232h224v508" fill="#3a1f3a"/><path d="M267 694V270h145v424" fill="#f5f0eb"/><circle cx="385" cy="481" r="11" fill="#c4a58a"/>
+ <path d="M99 261c0-73 111-84 139-18 22 55-21 109-83 105H99z" fill="#b0a1bf" stroke="#6c5275" stroke-width="9"/><path d="M154 348l-26 30 47-21" fill="#b0a1bf" stroke="#6c5275" stroke-width="9" stroke-linejoin="round"/>
+ <path d="M481 330c0-80 121-88 143-15 18 58-30 105-88 100h-55z" fill="#74c1cd" stroke="#6c5275" stroke-width="9"/><path d="M556 415l24 32-46-23" fill="#74c1cd" stroke="#6c5275" stroke-width="9" stroke-linejoin="round"/>
+ <path d="M151 299h44M170 275v46M527 375h49" stroke="#f5f0eb" stroke-width="10" stroke-linecap="round"/>
+ <path d="M235 767c37-41 73-57 112-57 39 0 75 16 112 57" fill="none" stroke="#c4a58a" stroke-width="13" stroke-linecap="round" stroke-dasharray="4 26"/>
+ <path d="M107 782h506" stroke="#3a1f3a" stroke-width="11" stroke-linecap="round"/><path d="M118 153c47-39 101-48 159-29M453 115c54 0 99 25 126 62" fill="none" stroke="#b0a1bf" stroke-width="17" stroke-linecap="round"/>
+</svg>

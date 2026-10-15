@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 620" role="img" aria-labelledby="conversation-title conversation-desc">
+ <title id="conversation-title">세 사람이 나누는 열린 대화</title><desc id="conversation-desc">서로 다른 세 사람과 이어지는 곡선으로 돌봄에 관한 소통 관계를 나타낸 도해</desc>
+ <rect width="640" height="620" rx="52" fill="#f5f0eb"/><path d="M117 291C142 151 274 108 358 179c81 69 75 184 178 193" fill="none" stroke="#d9c4ab" stroke-width="54" stroke-linecap="round"/>
+ <path d="M149 326c36-52 98-62 143-15 42 44 96 39 132-6 37-46 97-38 122 9" fill="none" stroke="#6c5275" stroke-width="8" stroke-linecap="round" stroke-dasharray="14 17"/>
+ <circle cx="150" cy="326" r="58" fill="#b0a1bf"/><path d="M79 489c8-83 134-85 143 0" fill="#6c5275"/><circle cx="150" cy="315" r="24" fill="#e8dfd6"/>
+ <circle cx="323" cy="238" r="69" fill="#c4a58a"/><path d="M240 432c9-98 157-102 167 0" fill="#3a1f3a"/><circle cx="323" cy="223" r="29" fill="#f5f0eb"/>
+ <circle cx="496" cy="361" r="57" fill="#74c1cd"/><path d="M426 511c7-82 132-84 140 0" fill="#6c5275"/><circle cx="496" cy="348" r="24" fill="#e8dfd6"/>
+ <path d="M113 235c7-44 69-52 89-13-2 36-35 61-72 48zM279 127c10-51 85-56 106-9-5 43-53 63-91 42zM462 271c7-42 66-50 87-13-3 37-40 56-74 42z" fill="#f5f0eb" stroke="#6c5275" stroke-width="6"/>
+ <path d="M133 253l-12 18 25-9M306 145l-15 20 27-11M481 289l-11 17 22-9" fill="#f5f0eb" stroke="#6c5275" stroke-width="6" stroke-linejoin="round"/>
+</svg>
