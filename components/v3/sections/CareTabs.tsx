@@ -8,10 +8,10 @@ import { useReducedMotion } from "../motion/useReducedMotion";
 import { GoldLabel } from "../ui/GoldLabel";
 import styles from "./care.module.css";
 
-type Props = { id: string; care: V3Content["care"] };
+type Props = { id: string; care: V3Content["care"]; showMedia?: boolean };
 const ROTATION_MS = 3000;
 
-export function CareTabs({ id, care }: Props) {
+export function CareTabs({ id, care, showMedia = true }: Props) {
   const root = useRef<HTMLElement>(null);
   const progress = useRef<HTMLSpanElement[]>([]);
   const elapsed = useRef(0);
@@ -92,13 +92,13 @@ export function CareTabs({ id, care }: Props) {
   };
 
   return <section id={id} ref={root} className={`${styles.care} ${manual ? styles.manualCare : ""}`} data-v3-care data-care-rotation={care.rotation ?? "auto"} onPointerEnter={() => setPausedByPointer(true)} onPointerLeave={() => setPausedByPointer(false)} onFocusCapture={() => setPausedByFocus(true)} onBlurCapture={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setPausedByFocus(false); }}>
-    <div className={styles.wrapper}>
-      <div className={styles.images} aria-live="polite">
+    <div className={`${styles.wrapper} ${!showMedia ? styles.compactCare : ""}`}>
+      {showMedia && <div className={styles.images} aria-live="polite">
         {care.tabs.map((tab, index) => <div key={tab.text} {...(!manual ? { id: `${id}-panel-${index}`, "data-care-panel": true, role: "tabpanel", "aria-labelledby": `${id}-tab-${index}` } : {})} className={[styles.image, index === active ? styles.activeImage : "", tab.image.kind === "diagram" ? styles.diagram : ""].filter(Boolean).join(" ")} data-care-image data-media-kind={tab.image.kind} aria-hidden={index !== active}>
           <Image src={tab.image.src} alt={index === active ? tab.image.alt : ""} fill sizes="(max-width: 600px) 100vw, 50vw" />
           {tab.image.kind !== "diagram" && <div className={styles.gradient} aria-hidden="true" />}
         </div>)}
-      </div>
+      </div>}
       <div className={styles.content}>
         <div className={styles.text}>
           <GoldLabel className={styles.label}>{care.label}</GoldLabel>

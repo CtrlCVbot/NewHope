@@ -36,7 +36,7 @@ export const saesomangPhotoSlots: Img[] = [
   { src: "/v3/saesomang/illustrations/why-garden.svg", alt: "", kind: "decorative" },
 ];
 
-const [hero, introLeft, introRight, feature, services, card1, card2, card3, mission, care1, care2, care3, care4, why] = saesomangPhotoSlots;
+const [hero, , , feature, services, card1, card2, card3, mission, care1, care2, care3, care4, why] = saesomangPhotoSlots;
 
 const stories: SaesomangStory[] = [
   { date: "2026. 09. 16.", category: "센터소개", title: "따뜻한 돌봄이 필요한 순간, 새소망 방문요양센터가 함께합니다", id: "224413549928", href: "https://blog.naver.com/wish5288/224413549928" },
@@ -108,31 +108,32 @@ export const saesomangContent: V3Content & { extras: SaesomangExtras } = {
     scrollLabel: "이용 절차",
   },
   intro: {
-    label: "센터소개",
-    headline: { text: "새소망을 소개합니다." },
-    body: "센터를 알아보는 시간부터 이용에 필요한 안내까지, 궁금한 점을 차근차근 확인해 보세요.",
-    images: [introLeft, introRight],
+    label: "분당·성남 방문요양센터",
+    headline: { text: "집에서 필요한 돌봄을, 차근차근 함께 살핍니다." },
+    body: "새소망 방문요양센터는 분당·성남에서 방문요양과 방문목욕 이용을 안내합니다. 어르신의 생활에서 어떤 도움이 필요한지, 가족이 무엇부터 준비해야 할지 함께 확인합니다.",
+    images: [{ ...mission, alt: "손을 맞잡고 이야기를 나누는 돌봄의 장면" }],
+    details: [{ term: "안내 서비스", description: "방문요양·방문목욕" }, { term: "함께 확인할 내용", description: "이용 절차·방문 지역·일정" }, { term: "문의 시작", description: "카카오 오픈채팅" }],
   },
   feature: {
-    title: { text: "무엇부터 알아봐야 할지 고민되시나요?", emphasis: ["무엇부터"] },
-    body: "등급 신청이 처음인지, 이용할 서비스를 찾고 있는지에 따라 궁금한 점이 다를 수 있습니다.",
+    title: { text: "처음 알아보신다면, 이 세 가지부터." },
+    body: "신청 순서와 서비스 종류를 먼저 살펴보고, 방문 지역과 일정은 상담에서 확인해 주세요.",
     cta: { label: "이용 순서 보기", href: "#process" },
-    cardIntro: { text: "문의할 내용을 먼저 정리해 보세요.", emphasis: ["정리"] },
+    cardIntro: { text: "궁금한 내용을 선택해 주세요." },
     pills: [{ label: "이용 절차", href: "#process" }, { label: "서비스 종류", href: "#services" }, { label: "지역과 일정", href: "#location" }],
     image: feature,
   },
   services: {
-    statement: { text: "도움이 필요한 순간은 저마다 다릅니다." },
-    statementBody: "식사를 챙기는 일, 집 안을 이동하는 일, 누군가와 이야기하는 시간. 필요한 도움을 생활 장면으로 살펴보세요.",
+    statement: { text: "어떤 도움이 필요하신가요?" },
+    statementBody: "집 안의 생활을 살피는 일, 목욕을 준비하는 일, 누군가와 이야기하는 시간. 필요한 도움을 서비스별로 살펴보세요.",
     label: "돌봄 서비스",
-    headline: { text: "일상에 필요한 도움을 알아보세요." },
+    headline: { text: "하루의 생활에 필요한 돌봄." },
     points: ["어르신 혼자 계신 시간이 길어졌을 때", "목욕과 이동이 힘들어지셨을 때", "가족의 돌봄에 도움이 필요할 때"],
     image: services,
     cardsLabel: "돌봄 서비스",
     cards: [
-      { title: "방문요양", subtitle: "가정에서 필요한 생활 도움을 안내합니다.", description: "구체적인 이용 범위와 일정은 상담에서 확인합니다.", icon: "leaf", image: card1 },
-      { title: "방문목욕", subtitle: "목욕 이용에 관한 준비와 방법을 문의할 수 있습니다.", description: "이용 환경에 맞는 안내가 필요합니다.", icon: "leaf", image: card2 },
-      { title: "일상과 정서 지원", subtitle: "이야기를 나누고 생활을 살피는 도움입니다.", description: "말벗과 생활 살핌에 관한 궁금한 점을 상담에서 확인합니다.", icon: "leaf", image: card3 },
+      { title: "방문요양", subtitle: "집 안의 일상을 돕는 방문요양.", description: "생활에서 도움이 필요한 부분과 이용 가능한 내용, 일정을 상담에서 함께 확인합니다.", icon: "leaf", image: card1 },
+      { title: "방문목욕", subtitle: "목욕 준비와 이용 방법을 함께 확인합니다.", description: "이용 환경과 필요한 준비, 방문 일정에 관한 궁금한 점을 문의해 주세요.", icon: "leaf", image: card2 },
+      { title: "일상과 정서 지원", subtitle: "이야기를 나누고 생활을 살피는 시간.", description: "말벗과 생활 살핌 등 필요한 도움을 알아보고 이용 가능 여부를 확인합니다.", icon: "leaf", image: card3 },
     ],
   },
   process: {
@@ -149,24 +150,24 @@ export const saesomangContent: V3Content & { extras: SaesomangExtras } = {
   },
   mission: {
     label: "돌봄의 약속",
-    title: { text: "돌봄을 연결할 때 중요하게 생각하는 것." },
-    items: ["먼저 듣기", "알기 쉽게 설명하기", "궁금한 점 살피기", "변화 함께 확인하기"],
+    title: { text: "돌봄을 이어가는 네 가지 약속." },
+    items: ["먼저 듣기 — 어떤 도움이 필요한지 이야기를 듣습니다.", "알기 쉽게 설명하기 — 이용 절차를 차근차근 안내합니다.", "궁금한 점 살피기 — 알아보기 어려웠던 내용을 함께 확인합니다.", "변화 함께 확인하기 — 이용 과정에서 생긴 질문을 나눕니다."],
     image: mission,
   },
   care: {
-    label: "상담 이후 흐름",
+    label: "상담에서 함께 확인하는 내용",
     rotation: "manual",
     tabs: [
-      { text: "문의 시작", body: "궁금한 서비스 종류와 일반적인 이용 절차를 오픈채팅에서 확인합니다.", image: care1 },
-      { text: "이용 준비", body: "이용 전에 확인할 사항을 정리합니다.", image: care2 },
-      { text: "지역·일정 확인", body: "필요한 지역과 일정에 관한 안내를 받습니다. 이 그림은 실제 지도나 확정 방문 범위가 아닌 개념도입니다.", image: care3 },
-      { text: "이용 중 소통", body: "이용 과정에서 생긴 질문을 나눕니다.", image: care4 },
+      { text: "문의 시작", body: "궁금한 서비스 종류와 일반적인 이용 절차를 오픈채팅에서 확인합니다. 먼저 알고 싶은 내용을 편하게 문의해 주세요.", image: care1 },
+      { text: "이용 준비", body: "이용 전에 확인할 사항을 정리합니다. 절차에서 궁금한 부분과 준비사항을 함께 살펴봅니다.", image: care2 },
+      { text: "지역·일정 확인", body: "필요한 지역과 일정에 관한 안내를 받습니다. 실제 이용 가능 여부는 상담에서 확인합니다.", image: care3 },
+      { text: "이용 중 소통", body: "이용 과정에서 생긴 질문을 나눕니다. 변경할 내용이나 추가로 궁금한 점을 확인합니다.", image: care4 },
     ],
   },
   why: {
-    title: { text: "직접 확인할 수 있는 새소망의 정보." },
-    body: "주소, 안내하는 서비스 종류, 센터 소개 글을 이 화면에서 확인할 수 있습니다.",
-    footnote: "확인된 정보는 센터 소개와 위치 안내에서 살펴보세요.",
+    title: { text: "새소망을 더 알아보세요." },
+    body: "안내하는 서비스와 센터 소개 글, 오시는 길을 한곳에서 확인하세요.",
+    footnote: "최근 안내와 이용 가능 여부는 카카오 오픈채팅에서 확인해 주세요.",
     image: why,
   },
   cta: {

@@ -27,6 +27,8 @@ test("renders Saesomang manual Care tabs with readable HTML bodies and no timed 
   assert.equal((html.match(/data-care-panel/g) ?? []).length, 4);
   assert.equal((html.match(/data-care-progress/g) ?? []).length, 0);
   assert.match(html, /궁금한 서비스 종류와 일반적인 이용 절차를 오픈채팅에서 확인합니다\./);
-  assert.match(html, /실제 지도나 확정 방문 범위가 아닌 개념도입니다\./);
+  assert.match(html, /이용 전에 확인할 사항을 정리합니다\. 절차에서 궁금한 부분과 준비사항을 함께 살펴봅니다\./);
+  assert.match(html, /필요한 지역과 일정에 관한 안내를 받습니다\. 실제 이용 가능 여부는 상담에서 확인합니다\./);
+  assert.doesNotMatch(html, /실제 지도나 확정 방문 범위가 아닌 개념도입니다\./);
   assert.match(html, /data-care-noscript/);
 });

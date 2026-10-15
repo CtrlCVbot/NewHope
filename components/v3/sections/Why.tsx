@@ -10,7 +10,7 @@ import { useReducedMotion } from "../motion/useReducedMotion";
 import { useWordReveal } from "../motion/useWordReveal";
 import styles from "./why.module.css";
 
-type Props = { why: V3Content["why"]; brand: V3Content["brand"]; variant?: "design" | "saesomang" };
+type Props = { why: V3Content["why"]; brand: V3Content["brand"]; variant?: "design" | "saesomang"; showMedia?: boolean };
 
 function wordsWithMasks(value: V3Content["why"]["title"]) {
   return richTextSegments(value).flatMap((segment, segmentIndex) => segment.text.split(/(\s+)/).map((word, wordIndex) => {
@@ -23,7 +23,7 @@ function blurWords(text: string, className: string) {
   return text.split(/(\s+)/).map((word, index) => word.trim() ? <span className={className} data-why-blur key={`${word}-${index}`}>{word}</span> : word);
 }
 
-export function Why({ why, brand, variant = "design" }: Props) {
+export function Why({ why, brand, variant = "design", showMedia = true }: Props) {
   const root = useRef<HTMLElement>(null);
   const reduced = useReducedMotion();
   const isSaesomang = variant === "saesomang";
@@ -34,8 +34,8 @@ export function Why({ why, brand, variant = "design" }: Props) {
   const diagram = why.image.kind === "diagram" || why.image.kind === "decorative";
   useParallax(root, diagram ? "[data-why-diagram-static]" : "[data-why-image]", reduced, { amount: -20 });
 
-  return <section ref={root} className={`${styles.why} ${diagram ? styles.diagramWhy : ""}`} data-v3-why data-media-kind={why.image.kind}>
-    <div className={styles.background} aria-hidden="true"><Image src={why.image.src} alt="" fill sizes="100vw" {...(!diagram ? { "data-why-image": true } : {})} />{!diagram && <div className={styles.gradient} />}</div>
+  return <section ref={root} className={`${styles.why} ${diagram ? styles.diagramWhy : ""} ${!showMedia ? styles.compactWhy : ""}`} data-v3-why data-media-kind={showMedia ? why.image.kind : "none"}>
+    {showMedia && <div className={styles.background} aria-hidden="true"><Image src={why.image.src} alt="" fill sizes="100vw" {...(!diagram ? { "data-why-image": true } : {})} />{!diagram && <div className={styles.gradient} />}</div>}
     <div className={styles.logo} data-why-logo><Image src={brand.wordmarkSvg} alt={brand.name} fill sizes="(max-width: 450px) 240px, (max-width: 890px) 512px, 869px" data-why-logo-reveal /></div>
     <div className={styles.content}>
       <div className={styles.textWrap}>

@@ -62,7 +62,7 @@ test("preserves source facts while applying the approved section-copy contract",
     ["2022. 10. 27.", "센터소개", "분당새소망방문요양센터 성남방문요양센터 성남재가복지센터 새소망방문요양센터 입니다.", "222912392169"],
     ["2022. 10. 27.", "오시는 길", "오시는 길", "222912387833"],
   ]);
-  assert.equal(saesomangContent.intro.body, "센터를 알아보는 시간부터 이용에 필요한 안내까지, 궁금한 점을 차근차근 확인해 보세요.");
+  assert.equal(saesomangContent.intro.body, "새소망 방문요양센터는 분당·성남에서 방문요양과 방문목욕 이용을 안내합니다. 어르신의 생활에서 어떤 도움이 필요한지, 가족이 무엇부터 준비해야 할지 함께 확인합니다.");
   const faqSection = pageSource.match(/<section id="faq"[\s\S]*?<\/section>/)?.[0] ?? "";
   const faq = [...faqSection.matchAll(/<details><summary>(.*?)<\/summary><p>(.*?)<\/p><\/details>/g)].map(([, question, answer]) => ({ question, answer }));
   assert.equal(faq.length, 3);
@@ -81,10 +81,10 @@ test("preserves source facts while applying the approved section-copy contract",
   assert.deepEqual(saesomangContent.extras.location, { address: "경기도 성남시 분당구 미금로 215 청솔마을 대원상가 207호\n청솔마을대원8단지아파트상가 2층", directions: "미금역 1번 출구에서 도보 5~10분입니다.", navigationQuery: "청솔마을대원8단지아파트상가" });
   assert.equal(saesomangContent.extras.consultation.title.text, "돌봄에 관한 궁금한 점, 카카오에서 시작하세요.");
   assert.deepEqual(saesomangContent.care.tabs.map(({ text, body }) => [text, body]), [
-    ["문의 시작", "궁금한 서비스 종류와 일반적인 이용 절차를 오픈채팅에서 확인합니다."],
-    ["이용 준비", "이용 전에 확인할 사항을 정리합니다."],
-    ["지역·일정 확인", "필요한 지역과 일정에 관한 안내를 받습니다. 이 그림은 실제 지도나 확정 방문 범위가 아닌 개념도입니다."],
-    ["이용 중 소통", "이용 과정에서 생긴 질문을 나눕니다."],
+    ["문의 시작", "궁금한 서비스 종류와 일반적인 이용 절차를 오픈채팅에서 확인합니다. 먼저 알고 싶은 내용을 편하게 문의해 주세요."],
+    ["이용 준비", "이용 전에 확인할 사항을 정리합니다. 절차에서 궁금한 부분과 준비사항을 함께 살펴봅니다."],
+    ["지역·일정 확인", "필요한 지역과 일정에 관한 안내를 받습니다. 실제 이용 가능 여부는 상담에서 확인합니다."],
+    ["이용 중 소통", "이용 과정에서 생긴 질문을 나눕니다. 변경할 내용이나 추가로 궁금한 점을 확인합니다."],
   ]);
   assert.equal(saesomangContent.footer.copyright, "© 2026 새소망 방문요양센터");
 });

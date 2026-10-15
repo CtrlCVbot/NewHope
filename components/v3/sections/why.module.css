@@ -34,3 +34,4 @@
 :global(.saesomangScope) .title { font-size: 4rem; line-height: 1.12; }
 :global(.saesomangScope) .wordMask { padding-block: .2em; margin-block: -.2em; line-height: 1.35; vertical-align: middle; }
 @media (max-width: 768px) { :global(.saesomangScope) .title { font-size: 2.5rem; } }
+.compactWhy{min-height:0;background:linear-gradient(160deg,#6c5275 0%,#3a1f3a 100%)}.compactWhy .content{min-height:0;padding-top:18rem;padding-bottom:6rem}.compactWhy .background{display:none}@media(max-width:768px){.compactWhy .content{padding-top:10rem;padding-bottom:4rem}}

@@ -95,12 +95,12 @@ function FrameInner({ content, variant = "design", extras }: { content: V3Conten
       <main className={styles.main}>
         <Hero hero={content.hero} ready={loaderComplete} scrollHref={variant === "saesomang" ? "#process" : undefined} variant={variant} />
         {variant === "saesomang" && extras ? <>
-          <Intro id="about" intro={content.intro} /><Feature feature={content.feature} variant="saesomang" /><Services id="services" services={content.services} iconAssets={["/v3/saesomang/icons/home.svg", "/v3/saesomang/icons/bath.svg", "/v3/saesomang/icons/chat.svg"]} />
+          <Intro id="about" intro={content.intro} variant="saesomang" /><Feature feature={content.feature} variant="saesomang" showMedia={false} /><Services id="services" services={content.services} variant="saesomang" iconAssets={["/v3/saesomang/icons/home.svg", "/v3/saesomang/icons/bath.svg", "/v3/saesomang/icons/chat.svg"]} />
           <Process id="process" process={content.process} showNote />
           <Faq id="faq" faq={extras.faq} />
-          <Mission id="promises" mission={content.mission} /><CareTabs id="care" care={content.care} />
+          <Mission id="promises" mission={content.mission} showMedia={false} /><CareTabs id="care" care={content.care} showMedia={false} />
           <Stories id="stories" stories={extras.stories} storyNotice={extras.storyNotice} />
-          <Why why={content.why} brand={{ ...content.brand, wordmarkSvg: saesomangBrandAssets.whySvg }} variant="saesomang" />
+          <Why why={content.why} brand={{ ...content.brand, wordmarkSvg: saesomangBrandAssets.whySvg }} variant="saesomang" showMedia={false} />
           <CtaSection id="contact-cta" cta={content.cta}><ConsultationGuide id="consult" guide={extras.consultation} /></CtaSection>
           <Location id="location" brandName={content.brand.name} location={extras.location} contacts={extras.contacts} />
         </> : content.nav.map((item, index) => {

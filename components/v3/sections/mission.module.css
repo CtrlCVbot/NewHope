@@ -13,3 +13,5 @@
 :global(.saesomangScope) .content { padding-right: 2rem; padding-left: 2rem; }
 :global(.saesomangScope) .title { font-size: 4rem; line-height: 1.12; }
 @media (max-width: 768px) { :global(.saesomangScope) .title { font-size: 2.5rem; } }
+:global(.saesomangScope) .mission:not(:has(.image)) .wrapper{display:block}.mission:not(:has(.image)) .content{max-width:75rem;margin-inline:auto}.mission:not(:has(.image)) .textContent{max-width:40.5rem}
+:global(.saesomangScope) .mission:not(:has(.image)) .content{padding:0 2rem}.mission:not(:has(.image)) .textContent{margin-inline:auto;padding:6rem 0}.mission:not(:has(.image)) .title,.mission:not(:has(.image)) .list li{color:var(--c-primary)}

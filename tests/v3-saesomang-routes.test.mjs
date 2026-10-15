@@ -12,7 +12,6 @@ const stories = [
   ["222912387833", "2022. 10. 27.", "오시는 길"],
 ];
 const photos = ["hero.webp", "card-1.webp", "card-2.webp", "card-3.webp", "mission.webp"];
-const diagrams = ["intro-home.svg", "intro-conversation.svg", "feature-support.svg", "services-daily.svg", "care-start.svg", "care-prepare.svg", "care-region.svg", "care-dialogue.svg", "why-garden.svg"];
 
 test("renders visible phase-two V3 facts, assets, anchors, and section order", async () => {
   const response = await render("/v3");
@@ -41,8 +40,7 @@ test("renders visible phase-two V3 facts, assets, anchors, and section order", a
   for (const [tag] of photoTags) assert.match(tag, /\balt="[^"]*"/);
   for (const photo of photos) assert.equal(photoTags.filter(([tag]) => decodeURIComponent(tag.match(/\bsrc="([^"]+)"/)?.[1] ?? "").includes(`/v3/saesomang/images/${photo}`)).length, 1, `expected one ${photo}`);
   const diagramTags = [...visible.matchAll(/<img\b[^>]*>/g)].filter(([tag]) => decodeURIComponent(tag.match(/\bsrc="([^"]+)"/)?.[1] ?? "").includes("/v3/saesomang/illustrations/"));
-  assert.equal(diagramTags.length, 9);
-  for (const diagram of diagrams) assert.equal(diagramTags.filter(([tag]) => decodeURIComponent(tag.match(/\bsrc="([^"]+)"/)?.[1] ?? "").includes(`/v3/saesomang/illustrations/${diagram}`)).length, 1, `expected one ${diagram}`);
+  assert.equal(diagramTags.length, 0, "the current Saesomang page must not request retained illustration sources");
   for (const asset of ["header-full.svg", "why.svg", "footer.svg", "home.svg", "bath.svg", "chat.svg"]) assert.match(visible, new RegExp(asset));
   assert.doesNotMatch(visible, /디자인 검토용|\/v3\/placeholders\//);
   const order = ["data-v3-hero", "id=\"about\"", "data-v3-feature", "id=\"services\"", "id=\"process\"", "data-v3-faq", "id=\"promises\"", "id=\"care\"", "id=\"stories\"", "data-v3-why", "id=\"contact-cta\"", "id=\"consult\"", "id=\"location\"", "data-v3-saesomang-footer"];

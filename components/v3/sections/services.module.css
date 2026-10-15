@@ -49,7 +49,7 @@
 .cardsSection[data-reduced="true"] .card[aria-expanded="true"] .cardFront { visibility: hidden; transform: none; }
 .cardsSection[data-reduced="true"] .card[aria-expanded="true"] .cardImage { transform: none; }
 :global(.saesomangScope) .statementInner { width: min(100%, 75rem); gap: 4rem; }
-:global(.saesomangScope) .statement h2 { flex-basis: 40rem; font-size: 4rem; line-height: 1.12; }
+:global(.saesomangScope) .statement h2 { flex-basis: 40rem; color: var(--c-cream); font-size: 4rem; line-height: 1.12; }
 :global(.saesomangScope) .statement h2 em { font-size: 1.08em; }
 :global(.saesomangScope) .statement p { padding-top: 6rem; }
 :global(.saesomangScope) .leadCopy { width: min(50%, 37.5rem); min-height: 0; margin-left: max(2rem, calc((100% - 75rem) / 2)); padding-right: 2rem; padding-left: 0; }
@@ -65,3 +65,7 @@
 :global(.saesomangScope) .cardsSection > * { position: relative; z-index: 1; }
 :global(.saesomangScope) .lead .label { color: #3a1f3a; }
 :global(.saesomangScope) .cardsLabel { background: none; color: #f5f0eb; }
+.compactLead{min-height:0}.compactLead .leadCopy{width:min(100%,75rem);min-height:0;margin:0 auto;padding:7rem 2rem}.compactLead .leadImageMask{display:none}.saesomangCard{display:flex;flex-direction:column;width:min(100%,23.75rem);height:auto;min-height:0;margin-inline:auto;overflow:visible;background:transparent}.saesomangCard .cardImage{position:relative;inset:auto;width:100%;max-width:23.75rem;aspect-ratio:4 / 3;background:#e5dfdb}.saesomangCard .cardImage img{object-fit:contain;object-position:center}.saesomangCard .cardImage::after{display:none}.saesomangCardContent{display:grid;gap:1rem;width:100%;max-width:23.75rem;padding:1.5rem 0 0}.saesomangCard .cardIcon{width:3rem;height:3rem}.saesomangCard .cardIcon img{filter:brightness(0) invert(1)}.saesomangCard .cardIcon svg{width:3rem;height:3rem;margin:0}.saesomangCard .cardTitle{margin:0;color:var(--c-cream)}.saesomangCard .cardSubtitle,.saesomangCard .cardDescription{margin:0;color:rgb(255 255 255 / 85%)}.saesomangCard .cardDescription{position:static;display:block;padding:0;opacity:1;transform:none;font-size:1rem}@media(max-width:768px){.compactLead .leadCopy{padding:5rem 1.5rem}:global(.saesomangScope) .cards{gap:3rem}}
+@media(max-width:1200px){:global(.saesomangScope) .statement h2{flex-basis:auto}:global(.saesomangScope) .statement p{padding-top:0}}
+@media(min-width:961px){.compactLead .leadCopy{display:grid;grid-template-columns:minmax(0,1fr) minmax(18rem,28rem);column-gap:4rem;row-gap:2rem;align-items:start}.compactLead .leadCopy .label,.compactLead .leadCopy h3{grid-column:1}.compactLead .leadCopy .points{grid-column:2;grid-row:1 / span 2;align-self:end;padding-top:0}}
+@media(max-width:960px){.compactLead .leadCopy{display:flex;width:min(100%,75rem);padding:5rem 2rem}.compactLead .leadCopy .points{padding-top:2rem}}

@@ -20,7 +20,7 @@ export type V3Content = {
   header: { menuLabel: string; cta: Link };
   frame: { sectionLabel: string; sectionNotice: string; menuDescription: string };
   hero: { title: RichText; titleLines?: string[]; subtitle: string; image: Img; sideCard: { title: RichText; icon: string; popover: string; href: string }; scrollLabel: string };
-  intro: { label: string; headline: RichText; body: string; images: [Img, Img] };
+  intro: { label: string; headline: RichText; body: string; images: Img[]; details?: { term: string; description: string }[] };
   feature: { title: RichText; body: string; cta: Link; cardIntro: RichText; pills: Link[]; image: Img };
   services: { statement: RichText; statementBody: string; label: string; headline: RichText; points: string[]; image: Img; cardsLabel: string; cards: { title: string; subtitle: string; description: string; icon: string; image: Img }[] };
   process: { title: RichText; note: string; steps: { title: string; description: string }[] };

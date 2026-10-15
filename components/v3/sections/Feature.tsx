@@ -10,7 +10,7 @@ import { GlassCard } from "../ui/GlassCard";
 import { richTextSegments } from "../ui/richTextSegments";
 import styles from "./feature.module.css";
 
-type Props = { feature: V3Content["feature"]; variant?: "design" | "saesomang" };
+type Props = { feature: V3Content["feature"]; variant?: "design" | "saesomang"; showMedia?: boolean };
 
 function Title({ value }: { value: V3Content["feature"]["title"] }) {
   return <h2 className={styles.title} data-feature-title aria-label={value.text}>{richTextSegments(value).map((segment, index) => segment.emphasized ? <em key={index}>{segment.text}</em> : <span key={index}>{segment.text}</span>)}</h2>;
@@ -20,7 +20,7 @@ function CardIntro({ value }: { value: V3Content["feature"]["cardIntro"] }) {
   return <p className={styles.cardIntro} data-feature-card-intro>{richTextSegments(value).map((segment, index) => segment.emphasized ? <em key={index}>{segment.text}</em> : <span key={index}>{segment.text}</span>)}</p>;
 }
 
-export function Feature({ feature, variant = "design" }: Props) {
+export function Feature({ feature, variant = "design", showMedia = true }: Props) {
   const root = useRef<HTMLElement>(null);
   const reduced = useReducedMotion();
   const isSaesomang = variant === "saesomang";
@@ -28,11 +28,11 @@ export function Feature({ feature, variant = "design" }: Props) {
   useReveal(root, "[data-feature-card]", isSaesomang ? reduced : true, { duration: 0.9, stagger: 0.1, y: 28, triggerSelector: isSaesomang ? "[data-feature-card]" : undefined });
 
   const diagram = feature.image.kind === "diagram" || feature.image.kind === "decorative";
-  return <section ref={root} className={`${styles.feature} ${diagram ? styles.diagramFeature : ""}`} data-v3-feature data-media-kind={feature.image.kind}>
-    <div className={styles.background} data-feature-bg aria-hidden="true">
+  return <section ref={root} className={`${styles.feature} ${diagram ? styles.diagramFeature : ""} ${!showMedia ? styles.saesomangFeature : ""}`} data-v3-feature data-media-kind={showMedia ? feature.image.kind : "none"}>
+    {showMedia && <div className={styles.background} data-feature-bg aria-hidden="true">
       <Image className={styles.backgroundImage} src={feature.image.src} alt="" fill sizes="100vw" priority={false} />
       {!diagram && <div className={styles.gradient} />}
-    </div>
+    </div>}
     <div className={styles.hero}>
       <div className={styles.heroContent}>
         <Title value={feature.title} />
