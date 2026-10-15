@@ -48,3 +48,10 @@
 .cardsSection[data-reduced="true"] .cardImage, .cardsSection[data-reduced="true"] .cardDescription, .cardsSection[data-reduced="true"] .cardFront { transition: none; }
 .cardsSection[data-reduced="true"] .card[aria-expanded="true"] .cardFront { visibility: hidden; transform: none; }
 .cardsSection[data-reduced="true"] .card[aria-expanded="true"] .cardImage { transform: none; }
+/* WU20 G04–G06: varied paper surfaces stay below text and media. */
+:global(.saesomangScope) .statement::before { background: radial-gradient(circle at 78% 20%, rgb(176 161 191 / 30%) 0 1px, transparent 1.6px 100%), radial-gradient(circle at 12% 76%, rgb(255 255 255 / 13%) 0 1px, transparent 1.4px 100%), linear-gradient(118deg, transparent 16%, rgb(255 255 255 / 7%) 48%, transparent 76%); background-size: 23px 29px, 37px 31px, auto; }
+:global(.saesomangScope) .lead { background: radial-gradient(ellipse at 18% 82%, rgb(217 196 171 / 28%), transparent 47%), radial-gradient(ellipse at 82% 16%, rgb(176 161 191 / 18%), transparent 43%), #fbf8f5; }
+:global(.saesomangScope) .cardsSection::before { position: absolute; inset: 0; z-index: 0; background: radial-gradient(circle at 14% 18%, rgb(255 255 255 / 11%) 0 1px, transparent 1.5px 100%), radial-gradient(circle at 88% 76%, rgb(176 161 191 / 26%) 0 1px, transparent 1.5px 100%); background-size: 27px 31px, 41px 43px; content: ""; pointer-events: none; }
+:global(.saesomangScope) .cardsSection > * { position: relative; z-index: 1; }
+:global(.saesomangScope) .lead .label { color: #3a1f3a; }
+:global(.saesomangScope) .cardsLabel { background: none; color: #f5f0eb; }

@@ -6,3 +6,6 @@
 @media(max-width:1200px){.wrapper{grid-template-columns:1fr}.content{padding:4rem 2rem}.textContent{padding:4rem 0 0}}@media(max-width:768px){.title{font-size:2.5rem;color:#fff}.list li{color:#fff;font-size:1rem}.image{width:100%}.image>img{min-height:140%}.gradient{opacity:1}}@media(max-width:500px){.label{font-size:.875rem}}
 @media(min-width:769px) and (max-width:1200px){.photoMission .wrapper{grid-template-columns:1fr 1fr}.photoMission .content{grid-column:1;padding:0 2rem}.photoMission .textContent{padding:8rem 0}.photoMission .image{width:50%;height:100%}}
 @media(max-width:768px){.photoMission .wrapper{display:flex;flex-direction:column}.photoMission .content{order:2}.photoMission .image{position:relative;order:1;width:100%;height:min(72vw,28rem)}.photoMission .textContent{padding-top:0}.photoMission .title,.photoMission .list li{color:var(--c-primary)}}
+/* WU20 G05: a different, low-contrast spatial center from Services. */
+:global(.saesomangScope) .mission { background: radial-gradient(ellipse at 66% 38%, rgb(176 161 191 / 23%), transparent 43%), radial-gradient(ellipse at 18% 92%, rgb(217 196 171 / 26%), transparent 48%), var(--c-cream); }
+:global(.saesomangScope) .label { color: #3a1f3a; }
