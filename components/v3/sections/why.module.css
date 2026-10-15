@@ -29,3 +29,8 @@
 /* WU20 G07: keep the garden illustration quiet enough for the white brand lockup. */
 :global(.saesomangScope) .diagramWhy .background { background: radial-gradient(ellipse at 50% 8%, rgb(176 161 191 / 35%), transparent 42%), linear-gradient(160deg, #6c5275 0%, #3a1f3a 100%); }
 :global(.saesomangScope) .diagramWhy .background img { opacity: .22; }
+:global(.saesomangScope) .content { width: min(100%, 75rem); }
+:global(.saesomangScope) .logo { right: max(2rem, calc((100% - 75rem) / 2)); }
+:global(.saesomangScope) .title { font-size: 4rem; line-height: 1.12; }
+:global(.saesomangScope) .wordMask { padding-block: .2em; margin-block: -.2em; line-height: 1.35; vertical-align: middle; }
+@media (max-width: 768px) { :global(.saesomangScope) .title { font-size: 2.5rem; } }

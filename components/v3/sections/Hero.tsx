@@ -10,9 +10,9 @@ import type { IconName } from "../ui/Icon";
 import type { V3Content } from "@/content/v3/types";
 import styles from "./hero.module.css";
 
-type Props = { hero: V3Content["hero"]; ready: boolean; scrollHref?: string };
+type Props = { hero: V3Content["hero"]; ready: boolean; scrollHref?: string; variant?: "design" | "saesomang" };
 
-export function Hero({ hero, ready, scrollHref = "#소개" }: Props) {
+export function Hero({ hero, ready, scrollHref = "#소개", variant = "design" }: Props) {
   const root = useRef<HTMLElement>(null);
   const card = useRef<HTMLAnchorElement>(null);
   const touchPointer = useRef(false);
@@ -32,7 +32,8 @@ export function Hero({ hero, ready, scrollHref = "#소개" }: Props) {
     const lines = scope.querySelectorAll("[data-hero-line]");
     const subtitle = scope.querySelector("[data-hero-subtitle]");
     const revealCard = scope.querySelector(`.${styles.cardReveal}`);
-    gsap.set(background, { scale: 1.5 });
+    const backgroundScale = variant === "saesomang" ? 1 : 1.5;
+    gsap.set(background, { scale: backgroundScale });
     if (header) gsap.set(header, { autoAlpha: 0, y: -50 });
     gsap.set(lines, { yPercent: 100 });
     gsap.set(subtitle, { autoAlpha: 0, y: 80, filter: "blur(20px)" });
@@ -41,7 +42,8 @@ export function Hero({ hero, ready, scrollHref = "#소개" }: Props) {
     let cancelled = false;
     const run = (contextSafe ?? ((callback: () => void) => callback))(() => {
       if (cancelled) return;
-      const timeline = gsap.timeline().to(background, { scale: 1, duration: 1.5, ease: "power2.out" });
+      const timeline = gsap.timeline();
+      if (backgroundScale !== 1) timeline.to(background, { scale: 1, duration: 1.5, ease: "power2.out" });
       if (header) timeline.to(header, { autoAlpha: 1, y: 0, duration: .8, ease: "none" }, .2);
       timeline
         .to(lines, { yPercent: 0, duration: 1, stagger: .1, ease: "power2.out" }, .25)
@@ -50,7 +52,7 @@ export function Hero({ hero, ready, scrollHref = "#소개" }: Props) {
     });
     document.fonts.ready.then(run);
     return () => { cancelled = true; };
-  }, { scope: root, dependencies: [ready, reduced], revertOnUpdate: true });
+  }, { scope: root, dependencies: [ready, reduced, variant], revertOnUpdate: true });
 
   const move = (event: React.PointerEvent<HTMLAnchorElement>) => {
     if (reduced || event.pointerType !== "mouse") return;
@@ -64,8 +66,8 @@ export function Hero({ hero, ready, scrollHref = "#소개" }: Props) {
   };
   const reset = () => card.current?.style.setProperty("--tilt-x", "0deg") || card.current?.style.setProperty("--tilt-y", "0deg");
   return <div className={styles.wrap}>
-    <section ref={root} className={styles.hero} data-v3-hero aria-label={hero.title.text}>
-      <div className={styles.background} data-hero-bg><Image src={hero.image.src} alt={hero.image.alt} fill priority sizes="100vw" /></div>
+    <section ref={root} className={`${styles.hero} ${variant === "saesomang" ? styles.saesomangHero : ""}`} data-v3-hero aria-label={hero.title.text}>
+      <div className={styles.background} data-hero-bg><Image src={hero.image.src} alt={hero.image.alt} fill priority sizes={variant === "saesomang" ? "(max-width: 1440px) 100vw, 1440px" : "100vw"} /></div>
       <div className={styles.shade} />
       <div className={styles.content}>
         <div className={styles.copy}><h1 aria-label={hero.title.text}>{lines.map((line) => <span className={styles.lineMask} key={line} aria-hidden="true"><span data-hero-line>{line}</span></span>)}</h1>

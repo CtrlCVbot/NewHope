@@ -20,3 +20,6 @@
 :global(.saesomangScope) .cta[data-spotlight="true"] .texture::before { opacity: .9; }
 @media (prefers-reduced-motion: reduce) { :global(.saesomangScope) .cta[data-spotlight="true"] .texture::before { opacity: 0; transition: none; } }
 :global(.saesomangScope) .label { color: #f5f0eb; }
+:global(.saesomangScope) .heading { font-size: 4rem; line-height: 1.12; }
+:global(.saesomangScope) .headingMask { padding-block: 1rem; margin-block: -1rem; }
+@media (max-width: 768px) { :global(.saesomangScope) .heading { font-size: 2.5rem; } }

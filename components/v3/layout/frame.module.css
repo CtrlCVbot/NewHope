@@ -4,6 +4,9 @@
   color: var(--c-text);
   font-family: var(--f-sans);
 }
+.saesomangFrame { width: min(100%, 1440px); margin-inline: auto; }
+:global(.saesomangScope) { background: linear-gradient(to bottom, var(--c-primary-darkest) 0 min(100svh, 860px), var(--c-cream) min(100svh, 860px)); }
+.saesomangFrame .header { right: 0; left: 0; width: auto; }
 .frame * { box-sizing: border-box; }
 .frame a:focus-visible, .frame button:focus-visible { outline: 2px solid var(--c-teal); outline-offset: 4px; }
 .header {

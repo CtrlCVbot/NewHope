@@ -9,3 +9,7 @@
 /* WU20 G05: a different, low-contrast spatial center from Services. */
 :global(.saesomangScope) .mission { background: radial-gradient(ellipse at 66% 38%, rgb(176 161 191 / 23%), transparent 43%), radial-gradient(ellipse at 18% 92%, rgb(217 196 171 / 26%), transparent 48%), var(--c-cream); }
 :global(.saesomangScope) .label { color: #3a1f3a; }
+:global(.saesomangScope) .wrapper { max-width: 75rem; margin-inline: auto; }
+:global(.saesomangScope) .content { padding-right: 2rem; padding-left: 2rem; }
+:global(.saesomangScope) .title { font-size: 4rem; line-height: 1.12; }
+@media (max-width: 768px) { :global(.saesomangScope) .title { font-size: 2.5rem; } }

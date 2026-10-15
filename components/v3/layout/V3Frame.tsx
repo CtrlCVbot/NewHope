@@ -89,11 +89,11 @@ function FrameInner({ content, variant = "design", extras }: { content: V3Conten
   const close = () => setClosing(true);
   const navigate = (href: string) => { if (!href.startsWith("#")) return; pendingHref.current = href; close(); };
 
-  return <div className={styles.frame} data-v3-frame>
+  return <div className={`${styles.frame} ${variant === "saesomang" ? styles.saesomangFrame : ""}`} data-v3-frame>
     <div inert={menuOpen || loaderActive || undefined}>
       <Header brand={content.brand} menuLabel={content.header.menuLabel} cta={content.header.cta} open={menuOpen} onOpen={() => setMenuOpen(true)} triggerRef={triggerRef} homeHref={variant === "saesomang" ? "#about" : undefined} useBrandAssets={variant === "saesomang"} />
       <main className={styles.main}>
-        <Hero hero={content.hero} ready={loaderComplete} scrollHref={variant === "saesomang" ? "#process" : undefined} />
+        <Hero hero={content.hero} ready={loaderComplete} scrollHref={variant === "saesomang" ? "#process" : undefined} variant={variant} />
         {variant === "saesomang" && extras ? <>
           <Intro id="about" intro={content.intro} /><Feature feature={content.feature} variant="saesomang" /><Services id="services" services={content.services} iconAssets={["/v3/saesomang/icons/home.svg", "/v3/saesomang/icons/bath.svg", "/v3/saesomang/icons/chat.svg"]} />
           <Process id="process" process={content.process} showNote />

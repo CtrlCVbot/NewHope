@@ -14,3 +14,8 @@
 @media (max-width: 565px) { .stepDescription { font-size: 14px; } }
 @media (max-width: 450px) { .progressColumn { margin-left: 0; }.grid { gap: 0 20px; }.stepTitle { gap: 8px; } }
 @media (prefers-reduced-motion: reduce) { .numberWrapper, .progressFill, .marker, .step { transition: none; } }
+:global(.saesomangScope) .approach { max-width: 75rem; }
+:global(.saesomangScope) .grid { grid-template-columns: 30rem minmax(2rem, .5fr) minmax(0, 1fr); }
+:global(.saesomangScope) .heading { font-size: 4rem; line-height: 1.12; }
+@media (max-width: 1200px) { :global(.saesomangScope) .grid { grid-template-columns: repeat(12, minmax(0, 1fr)); } }
+@media (max-width: 768px) { :global(.saesomangScope) .heading { font-size: 2.5rem; } }

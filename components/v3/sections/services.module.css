@@ -48,6 +48,16 @@
 .cardsSection[data-reduced="true"] .cardImage, .cardsSection[data-reduced="true"] .cardDescription, .cardsSection[data-reduced="true"] .cardFront { transition: none; }
 .cardsSection[data-reduced="true"] .card[aria-expanded="true"] .cardFront { visibility: hidden; transform: none; }
 .cardsSection[data-reduced="true"] .card[aria-expanded="true"] .cardImage { transform: none; }
+:global(.saesomangScope) .statementInner { width: min(100%, 75rem); gap: 4rem; }
+:global(.saesomangScope) .statement h2 { flex-basis: 40rem; font-size: 4rem; line-height: 1.12; }
+:global(.saesomangScope) .statement h2 em { font-size: 1.08em; }
+:global(.saesomangScope) .statement p { padding-top: 6rem; }
+:global(.saesomangScope) .leadCopy { width: min(50%, 37.5rem); min-height: 0; margin-left: max(2rem, calc((100% - 75rem) / 2)); padding-right: 2rem; padding-left: 0; }
+:global(.saesomangScope) .cardsSection { padding-right: max(2rem, calc((100% - 75rem) / 2)); padding-left: max(2rem, calc((100% - 75rem) / 2)); }
+:global(.saesomangScope) .lead h3 { font-size: 4rem; line-height: 1.12; }
+:global(.saesomangScope) .wordMask { padding-block: .2em; margin-block: -.2em; line-height: 1.35; vertical-align: middle; }
+@media (max-width: 1200px) { :global(.saesomangScope) .leadCopy { width: 100%; margin-left: 0; padding-left: 2rem; } }
+@media (max-width: 768px) { :global(.saesomangScope) .statement h2, :global(.saesomangScope) .lead h3 { font-size: 2.5rem; } :global(.saesomangScope) .statement p { padding-top: 0; } }
 /* WU20 G04–G06: varied paper surfaces stay below text and media. */
 :global(.saesomangScope) .statement::before { background: radial-gradient(circle at 78% 20%, rgb(176 161 191 / 30%) 0 1px, transparent 1.6px 100%), radial-gradient(circle at 12% 76%, rgb(255 255 255 / 13%) 0 1px, transparent 1.4px 100%), linear-gradient(118deg, transparent 16%, rgb(255 255 255 / 7%) 48%, transparent 76%); background-size: 23px 29px, 37px 31px, auto; }
 :global(.saesomangScope) .lead { background: radial-gradient(ellipse at 18% 82%, rgb(217 196 171 / 28%), transparent 47%), radial-gradient(ellipse at 82% 16%, rgb(176 161 191 / 18%), transparent 43%), #fbf8f5; }

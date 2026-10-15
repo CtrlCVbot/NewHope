@@ -7,3 +7,8 @@
 .saesomangFooter nav span{min-height:2.75rem;font:400 .875rem/2.75rem var(--f-sans)}
 @media(max-width:1024px){.inner,.locationInner{grid-template-columns:1fr;gap:2rem}}
 @media(max-width:768px){.stories,.faq,.location{padding:5rem 1.5rem}.inner,.locationInner{grid-template-columns:1fr;gap:2rem}.sectionHeader h2{font-size:2.5rem}.story{grid-template-columns:minmax(0,1fr) 1.5rem;gap:.25rem 1rem}.story time,.story>span,.story strong{grid-column:1}.story time{grid-row:1}.story>span{grid-row:2}.story strong{grid-row:3}.story svg{grid-column:2;grid-row:1/4;align-self:center}.faqItem summary{min-height:2.75rem;padding:1.5rem 1rem}.faqItem p{padding:0 1rem 1.5rem}.locationContacts{flex-direction:column;align-items:flex-start;gap:0}.saesomangFooter{grid-template-columns:1fr;padding:2rem 1.5rem;gap:1.5rem}}@media(prefers-reduced-motion:reduce){.story{transition:none}}
+:global(.saesomangScope) .stories, :global(.saesomangScope) .faq, :global(.saesomangScope) .consult, :global(.saesomangScope) .location { padding-right: max(2rem, calc((100% - 75rem) / 2)); padding-left: max(2rem, calc((100% - 75rem) / 2)); }
+:global(.saesomangScope) .inner, :global(.saesomangScope) .faqInner, :global(.saesomangScope) .locationInner { width: min(100%, 75rem); }
+:global(.saesomangScope) .sectionHeader h2, :global(.saesomangScope) .consult h2 { font-size: 4rem; line-height: 1.12; }
+:global(.saesomangScope) .saesomangFooter { padding-right: max(2rem, calc((100% - 75rem) / 2)); padding-left: max(2rem, calc((100% - 75rem) / 2)); }
+@media(max-width:768px){:global(.saesomangScope) .sectionHeader h2,:global(.saesomangScope) .consult h2{font-size:2.5rem}}

@@ -21,6 +21,10 @@
 @media (max-width: 550px) { .intro { padding: 64px 0; }.container { padding: 0 24px; }.grid { gap: 10px; }.bodyWrap { margin-top: 16px; } }
 @media (max-width: 500px) { .label { font-size: 14px; } }
 @media (prefers-reduced-motion: reduce) { .image img { transform: none !important; } }
+:global(.saesomangScope) .container { max-width: 75rem; }
+:global(.saesomangScope) .headline { max-width: 16ch; font-size: 4rem; line-height: 1.12; }
+:global(.saesomangScope) .wordMask { padding-block: .2em; margin-block: -.2em; line-height: 1.35; vertical-align: middle; }
+@media (max-width: 768px) { :global(.saesomangScope) .headline { font-size: 2.5rem; } }
 /* WU20 G03: section-only paper grain, held behind all content and diagrams. */
 :global(.saesomangScope) .intro::before { position: absolute; inset: 0; z-index: 0; background: radial-gradient(circle at 15% 18%, rgb(255 255 255 / 66%) 0 1px, transparent 1.5px 100%), radial-gradient(circle at 82% 74%, rgb(176 161 191 / 13%) 0 1px, transparent 1.5px 100%), linear-gradient(118deg, rgb(255 255 255 / 36%), transparent 34%, rgb(217 196 171 / 15%) 100%); background-size: 19px 23px, 29px 31px, auto; content: ""; pointer-events: none; }
 :global(.saesomangScope) .container { isolation: isolate; }

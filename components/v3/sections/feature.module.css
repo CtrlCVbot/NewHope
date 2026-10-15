@@ -26,6 +26,11 @@
 @media (max-width: 768px) { .hero { height: 100%; min-height: 80vh; }.heroContent { padding: 128px 24px 64px; justify-content: flex-start; gap: 32px; }.title { font-size: 48px; }.cardWrapper { padding: 48px 0; margin: 0 24px; }.card { padding: 32px; }.cardIntro { font-size: 15px; } }
 @media (max-width: 768px) { .diagramFeature .background { position: relative; width: 100%; height: min(72vw, 420px); }.diagramFeature .hero { height: auto; min-height: 0; margin-top: 0; }.diagramFeature .heroContent { padding-top: 64px; }.diagramFeature .cardWrapper { margin: 0 24px; } }
 @media (max-width: 450px) { .title { font-size: 36px; } }
+:global(.saesomangScope) .heroContent, :global(.saesomangScope) .cardWrapper { max-width: 75rem; }
+:global(.saesomangScope) .heroContent { padding-inline: 2rem; }
+:global(.saesomangScope) .cardWrapper { width: 100%; margin-inline: auto; padding-inline: 2rem; }
+:global(.saesomangScope) .title { font-size: 4rem; line-height: 1.12; }
+@media (max-width: 768px) { :global(.saesomangScope) .title { font-size: 3rem; } }
 /* WU20 G04: one restrained card surface replaces a stronger glass treatment. */
 :global(.saesomangScope) .card { overflow: hidden; border-color: rgb(255 255 255 / 42%); background: rgb(255 255 255 / 58%); }
 :global(.saesomangScope) .card::before { background: radial-gradient(circle at 18% 14%, rgb(255 255 255 / 92%) 0 1px, transparent 1.4px 100%), radial-gradient(circle at 76% 82%, rgb(176 161 191 / 18%) 0 1px, transparent 1.5px 100%), linear-gradient(135deg, rgb(255 255 255 / 90%), rgb(245 240 235 / 72%)); background-size: 17px 19px, 31px 29px, auto; pointer-events: none; }
