@@ -99,7 +99,7 @@ function FrameInner({ content, variant = "design", extras }: { content: V3Conten
           <Intro id="about" intro={content.intro} variant="saesomang" /><Feature feature={content.feature} variant="saesomang" /><Services id="services" services={content.services} variant="saesomang" iconAssets={["/v3/saesomang/icons/home.svg", "/v3/saesomang/icons/bath.svg", "/v3/saesomang/icons/chat.svg"]} />
           <Process id="process" process={content.process} showNote />
           <Faq id="faq" faq={extras.faq} />
-          <SaesomangMission id="promises" mission={content.mission} /><CareTabs id="care" care={content.care} showMedia={false} />
+          <SaesomangMission id="promises" mission={content.mission} /><CareTabs id="care" care={content.care} variant="saesomang" />
           <Stories id="stories" stories={extras.stories} storyNotice={extras.storyNotice} />
           <Why why={content.why} brand={{ ...content.brand, wordmarkSvg: saesomangBrandAssets.whySvg }} variant="saesomang" showMedia={false} />
           <CtaSection id="contact-cta" cta={content.cta}><ConsultationGuide id="consult" guide={extras.consultation} /></CtaSection>

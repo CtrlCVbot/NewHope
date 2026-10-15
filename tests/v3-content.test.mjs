@@ -33,7 +33,7 @@ test("maps the approved V3 contract, brand paths, pending facts, and Kakao consu
     ["/v3/saesomang/illustrations/feature-support.svg", "diagram"], ["/v3/saesomang/illustrations/services-daily.svg", "diagram"],
     ["/v3/saesomang/images/service-daily-living.webp", "photo"], ["/v3/saesomang/images/service-bath-preparation.webp", "photo"], ["/v3/saesomang/images/service-companionship.webp", "photo"], ["/v3/saesomang/images/mission-listening.webp", "photo"],
     ["/v3/saesomang/images/intro-family-consultation.webp", "photo"], ["/v3/saesomang/images/feature-living-conversation.webp", "photo"],
-    ["/v3/saesomang/illustrations/care-start.svg", "diagram"], ["/v3/saesomang/illustrations/care-prepare.svg", "diagram"], ["/v3/saesomang/illustrations/care-region.svg", "diagram"], ["/v3/saesomang/illustrations/care-dialogue.svg", "diagram"], ["/v3/saesomang/illustrations/why-garden.svg", "decorative"],
+    ["/v3/saesomang/images/care-first-question.webp", "photo"], ["/v3/saesomang/images/care-preparing-notes.webp", "photo"], ["/v3/saesomang/images/care-planning-calendar.webp", "photo"], ["/v3/saesomang/images/care-everyday-checkin.webp", "photo"], ["/v3/saesomang/illustrations/why-garden.svg", "decorative"],
   ]);
   assert.equal(saesomangPhotoSlots[0].alt, "집 안에서 이동을 돕는 돌봄의 장면");
   assert.equal(saesomangContent.mission.title.text, "도움이 필요한 순간에도, 어르신의 뜻을 먼저.");
@@ -45,7 +45,8 @@ test("maps the approved V3 contract, brand paths, pending facts, and Kakao consu
   assert.equal(saesomangContent.header.cta.label, "카카오 상담");
   assert.equal(saesomangContent.header.cta.href, KAKAO_OPEN_CHAT_URL);
   assert.equal(saesomangContent.cta.button.href, KAKAO_OPEN_CHAT_URL);
-  assert.equal(saesomangContent.care.rotation, "manual");
+  assert.equal(saesomangContent.care.rotation, "responsive");
+  assert.equal(saesomangContent.care.title?.text, "상담에서 하나씩 함께 확인합니다.");
   assert.equal(saesomangContent.extras.consultation.button.href, KAKAO_OPEN_CHAT_URL);
   assert.match(saesomangContent.extras.consultation.notice, /그룹방에는 연락처·건강정보·서류 사진을 올리지 마세요/);
 });

@@ -6,12 +6,13 @@ import type { KeyboardEvent } from "react";
 import type { V3Content } from "@/content/v3/types";
 import { useReducedMotion } from "../motion/useReducedMotion";
 import { GoldLabel } from "../ui/GoldLabel";
+import { SaesomangCareTabs } from "./SaesomangCareTabs";
 import styles from "./care.module.css";
 
-type Props = { id: string; care: V3Content["care"]; showMedia?: boolean };
+type Props = { id: string; care: V3Content["care"]; showMedia?: boolean; variant?: "design" | "saesomang" };
 const ROTATION_MS = 3000;
 
-export function CareTabs({ id, care, showMedia = true }: Props) {
+function DesignCareTabs({ id, care, showMedia = true }: Props) {
   const root = useRef<HTMLElement>(null);
   const progress = useRef<HTMLSpanElement[]>([]);
   const elapsed = useRef(0);
@@ -117,4 +118,9 @@ export function CareTabs({ id, care, showMedia = true }: Props) {
       {manual && <noscript><div className={styles.noScript} data-care-noscript><p>{care.label}</p><ul>{care.tabs.map((tab) => <li key={tab.text}><strong>{tab.text}</strong><span>{tab.body}</span></li>)}</ul></div></noscript>}
     </div>
   </section>;
+}
+
+export function CareTabs({ variant = "design", ...props }: Props) {
+  if (variant === "saesomang") return <SaesomangCareTabs id={props.id} care={props.care} />;
+  return <DesignCareTabs {...props} />;
 }

@@ -154,6 +154,106 @@
       "bytes": 81190
     },
     {
+      "name": "care-first-question",
+      "kind": "photo",
+      "sourceId": "careFirstQuestion",
+      "sourcePath": "assets/v3/saesomang/source/wu26/care-first-question.png",
+      "sourceSha256": "75ca0b5cbcd8dfc81afaf6ddb93814834a9cc0f00dcd52d3dc35cf5991ac2f54",
+      "sourceLicenseEvidence": "사용자 요청으로 2026-10-15 built-in image_gen에서 만든 가상 장면 C01",
+      "alt": "집에서 휴대전화로 필요한 도움을 문의하는 가상 장면",
+      "crop": {
+        "pixels": {
+          "left": 0,
+          "top": 0,
+          "width": 1536,
+          "height": 1024
+        },
+        "focalPoint": "full-scene-preserved",
+        "preservesFullSource": true
+      },
+      "actualDimensions": {
+        "width": 1200,
+        "height": 800
+      },
+      "file": "images/care-first-question.webp",
+      "bytes": 50522
+    },
+    {
+      "name": "care-preparing-notes",
+      "kind": "photo",
+      "sourceId": "carePreparingNotes",
+      "sourcePath": "assets/v3/saesomang/source/wu26/care-preparing-notes.png",
+      "sourceSha256": "583fd7cb9e29fc91ca68f9f7a4e77e4477ba330548d53ec11e36881f2ae6195a",
+      "sourceLicenseEvidence": "사용자 요청으로 2026-10-15 built-in image_gen에서 만든 가상 장면 C02",
+      "alt": "상담 내용을 메모하며 이용 준비를 살피는 가상 장면",
+      "crop": {
+        "pixels": {
+          "left": 0,
+          "top": 0,
+          "width": 1536,
+          "height": 1024
+        },
+        "focalPoint": "full-scene-preserved",
+        "preservesFullSource": true
+      },
+      "actualDimensions": {
+        "width": 1200,
+        "height": 800
+      },
+      "file": "images/care-preparing-notes.webp",
+      "bytes": 57780
+    },
+    {
+      "name": "care-planning-calendar",
+      "kind": "photo",
+      "sourceId": "carePlanningCalendar",
+      "sourcePath": "assets/v3/saesomang/source/wu26/care-planning-calendar.png",
+      "sourceSha256": "e0572ec7aa3163dfa069f97f27cb2d9a6f155fc4be92120e312708e74609f44b",
+      "sourceLicenseEvidence": "사용자 요청으로 2026-10-15 built-in image_gen에서 만든 가상 장면 C03",
+      "alt": "달력을 함께 보며 이용 일정을 의논하는 가상 장면",
+      "crop": {
+        "pixels": {
+          "left": 0,
+          "top": 0,
+          "width": 1536,
+          "height": 1024
+        },
+        "focalPoint": "full-scene-preserved",
+        "preservesFullSource": true
+      },
+      "actualDimensions": {
+        "width": 1200,
+        "height": 800
+      },
+      "file": "images/care-planning-calendar.webp",
+      "bytes": 59222
+    },
+    {
+      "name": "care-everyday-checkin",
+      "kind": "photo",
+      "sourceId": "careEverydayCheckin",
+      "sourcePath": "assets/v3/saesomang/source/wu26/care-everyday-checkin.png",
+      "sourceSha256": "d3cad9670b0fd36465306b2ebdca7e94b1461cd8e739f6693dde3132b8567a2e",
+      "sourceLicenseEvidence": "사용자 요청으로 2026-10-15 built-in image_gen에서 만든 가상 장면 C04",
+      "alt": "일상에서 필요한 변화를 대화로 확인하는 가상 장면",
+      "crop": {
+        "pixels": {
+          "left": 0,
+          "top": 0,
+          "width": 1536,
+          "height": 1024
+        },
+        "focalPoint": "full-scene-preserved",
+        "preservesFullSource": true
+      },
+      "actualDimensions": {
+        "width": 1200,
+        "height": 800
+      },
+      "file": "images/care-everyday-checkin.webp",
+      "bytes": 60344
+    },
+    {
       "name": "intro-family-consultation",
       "kind": "photo",
       "sourceId": "introFamilyConsultation",

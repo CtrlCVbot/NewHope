@@ -31,10 +31,10 @@ export const saesomangPhotoSlots: Img[] = [
   { src: "/v3/saesomang/images/mission-listening.webp", alt: "어르신이 화초 이야기를 하고 옆의 사람이 귀 기울여 듣는 가상 장면", kind: "photo" },
   { src: "/v3/saesomang/images/intro-family-consultation.webp", alt: "가족이 함께 필요한 도움을 이야기하는 장면", kind: "photo" },
   { src: "/v3/saesomang/images/feature-living-conversation.webp", alt: "거실에서 일상과 필요한 도움을 이야기하는 장면", kind: "photo" },
-  { src: "/v3/saesomang/illustrations/care-start.svg", alt: "문의 시작을 나타낸 도해", kind: "diagram" },
-  { src: "/v3/saesomang/illustrations/care-prepare.svg", alt: "이용 준비를 나타낸 도해", kind: "diagram" },
-  { src: "/v3/saesomang/illustrations/care-region.svg", alt: "지역과 일정 확인을 위한 개념도이며 실제 지도나 확정 방문 범위를 뜻하지 않습니다", kind: "diagram" },
-  { src: "/v3/saesomang/illustrations/care-dialogue.svg", alt: "이용 중 소통을 나타낸 도해", kind: "diagram" },
+  { src: "/v3/saesomang/images/care-first-question.webp", alt: "집에서 휴대전화로 필요한 도움을 문의하는 가상 장면", kind: "photo" },
+  { src: "/v3/saesomang/images/care-preparing-notes.webp", alt: "상담 내용을 메모하며 이용 준비를 살피는 가상 장면", kind: "photo" },
+  { src: "/v3/saesomang/images/care-planning-calendar.webp", alt: "달력을 함께 보며 이용 일정을 의논하는 가상 장면", kind: "photo" },
+  { src: "/v3/saesomang/images/care-everyday-checkin.webp", alt: "일상에서 필요한 변화를 대화로 확인하는 가상 장면", kind: "photo" },
   { src: "/v3/saesomang/illustrations/why-garden.svg", alt: "", kind: "decorative" },
 ];
 
@@ -158,7 +158,8 @@ export const saesomangContent: V3Content & { extras: SaesomangExtras } = {
   },
   care: {
     label: "상담에서 함께 확인하는 내용",
-    rotation: "manual",
+    title: { text: "상담에서 하나씩 함께 확인합니다." },
+    rotation: "responsive",
     tabs: [
       { text: "문의 시작", body: "궁금한 서비스 종류와 일반적인 이용 절차를 오픈채팅에서 확인합니다. 먼저 알고 싶은 내용을 편하게 문의해 주세요.", image: care1 },
       { text: "이용 준비", body: "이용 전에 확인할 사항을 정리합니다. 절차에서 궁금한 부분과 준비사항을 함께 살펴봅니다.", image: care2 },

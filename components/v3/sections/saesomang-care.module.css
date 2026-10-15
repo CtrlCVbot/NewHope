@@ -1,0 +1,21 @@
+.care{position:relative;container-type:inline-size;overflow:hidden;background:var(--c-primary);color:#fff;padding:7.5rem 2rem}
+.wrapper{display:grid;grid-template-columns:minmax(0,35rem) minmax(0,1fr);gap:clamp(3rem,7vw,8rem);align-items:center;max-width:75rem;margin-inline:auto}
+.images{position:relative;width:100%;max-width:35rem;aspect-ratio:3/2;overflow:hidden;background:#2d1838}
+.image{position:absolute;inset:0;opacity:1;visibility:visible;transition:opacity .6s ease,visibility 0s}
+.image[aria-hidden="true"]{opacity:0;visibility:hidden;transition:opacity .6s ease,visibility 0s linear .6s}
+.image img{object-fit:contain}
+.content{min-width:0;display:flex;flex-direction:column;align-items:flex-start;gap:1.5rem}
+.label{margin:0;color:#f5f0eb}
+.title{max-width:38rem;margin:0;font:400 clamp(2.5rem,4vw,3.75rem)/1.18 var(--f-serif);letter-spacing:-.035em;word-break:keep-all;overflow-wrap:anywhere}
+.tabs{display:flex;width:100%;max-width:38rem;flex-direction:column}
+.tab{display:flex;flex-direction:column;gap:.75rem;padding:1rem 0;border:0;background:transparent;color:rgb(255 255 255 / 80%);font:400 clamp(1.25rem,2vw,1.75rem)/1.35 var(--f-sans);letter-spacing:-.02em;cursor:pointer;text-align:left}
+.tab[aria-selected="true"]{color:#fff}.tab:focus-visible,.playback:focus-visible{outline:2px solid var(--c-teal);outline-offset:4px}
+.progress{display:block;width:100%;height:1px;overflow:hidden;background:rgb(255 255 255 / 25%)}
+.progress>span{display:block;width:100%;height:100%;background:var(--g-cta);transform:scaleX(0);transform-origin:left}
+.panels{display:grid;width:100%;max-width:38rem}.panel{grid-area:1/1;color:rgb(255 255 255 / 88%);font:400 1rem/1.65 var(--f-sans);visibility:visible}.panel[aria-hidden="true"]{visibility:hidden;pointer-events:none}.panel p{margin:0}
+.playback{padding:0;border:0;background:transparent;color:#fff;font:500 .9375rem/1.4 var(--f-sans);text-decoration:underline;text-underline-offset:.25rem;cursor:pointer}
+.noScript{grid-column:1/-1;padding-top:2rem}.noScript p{margin:0 0 1rem}.noScript ul{display:grid;gap:1rem;margin:0;padding:0;list-style:none}.noScript li{display:grid;gap:.25rem}.noScript strong{color:var(--c-teal)}
+@media(max-width:960px){.care{padding-block:5.5rem}.wrapper{grid-template-columns:1fr;gap:2.5rem}.images{max-width:35rem}.title{font-size:clamp(2.25rem,8vw,3rem)}}
+@media(max-width:500px){.care{padding-inline:1.25rem}.tab{font-size:1.25rem}}
+@media(prefers-reduced-motion:reduce){.image,.image[aria-hidden="true"]{transition:none}}
+@container (max-width:900px){.wrapper{grid-template-columns:1fr;gap:2.5rem}.images{max-width:35rem}.title{font-size:clamp(2.25rem,8cqi,3rem)}}

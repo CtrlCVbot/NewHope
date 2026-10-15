@@ -25,7 +25,7 @@ export type V3Content = {
   services: { statement: RichText; statementBody: string; label: string; headline: RichText; points: string[]; image: Img; cardsLabel: string; cards: { title: string; subtitle: string; description: string; icon: string; image: Img }[] };
   process: { title: RichText; note: string; steps: { title: string; description: string }[] };
   mission: { label: string; title: RichText; items: string[]; image: Img };
-  care: { label: string; rotation?: "auto" | "manual"; tabs: { text: string; body?: string; image: Img }[] };
+  care: { label: string; title?: RichText; rotation?: "auto" | "manual" | "responsive"; tabs: { text: string; body?: string; image: Img }[] };
   why: { title: RichText; body: string; footnote: string; image: Img };
   cta: { label: string; title: RichText; body: string; button: Link };
   extras?: { stories?: Story[]; faq?: Faq[]; consultation?: ConsultationGuide; location?: Location };

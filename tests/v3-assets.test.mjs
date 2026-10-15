@@ -11,22 +11,23 @@ const root = path.resolve(import.meta.dirname, "..");
 const assets = path.join(root, "public", "v3", "saesomang");
 const manifestPath = path.join(assets, "assets-manifest.json");
 const execFile = promisify(execFileCallback);
-const catalogPhotos = ["hero", "service-daily-living", "service-bath-preparation", "service-companionship", "mission", "mission-listening", "intro-family-consultation", "feature-living-conversation"];
-const activePhotos = ["hero", "service-daily-living", "service-bath-preparation", "service-companionship", "mission-listening", "intro-family-consultation", "feature-living-conversation"];
+const catalogPhotos = ["hero", "service-daily-living", "service-bath-preparation", "service-companionship", "mission", "mission-listening", "intro-family-consultation", "feature-living-conversation", "care-first-question", "care-preparing-notes", "care-planning-calendar", "care-everyday-checkin"];
+const activePhotos = ["hero", "service-daily-living", "service-bath-preparation", "service-companionship", "mission-listening", "intro-family-consultation", "feature-living-conversation", "care-first-question", "care-preparing-notes", "care-planning-calendar", "care-everyday-checkin"];
 const diagrams = { "intro-left": "intro-home.svg", "intro-right": "intro-conversation.svg", feature: "feature-support.svg", services: "services-daily.svg", "care-1": "care-start.svg", "care-2": "care-prepare.svg", "care-3": "care-region.svg", "care-4": "care-dialogue.svg", why: "why-garden.svg" };
+const contentDiagrams = { "intro-left": "intro-home.svg", "intro-right": "intro-conversation.svg", feature: "feature-support.svg", services: "services-daily.svg", why: "why-garden.svg" };
 const loadManifest = async () => JSON.parse(await readFile(manifestPath, "utf8"));
 
-test("maps eight catalog photos and nine unique SVG diagrams", async () => {
+test("maps twelve catalog photos and nine unique SVG diagrams", async () => {
   const manifest = await loadManifest();
-  assert.equal(manifest.schemaVersion, 2); assert.equal(manifest.images.length, 17);
+  assert.equal(manifest.schemaVersion, 2); assert.equal(manifest.images.length, 21);
   assert.deepEqual(manifest.images.filter(({ kind }) => kind === "photo").map(({ name }) => name).sort(), [...catalogPhotos].sort());
   assert.deepEqual(Object.fromEntries(manifest.images.filter(({ kind }) => kind === "diagram").map(({ name, file }) => [name, path.basename(file)])), diagrams);
-  assert.equal(new Set(manifest.images.map(({ sourceSha256 }) => sourceSha256)).size, 17);
+  assert.equal(new Set(manifest.images.map(({ sourceSha256 }) => sourceSha256)).size, 21);
 });
 test("photo metadata and files prove no source enlargement", async () => {
   const manifest = await loadManifest();
   for (const image of manifest.images.filter(({ kind }) => kind === "photo")) { const metadata = await sharp(path.join(assets, image.file)).metadata(); assert.equal(metadata.format, "webp"); assert.deepEqual({ width: metadata.width, height: metadata.height }, image.actualDimensions); assert.ok(image.actualDimensions.width <= image.crop.pixels.width, `${image.name} width enlarged`); assert.ok(image.actualDimensions.height <= image.crop.pixels.height, `${image.name} height enlarged`); }
-  for (const name of ["mission", "mission-listening"]) assert.equal(manifest.images.find((image) => image.name === name).crop.preservesFullSource, true);
+  for (const name of ["mission", "mission-listening", "care-first-question", "care-preparing-notes", "care-planning-calendar", "care-everyday-checkin"]) assert.equal(manifest.images.find((image) => image.name === name).crop.preservesFullSource, true);
 });
 test("maps the three service cards to the approved WU25 scenes at 3:2", async () => {
   const manifest = await loadManifest();
@@ -51,7 +52,8 @@ test("V3 content references each active photo once while retaining the catalog",
   for (const name of catalogPhotos) await stat(path.join(assets, "images", `${name}.webp`));
   for (const name of activePhotos) { const publicPath = `/v3/saesomang/images/${name}.webp`; assert.equal(content.split(publicPath).length - 1, 1, `${name} is active once`); }
   assert.equal(content.includes("/v3/saesomang/images/mission.webp"), false, "old mission remains catalog-only");
-  for (const [name, file] of Object.entries(diagrams)) { const publicPath = `/v3/saesomang/illustrations/${file}`; assert.ok(content.includes(publicPath), `${name} is referenced by V3 content`); await stat(path.join(assets, "illustrations", file)); }
+  for (const [name, file] of Object.entries(diagrams)) await stat(path.join(assets, "illustrations", file));
+  for (const [name, file] of Object.entries(contentDiagrams)) { const publicPath = `/v3/saesomang/illustrations/${file}`; assert.ok(content.includes(publicPath), `${name} is referenced by V3 content`); }
 });
 test("keeps brand contract and active assets under the 2.5MB budget", async () => {
   const manifest = await loadManifest(); assert.equal(manifest.brand.externalReferences, 0); assert.deepEqual(manifest.brand.variants, ["header-full.svg", "header-short.svg", "menu.svg", "why.svg", "footer.svg"]); assert.deepEqual(manifest.brand.symbols, ["symbol.svg", "symbol-white.svg", "symbol-small.svg"]); assert.deepEqual(manifest.brand.icons, ["home.svg", "bath.svg", "chat.svg", "leaf.svg", "arrow-up-right.svg"]); assert.deepEqual(manifest.og, { file: "og.webp", width: 1200, height: 630, source: "public/hero-care.png", brand: "brand/why.svg", copy: "익숙한 집에서, 편안한 하루를." }); const active = await Promise.all([...manifest.images, { file: "og.webp" }].map(async ({ file }) => (await stat(path.join(assets, file))).size)); assert.ok(active.reduce((sum, bytes) => sum + bytes, 0) <= 2.5 * 1024 * 1024);
