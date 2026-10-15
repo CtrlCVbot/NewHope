@@ -2,7 +2,7 @@
 
 import { Fragment, useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import type { V3Content } from "@/content/v3/types";
-import type { SaesomangExtras } from "@/content/v3/saesomang";
+import { saesomangBrandAssets, type SaesomangExtras } from "@/content/v3/saesomang";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 import { MenuOverlay } from "./MenuOverlay";
@@ -26,7 +26,7 @@ import { SaesomangFooter } from "./SaesomangFooter";
 import styles from "./frame.module.css";
 
 type Variant = "design" | "saesomang";
-function FrameInner({ content, variant = "design", extras, whyWordmarkSvg }: { content: V3Content; variant?: Variant; extras?: SaesomangExtras; whyWordmarkSvg?: string }) {
+function FrameInner({ content, variant = "design", extras }: { content: V3Content; variant?: Variant; extras?: SaesomangExtras }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [closing, setClosing] = useState(false);
   const [loaderComplete, setLoaderComplete] = useState(false);
@@ -100,7 +100,7 @@ function FrameInner({ content, variant = "design", extras, whyWordmarkSvg }: { c
           <Faq id="faq" faq={extras.faq} />
           <Mission id="promises" mission={content.mission} /><CareTabs id="care" care={content.care} />
           <Stories id="stories" stories={extras.stories} storyNotice={extras.storyNotice} />
-          <Why why={content.why} brand={{ ...content.brand, wordmarkSvg: whyWordmarkSvg ?? content.brand.wordmarkSvg }} />
+          <Why why={content.why} brand={{ ...content.brand, wordmarkSvg: saesomangBrandAssets.whySvg }} />
           <CtaSection id="contact-cta" cta={content.cta}><ConsultationGuide id="consult" guide={extras.consultation} /></CtaSection>
           <Location id="location" brandName={content.brand.name} location={extras.location} contacts={extras.contacts} />
         </> : content.nav.map((item, index) => {
@@ -118,14 +118,14 @@ function FrameInner({ content, variant = "design", extras, whyWordmarkSvg }: { c
           </section>;
         })}
       </main>
-      {variant === "saesomang" && extras ? <SaesomangFooter footer={{ ...content.footer, links: extras.contacts, legal: [] }} brand={content.brand} /> : <Footer footer={content.footer} brand={content.brand} />}
+      {variant === "saesomang" && extras ? <SaesomangFooter footer={{ ...content.footer, links: extras.contacts, legal: [] }} brand={content.brand} asset={saesomangBrandAssets.footerSvg} /> : <Footer footer={content.footer} brand={content.brand} />}
       <ScrollTop />
     </div>
-    {menuOpen && <MenuOverlay closing={closing} reducedMotion={reducedMotion} nav={content.nav} brand={content.brand} description={content.frame.menuDescription} menuAsset={variant === "saesomang" ? "/v3/saesomang/brand/menu.svg" : undefined} onClose={close} onClosed={finishClose} onNavigate={navigate} />}
-    <PageLoader brand={content.brand} onStart={startLoader} onComplete={finishLoader} storageKey={variant === "saesomang" ? "v3-pageLoaded" : undefined} />
+    {menuOpen && <MenuOverlay closing={closing} reducedMotion={reducedMotion} nav={content.nav} brand={content.brand} description={content.frame.menuDescription} menuAsset={variant === "saesomang" ? saesomangBrandAssets.menuSvg : undefined} onClose={close} onClosed={finishClose} onNavigate={navigate} />}
+    <PageLoader brand={content.brand} onStart={startLoader} onComplete={finishLoader} storageKey={variant === "saesomang" ? "v3-pageLoaded" : undefined} loaderAsset={variant === "saesomang" ? saesomangBrandAssets.loaderSvg : undefined} />
   </div>;
 }
 
-export function V3Frame({ content, variant, extras, whyWordmarkSvg }: { content: V3Content; variant?: Variant; extras?: SaesomangExtras; whyWordmarkSvg?: string }) {
-  return <SmoothScrollProvider><FrameInner content={content} variant={variant} extras={extras} whyWordmarkSvg={whyWordmarkSvg} /></SmoothScrollProvider>;
+export function V3Frame({ content, variant, extras }: { content: V3Content; variant?: Variant; extras?: SaesomangExtras }) {
+  return <SmoothScrollProvider><FrameInner content={content} variant={variant} extras={extras} /></SmoothScrollProvider>;
 }

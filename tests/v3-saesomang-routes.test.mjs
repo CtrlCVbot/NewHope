@@ -51,5 +51,7 @@ test("renders visible phase-two V3 facts, assets, anchors, and section order", a
 
 test("keeps the menu asset wired for browser-open state", async () => {
   const source = await readFile(new URL("../components/v3/layout/V3Frame.tsx", import.meta.url), "utf8");
-  assert.match(source, /\/v3\/saesomang\/brand\/menu\.svg/);
+  assert.match(source, /saesomangBrandAssets\.menuSvg/);
+  assert.match(source, /saesomangBrandAssets\.footerSvg/);
+  assert.match(source, /saesomangBrandAssets\.loaderSvg/);
 });

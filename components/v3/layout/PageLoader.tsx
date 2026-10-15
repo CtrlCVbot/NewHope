@@ -3,11 +3,12 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import { getV3Gsap } from "../motion/gsap";
+import Image from "next/image";
 import styles from "./loader.module.css";
 
-type Props = { brand: { name: string; tagline: string }; onStart: () => void; onComplete: () => void; storageKey?: string };
+type Props = { brand: { name: string; tagline: string }; onStart: () => void; onComplete: () => void; storageKey?: string; loaderAsset?: string };
 
-export function PageLoader({ brand, onStart, onComplete, storageKey = "v3-design-pageLoaded" }: Props) {
+export function PageLoader({ brand, onStart, onComplete, storageKey = "v3-design-pageLoaded", loaderAsset }: Props) {
   const [reduced, setReduced] = useState<boolean | null>(null);
   const [show, setShow] = useState(false);
   const root = useRef<HTMLDivElement>(null);
@@ -58,6 +59,6 @@ export function PageLoader({ brand, onStart, onComplete, storageKey = "v3-design
   if (!show) return null;
   return <div ref={root} className={styles.loader} data-v3-loader data-phase="loading" aria-hidden="true">
     <div ref={windowRef} className={styles.window} />
-    <p ref={wordmarkRef} className={styles.wordmark}>{brand.name}<small>{brand.tagline}</small></p>
+    <p ref={wordmarkRef} className={styles.wordmark}>{loaderAsset ? <Image src={loaderAsset} alt="" width={64} height={64} /> : <>{brand.name}<small>{brand.tagline}</small></>}</p>
   </div>;
 }

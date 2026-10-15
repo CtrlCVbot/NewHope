@@ -256,6 +256,11 @@
       "why.svg",
       "footer.svg"
     ],
+    "symbols": [
+      "symbol.svg",
+      "symbol-white.svg",
+      "symbol-small.svg"
+    ],
     "icons": [
       "home.svg",
       "bath.svg",
@@ -263,14 +268,15 @@
       "leaf.svg",
       "arrow-up-right.svg"
     ],
-    "externalReferences": 0
+    "externalReferences": 0,
+    "generatorSha256": "20806c415e0083b2553e8a00fad06c69ee1466f347b76660bbe8fc13e5466826"
   },
   "og": {
     "file": "og.webp",
     "width": 1200,
     "height": 630,
     "source": "public/hero-care.png",
-    "brand": "brand/header-full.svg",
+    "brand": "brand/why.svg",
     "copy": "익숙한 집에서, 편안한 하루를."
   }
 }

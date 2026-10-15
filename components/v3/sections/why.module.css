@@ -20,3 +20,9 @@
 @media (max-width: 768px) { .why { min-height: auto; } .background img { min-height: 150%; } .logo { top: 2rem; width: 20rem; } .content { min-height: auto; padding: 12rem 1.5rem 4rem; } .title { font-size: 2.5rem; } .title em { font-size: 1.2em; } .body { font-size: 1rem; } .footnote { margin: 2rem 0 0; font-size: .875rem; } }
 @media (max-width: 768px) { .diagramWhy .background img { min-height: 0; } }
 @media (max-width: 450px) { .logo { top: 0; right: auto; left: 1.5rem; width: 15rem; } }
+
+/* New 900×250 lockup applies only to the Saesomang route. */
+:global(.saesomangScope) .logo { top: 3.25rem; width: min(54.3006rem, calc(100% - 4rem)); height: auto; aspect-ratio: 900 / 250; }
+@media (max-width: 890px) { :global(.saesomangScope) .logo { width: min(32rem, calc(100% - 4rem)); } }
+@media (max-width: 768px) { :global(.saesomangScope) .logo { top: 2rem; width: min(20rem, calc(100% - 3rem)); } }
+@media (max-width: 450px) { :global(.saesomangScope) .logo { top: 0; right: auto; left: 1.5rem; width: min(15rem, calc(100% - 3rem)); } }

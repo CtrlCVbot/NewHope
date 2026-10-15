@@ -81,7 +81,10 @@ export const pendingFactChecks = {
 export const saesomangBrandAssets = {
   headerFullSvg: "/v3/saesomang/brand/header-full.svg",
   headerShortSvg: "/v3/saesomang/brand/header-short.svg",
+  menuSvg: "/v3/saesomang/brand/menu.svg",
   whySvg: "/v3/saesomang/brand/why.svg",
+  footerSvg: "/v3/saesomang/brand/footer.svg",
+  loaderSvg: "/v3/saesomang/brand/symbol-small.svg",
 } as const;
 
 export const saesomangContent: V3Content & { extras: SaesomangExtras } = {

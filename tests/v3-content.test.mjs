@@ -35,7 +35,7 @@ test("maps the approved V3 contract, brand paths, pending facts, and Kakao consu
     ["/v3/saesomang/illustrations/care-start.svg", "diagram"], ["/v3/saesomang/illustrations/care-prepare.svg", "diagram"], ["/v3/saesomang/illustrations/care-region.svg", "diagram"], ["/v3/saesomang/illustrations/care-dialogue.svg", "diagram"], ["/v3/saesomang/illustrations/why-garden.svg", "decorative"],
   ]);
   assert.equal(saesomangPhotoSlots[0].alt, "집 안에서 이동을 돕는 돌봄의 장면");
-  assert.deepEqual(saesomangBrandAssets, { headerFullSvg: "/v3/saesomang/brand/header-full.svg", headerShortSvg: "/v3/saesomang/brand/header-short.svg", whySvg: "/v3/saesomang/brand/why.svg" });
+  assert.deepEqual(saesomangBrandAssets, { headerFullSvg: "/v3/saesomang/brand/header-full.svg", headerShortSvg: "/v3/saesomang/brand/header-short.svg", menuSvg: "/v3/saesomang/brand/menu.svg", whySvg: "/v3/saesomang/brand/why.svg", footerSvg: "/v3/saesomang/brand/footer.svg", loaderSvg: "/v3/saesomang/brand/symbol-small.svg" });
   assert.deepEqual(pendingFactChecks.excludedFromVisibleContent, ["급여 범위 6항목", "버스 노선"]);
   const visible = JSON.stringify(saesomangContent);
   for (const forbidden of ["placeholder", "검토용", "급여 범위 6항목", "버스 노선", "formConfirmation"]) assert.doesNotMatch(visible, new RegExp(forbidden));
