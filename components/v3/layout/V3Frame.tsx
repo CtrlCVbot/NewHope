@@ -19,9 +19,10 @@ import { Services } from "../sections/Services";
 import { CareTabs } from "../sections/CareTabs";
 import { Why } from "../sections/Why";
 import { CtaSection } from "../sections/CtaSection";
+import { SaesomangWhy } from "../sections/SaesomangWhy";
+import { SaesomangConsultation } from "../sections/SaesomangConsultation";
 import { Faq } from "../sections/Faq";
 import { Stories } from "../sections/Stories";
-import { ConsultationGuide } from "../sections/ConsultationGuide";
 import { Location } from "../sections/Location";
 import { SaesomangFooter } from "./SaesomangFooter";
 import styles from "./frame.module.css";
@@ -101,8 +102,8 @@ function FrameInner({ content, variant = "design", extras }: { content: V3Conten
           <Faq id="faq" faq={extras.faq} />
           <SaesomangMission id="promises" mission={content.mission} /><CareTabs id="care" care={content.care} variant="saesomang" />
           <Stories id="stories" stories={extras.stories} storyNotice={extras.storyNotice} />
-          <Why why={content.why} brand={{ ...content.brand, wordmarkSvg: saesomangBrandAssets.whySvg }} variant="saesomang" showMedia={false} />
-          <CtaSection id="contact-cta" cta={content.cta}><ConsultationGuide id="consult" guide={extras.consultation} /></CtaSection>
+          <SaesomangWhy why={content.why} brand={{ ...content.brand, wordmarkSvg: saesomangBrandAssets.whySvg }} />
+          <SaesomangConsultation id="contact-cta" guide={extras.consultation} />
           <Location id="location" brandName={content.brand.name} location={extras.location} contacts={extras.contacts} />
         </> : content.nav.map((item, index) => {
           const id = decodeURIComponent(item.href.slice(1));

@@ -35,7 +35,7 @@ export const saesomangPhotoSlots: Img[] = [
   { src: "/v3/saesomang/images/care-preparing-notes.webp", alt: "상담 내용을 메모하며 이용 준비를 살피는 가상 장면", kind: "photo" },
   { src: "/v3/saesomang/images/care-planning-calendar.webp", alt: "달력을 함께 보며 이용 일정을 의논하는 가상 장면", kind: "photo" },
   { src: "/v3/saesomang/images/care-everyday-checkin.webp", alt: "일상에서 필요한 변화를 대화로 확인하는 가상 장면", kind: "photo" },
-  { src: "/v3/saesomang/illustrations/why-garden.svg", alt: "", kind: "decorative" },
+  { src: "/v3/saesomang/images/why-evening-home.webp", alt: "해 질 무렵 집에서 함께 사진첩을 보는 가상 일상 장면", kind: "photo" },
 ];
 
 const [hero, , , , services, card1, card2, card3, mission, introFamilyConsultation, featureLivingConversation, care1, care2, care3, care4, why] = saesomangPhotoSlots;
@@ -168,8 +168,8 @@ export const saesomangContent: V3Content & { extras: SaesomangExtras } = {
     ],
   },
   why: {
-    title: { text: "새소망을 더 알아보세요." },
-    body: "안내하는 서비스와 센터 소개 글, 오시는 길을 한곳에서 확인하세요.",
+    title: { text: "익숙한 일상에, 새소망이 함께합니다." },
+    body: "어떤 서비스를 안내하는지, 어떻게 이용을 준비하는지 차근차근 알아보세요.",
     footnote: "최근 안내와 이용 가능 여부는 카카오 오픈채팅에서 확인해 주세요.",
     image: why,
   },

@@ -304,6 +304,31 @@
       "bytes": 59992
     },
     {
+      "name": "why-evening-home",
+      "kind": "photo",
+      "sourceId": "whyEveningHome",
+      "sourcePath": "assets/v3/saesomang/source/wu27/why-evening-home.png",
+      "sourceSha256": "163e9a43892a16bf0bc3dd3a90f1d307f39c8ab0494e4f1b7b8d92aa462d581d",
+      "sourceLicenseEvidence": "사용자 요청으로 2026-10-19 built-in image_gen에서 만든 가상 장면 W01",
+      "alt": "해 질 무렵 집에서 함께 사진첩을 보는 가상 일상 장면",
+      "crop": {
+        "pixels": {
+          "left": 0,
+          "top": 0,
+          "width": 1536,
+          "height": 1024
+        },
+        "focalPoint": "family-album",
+        "preservesFullSource": true
+      },
+      "actualDimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "file": "images/why-evening-home.webp",
+      "bytes": 100182
+    },
+    {
       "name": "intro-left",
       "kind": "diagram",
       "sourceId": "illustration-intro-left",
