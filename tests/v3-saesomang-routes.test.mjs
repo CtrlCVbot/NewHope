@@ -11,7 +11,7 @@ const stories = [
   ["222912392169", "2022. 10. 27.", "분당새소망방문요양센터 성남방문요양센터 성남재가복지센터 새소망방문요양센터 입니다."],
   ["222912387833", "2022. 10. 27.", "오시는 길"],
 ];
-const photos = ["hero.webp", "intro-family-consultation.webp", "feature-living-conversation.webp", "service-daily-living.webp", "service-bath-preparation.webp", "service-companionship.webp", "mission-listening.webp", "care-first-question.webp", "care-preparing-notes.webp", "care-planning-calendar.webp", "care-everyday-checkin.webp", "why-evening-home.webp"];
+const photos = ["hero-home-landscape.webp", "intro-family-consultation.webp", "feature-living-conversation.webp", "service-daily-living.webp", "service-bath-preparation.webp", "service-companionship.webp", "mission-listening.webp", "care-first-question.webp", "care-preparing-notes.webp", "care-planning-calendar.webp", "care-everyday-checkin.webp", "why-evening-home.webp"];
 
 test("renders visible phase-two V3 facts, assets, anchors, and section order", async () => {
   const response = await render("/v3");
@@ -39,6 +39,8 @@ test("renders visible phase-two V3 facts, assets, anchors, and section order", a
   assert.equal(photoTags.length, 12);
   for (const [tag] of photoTags) assert.match(tag, /\balt="[^"]*"/);
   for (const photo of photos) assert.equal(photoTags.filter(([tag]) => decodeURIComponent(tag.match(/\bsrc="([^"]+)"/)?.[1] ?? "").includes(`/v3/saesomang/images/${photo}`)).length, 1, `expected one ${photo}`);
+  assert.match(visible, /<source[^>]+media="\(max-width: 660px\)"[^>]+hero-home-portrait\.webp/);
+  assert.doesNotMatch(visible, /\/v3\/saesomang\/images\/hero\.webp/);
   const diagramTags = [...visible.matchAll(/<img\b[^>]*>/g)].filter(([tag]) => decodeURIComponent(tag.match(/\bsrc="([^"]+)"/)?.[1] ?? "").includes("/v3/saesomang/illustrations/"));
   assert.equal(diagramTags.length, 0, "the current Saesomang page must not request retained illustration sources");
   for (const asset of ["header-full.svg", "why.svg", "footer.svg", "home.svg", "bath.svg", "chat.svg"]) assert.match(visible, new RegExp(asset));

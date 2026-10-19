@@ -11,18 +11,31 @@ const root = path.resolve(import.meta.dirname, "..");
 const assets = path.join(root, "public", "v3", "saesomang");
 const manifestPath = path.join(assets, "assets-manifest.json");
 const execFile = promisify(execFileCallback);
-const catalogPhotos = ["hero", "service-daily-living", "service-bath-preparation", "service-companionship", "mission", "mission-listening", "intro-family-consultation", "feature-living-conversation", "care-first-question", "care-preparing-notes", "care-planning-calendar", "care-everyday-checkin", "why-evening-home"];
-const activePhotos = ["hero", "service-daily-living", "service-bath-preparation", "service-companionship", "mission-listening", "intro-family-consultation", "feature-living-conversation", "care-first-question", "care-preparing-notes", "care-planning-calendar", "care-everyday-checkin", "why-evening-home"];
+const catalogPhotos = ["hero", "hero-home-landscape", "hero-home-portrait", "service-daily-living", "service-bath-preparation", "service-companionship", "mission", "mission-listening", "intro-family-consultation", "feature-living-conversation", "care-first-question", "care-preparing-notes", "care-planning-calendar", "care-everyday-checkin", "why-evening-home"];
+const activePhotos = ["hero-home-landscape", "hero-home-portrait", "service-daily-living", "service-bath-preparation", "service-companionship", "mission-listening", "intro-family-consultation", "feature-living-conversation", "care-first-question", "care-preparing-notes", "care-planning-calendar", "care-everyday-checkin", "why-evening-home"];
 const diagrams = { "intro-left": "intro-home.svg", "intro-right": "intro-conversation.svg", feature: "feature-support.svg", services: "services-daily.svg", "care-1": "care-start.svg", "care-2": "care-prepare.svg", "care-3": "care-region.svg", "care-4": "care-dialogue.svg", why: "why-garden.svg" };
 const contentDiagrams = { "intro-left": "intro-home.svg", "intro-right": "intro-conversation.svg", feature: "feature-support.svg", services: "services-daily.svg" };
 const loadManifest = async () => JSON.parse(await readFile(manifestPath, "utf8"));
 
-test("maps thirteen catalog photos and nine unique SVG diagrams", async () => {
+test("maps fifteen catalog photos and nine unique SVG diagrams", async () => {
   const manifest = await loadManifest();
-  assert.equal(manifest.schemaVersion, 2); assert.equal(manifest.images.length, 22);
+  assert.equal(manifest.schemaVersion, 2); assert.equal(manifest.images.length, 24);
   assert.deepEqual(manifest.images.filter(({ kind }) => kind === "photo").map(({ name }) => name).sort(), [...catalogPhotos].sort());
   assert.deepEqual(Object.fromEntries(manifest.images.filter(({ kind }) => kind === "diagram").map(({ name, file }) => [name, path.basename(file)])), diagrams);
-  assert.equal(new Set(manifest.images.map(({ sourceSha256 }) => sourceSha256)).size, 22);
+  assert.equal(new Set(manifest.images.map(({ sourceSha256 }) => sourceSha256)).size, 24);
+});
+test("keeps approved full-source hero art directions byte-exact", async () => {
+  const manifest = await loadManifest();
+  const expected = [
+    ["hero-home-landscape", "heroHomeLandscape", "assets/v3/saesomang/source/hero-20261019/hero-landscape.png", { width: 1619, height: 971 }, "2499d741878efc120ecc544edffde2ca8362dd6ae23cf934ec09763a054dbfdd", "5374383977764551a6c7ca860410e5d4966ef678df79dce2127b74fc03af3e11"],
+    ["hero-home-portrait", "heroHomePortrait", "assets/v3/saesomang/source/hero-20261019/hero-portrait.png", { width: 971, height: 1619 }, "be5645662ffca85ee21142f83e3ec59af9d5f17ea198c770ebd3e59f2da2ede7", "e1b7dab893d83a3b0fd9453c7e1b82a48d6c8e5378d6cde4ee140e9a05bba6d8"],
+  ];
+  for (const [name, sourceId, sourcePath, dimensions, sourceSha256, webSha256] of expected) {
+    const image = manifest.images.find((entry) => entry.name === name);
+    assert.equal(image.sourceId, sourceId); assert.equal(image.sourcePath, sourcePath); assert.equal(image.sourceSha256, sourceSha256);
+    assert.deepEqual(image.actualDimensions, dimensions); assert.deepEqual(image.crop.pixels, { left: 0, top: 0, ...dimensions }); assert.equal(image.crop.preservesFullSource, true);
+    assert.equal(createHash("sha256").update(await readFile(path.join(assets, image.file))).digest("hex"), webSha256);
+  }
 });
 test("photo metadata and files prove no source enlargement", async () => {
   const manifest = await loadManifest();
@@ -51,7 +64,7 @@ test("V3 content references each active photo once while retaining the catalog",
   const content = await readFile(path.join(root, "content", "v3", "saesomang.ts"), "utf8");
   for (const name of catalogPhotos) await stat(path.join(assets, "images", `${name}.webp`));
   for (const name of activePhotos) { const publicPath = `/v3/saesomang/images/${name}.webp`; assert.equal(content.split(publicPath).length - 1, 1, `${name} is active once`); }
-  assert.equal(content.includes("/v3/saesomang/images/mission.webp"), false, "old mission remains catalog-only");
+  assert.equal(content.includes("/v3/saesomang/images/hero.webp"), false, "old hero remains catalog-only"); assert.equal(content.includes("/v3/saesomang/images/mission.webp"), false, "old mission remains catalog-only");
   for (const [, file] of Object.entries(diagrams)) await stat(path.join(assets, "illustrations", file));
   for (const [, file] of Object.entries(contentDiagrams)) { const publicPath = `/v3/saesomang/illustrations/${file}`; assert.ok(content.includes(publicPath), `${file} is referenced by V3 content`); }
 });

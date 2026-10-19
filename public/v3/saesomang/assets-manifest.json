@@ -329,6 +329,56 @@
       "bytes": 100182
     },
     {
+      "name": "hero-home-landscape",
+      "kind": "photo",
+      "sourceId": "heroHomeLandscape",
+      "sourcePath": "assets/v3/saesomang/source/hero-20261019/hero-landscape.png",
+      "sourceSha256": "2499d741878efc120ecc544edffde2ca8362dd6ae23cf934ec09763a054dbfdd",
+      "sourceLicenseEvidence": "사용자 승인 2026-10-19 image_gen 가상 장면; 전체 원본 사용",
+      "alt": "집에서 어르신과 돌봄 제공자가 휴대전화를 함께 보며 이야기를 나누는 가상 장면",
+      "crop": {
+        "pixels": {
+          "left": 0,
+          "top": 0,
+          "width": 1619,
+          "height": 971
+        },
+        "focalPoint": "right-home-conversation",
+        "preservesFullSource": true
+      },
+      "actualDimensions": {
+        "width": 1619,
+        "height": 971
+      },
+      "file": "images/hero-home-landscape.webp",
+      "bytes": 130378
+    },
+    {
+      "name": "hero-home-portrait",
+      "kind": "photo",
+      "sourceId": "heroHomePortrait",
+      "sourcePath": "assets/v3/saesomang/source/hero-20261019/hero-portrait.png",
+      "sourceSha256": "be5645662ffca85ee21142f83e3ec59af9d5f17ea198c770ebd3e59f2da2ede7",
+      "sourceLicenseEvidence": "사용자 승인 2026-10-19 image_gen 가상 장면; 전체 원본 사용",
+      "alt": "집에서 어르신과 돌봄 제공자가 휴대전화를 함께 보며 이야기를 나누는 가상 장면",
+      "crop": {
+        "pixels": {
+          "left": 0,
+          "top": 0,
+          "width": 971,
+          "height": 1619
+        },
+        "focalPoint": "center-home-conversation",
+        "preservesFullSource": true
+      },
+      "actualDimensions": {
+        "width": 971,
+        "height": 1619
+      },
+      "file": "images/hero-home-portrait.webp",
+      "bytes": 121750
+    },
+    {
       "name": "intro-left",
       "kind": "diagram",
       "sourceId": "illustration-intro-left",

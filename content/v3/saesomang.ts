@@ -20,7 +20,7 @@ export type SaesomangExtras = NonNullable<V3Content["extras"]> & {
 };
 
 export const saesomangPhotoSlots: Img[] = [
-  { src: "/v3/saesomang/images/hero.webp?v=wu18-20261015", alt: "집 안에서 이동을 돕는 돌봄의 장면", kind: "photo" },
+  { src: "/v3/saesomang/images/hero-home-landscape.webp", alt: "집에서 어르신과 돌봄 제공자가 휴대전화를 함께 보며 이야기를 나누는 가상 장면", kind: "photo" },
   { src: "/v3/saesomang/illustrations/intro-home.svg", alt: "집에서의 일상을 상징하는 도해", kind: "diagram" },
   { src: "/v3/saesomang/illustrations/intro-conversation.svg", alt: "대화와 안내를 상징하는 도해", kind: "diagram" },
   { src: "/v3/saesomang/illustrations/feature-support.svg", alt: "필요한 도움을 함께 살피는 과정을 나타낸 도해", kind: "diagram" },
@@ -39,6 +39,7 @@ export const saesomangPhotoSlots: Img[] = [
 ];
 
 const [hero, , , , services, card1, card2, card3, mission, introFamilyConsultation, featureLivingConversation, care1, care2, care3, care4, why] = saesomangPhotoSlots;
+const heroMobile: Img = { src: "/v3/saesomang/images/hero-home-portrait.webp", alt: "집에서 어르신과 돌봄 제공자가 휴대전화를 함께 보며 이야기를 나누는 가상 장면", kind: "photo" };
 
 const stories: SaesomangStory[] = [
   { date: "2026. 09. 16.", category: "센터소개", title: "따뜻한 돌봄이 필요한 순간, 새소망 방문요양센터가 함께합니다", id: "224413549928", href: "https://blog.naver.com/wish5288/224413549928" },
@@ -106,6 +107,7 @@ export const saesomangContent: V3Content & { extras: SaesomangExtras } = {
     titleLines: ["익숙한 집에서,", "편안한 하루를."],
     subtitle: "분당·성남의 방문요양과 방문목욕을 안내합니다. 돌봄이 필요하다면 새소망 카카오 오픈채팅에서 먼저 문의해 주세요.",
     image: hero,
+    mobileImage: heroMobile,
     sideCard: { title: { text: "장기요양 등급 신청 안내" }, icon: "leaf", popover: "인정 신청부터 이용상담까지 6단계를 함께 봅니다.", href: "#process" },
     scrollLabel: "이용 절차",
   },

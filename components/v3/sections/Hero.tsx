@@ -68,7 +68,15 @@ export function Hero({ hero, ready, scrollHref = "#소개", variant = "design" }
   const reset = () => card.current?.style.setProperty("--tilt-x", "0deg") || card.current?.style.setProperty("--tilt-y", "0deg");
   return <div className={styles.wrap}>
     <section ref={root} className={`${styles.hero} ${variant === "saesomang" ? styles.saesomangHero : ""}`} data-v3-hero aria-label={hero.title.text}>
-      <div className={styles.background} data-hero-bg><Image src={hero.image.src} alt={hero.image.alt} fill priority sizes={variant === "saesomang" ? "1440px" : "100vw"} /></div>{/* Keep the cover source sharp on portrait viewports. */}
+      <div className={styles.background} data-hero-bg>
+        {variant === "saesomang" && hero.mobileImage ? (
+          <picture>
+            <source media="(max-width: 660px)" srcSet={hero.mobileImage.src} />
+            {/* `picture` selects one approved source before hydration; the native image keeps responsive hero requests to one file. */}
+            <img src={hero.image.src} alt={hero.image.alt} width={1619} height={971} fetchPriority="auto" loading="eager" />
+          </picture>
+        ) : <Image src={hero.image.src} alt={hero.image.alt} fill priority sizes={variant === "saesomang" ? "1440px" : "100vw"} />}
+      </div>{/* The saesomang source is selected before hydration at the responsive art-direction boundary. */}
       <div className={styles.shade} />
       <div className={styles.content}>
         <div className={styles.copy}><h1 aria-label={hero.title.text}>{lines.map((line) => <span className={styles.lineMask} key={line} aria-hidden="true"><span data-hero-line>{line}</span></span>)}</h1>
