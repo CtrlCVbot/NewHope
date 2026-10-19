@@ -9,8 +9,8 @@ export function Faq({ id = "faq", faq }: Props) {
   const instanceId = useId().replace(/:/g, "");
   const groupName = `${id}-${instanceId}`;
   return <section id={id} className={styles.faq} data-v3-faq><div className={styles.faqInner}>
-    <header className={styles.sectionHeader}><p className={styles.kicker}>FAQ</p><h2>이용 전 자주 묻는 질문입니다.</h2></header>
-    <div className={styles.faqList}>{faq.map((item, index) => {
+    <header className={styles.sectionHeader} data-info-reveal><p className={styles.kicker}>FAQ</p><h2>이용 전 자주 묻는 질문입니다.</h2></header>
+    <div className={styles.faqList} data-info-reveal>{faq.map((item, index) => {
       const itemId = `${groupName}-item-${index + 1}`;
       return <details key={item.question} id={itemId} name={groupName} className={styles.faqItem}>
         <summary aria-controls={`${itemId}-answer`}><span>{item.question}</span><span className={styles.faqIcon} aria-hidden="true"><Icon name="plus" className={styles.plus} /><Icon name="close" className={styles.close} /></span></summary>

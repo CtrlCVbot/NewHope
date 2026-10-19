@@ -8,12 +8,12 @@ type Props = { id?: string; stories: Story[]; storyNotice: string };
 export function Stories({ id = "stories", stories, storyNotice }: Props) {
   return <section id={id} className={styles.stories} data-v3-stories>
     <div className={styles.inner}>
-      <header className={styles.sectionHeader}>
+      <header className={styles.sectionHeader} data-info-reveal>
         <GoldLabel>센터 이야기</GoldLabel>
         <h2>센터 이야기와 이용 안내.</h2>
         <p className={styles.note}>{storyNotice}</p>
       </header>
-      <ul className={styles.storyList} aria-label="센터 소식 목록">
+      <ul className={styles.storyList} aria-label="센터 소식 목록" data-info-reveal>
         {stories.map((story) => <li key={story.id}>
           <a className={styles.story} href={story.href} target="_blank" rel="noreferrer" data-story-id={story.id}>
             <time dateTime={story.date.replaceAll(". ", "-").replace(/\.$/, "")}>{story.date}</time>
@@ -21,7 +21,7 @@ export function Stories({ id = "stories", stories, storyNotice }: Props) {
           </a>
         </li>)}
       </ul>
-      <a className={styles.story} href="https://blog.naver.com/wish5288" target="_blank" rel="noreferrer">블로그에서 더 보기 <Icon name="arrow-up-right" /></a>
+      <a className={styles.story} href="https://blog.naver.com/wish5288" target="_blank" rel="noreferrer" data-info-reveal>블로그에서 더 보기 <Icon name="arrow-up-right" /></a>
     </div>
   </section>;
 }

@@ -1,5 +1,5 @@
 .why{position:relative;container-type:inline-size;overflow:hidden;background:#15031b;color:#fff;padding:7.5rem 2rem 9rem}
-.why::before{position:absolute;inset:0;content:"";background:radial-gradient(ellipse at 78% 22%,rgb(176 161 191 / 36%),transparent 43%),linear-gradient(124deg,rgb(108 82 117 / 28%),transparent 44%);pointer-events:none}
+.why::before{position:absolute;inset:0;content:"";background:radial-gradient(ellipse at 78% 22%,rgb(176 161 191 / 36%),transparent 43%),linear-gradient(124deg,rgb(108 82 117 / 28%),transparent 44%);pointer-events:none;mask-image:linear-gradient(to bottom,transparent,#000 96px,#000 calc(100% - 96px),transparent)}
 .wrapper{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(22rem,48rem);gap:clamp(2.5rem,6vw,6rem);align-items:start;max-width:75rem;margin-inline:auto}
 .brand{grid-column:1/-1;width:min(100%,43.75rem);aspect-ratio:900/250;align-self:start}.brand img{display:block;width:100%;height:100%;object-fit:contain;object-position:left center}
 .photo{position:relative;grid-column:2;grid-row:2/span 2;width:100%;max-width:48rem;aspect-ratio:3/2;margin:0;overflow:hidden;justify-self:end;background:#2d1838;box-shadow:0 2rem 5rem rgb(0 0 0 / 25%)}

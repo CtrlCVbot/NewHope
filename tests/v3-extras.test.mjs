@@ -55,6 +55,7 @@ test("server-renders standalone Phase 2 extras with an anchor-only Kakao guide",
     ));
     assert.equal((html.match(/data-story-id=/g) ?? []).length, 3);
     assert.equal((html.match(/<details/g) ?? []).length, 4);
+    assert.equal((html.match(/data-info-reveal/g) ?? []).length, 7);
     assert.match(html, /센터 이야기와 이용 안내\./);
     assert.match(html, /이용 전 자주 묻는 질문입니다\./);
     assert.match(html, /블로그에서 더 보기/);

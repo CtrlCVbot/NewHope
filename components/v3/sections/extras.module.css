@@ -12,3 +12,23 @@
 :global(.saesomangScope) .sectionHeader h2, :global(.saesomangScope) .consult h2 { font-size: 4rem; line-height: 1.12; }
 :global(.saesomangScope) .saesomangFooter { padding-right: max(2rem, calc((100% - 75rem) / 2)); padding-left: max(2rem, calc((100% - 75rem) / 2)); }
 @media(max-width:768px){:global(.saesomangScope) .sectionHeader h2,:global(.saesomangScope) .consult h2{font-size:2.5rem}}
+
+/* WU-27: only the supplemental information sections opt into the shared flow treatment. */
+:global(.saesomangScope) [data-info-section]>.faq,:global(.saesomangScope) [data-info-section]>.stories,:global(.saesomangScope) [data-info-section]>.location{container-type:inline-size}
+:global(.saesomangScope) [data-info-section]>.faq{padding-block:6rem}
+:global(.saesomangScope) [data-info-section]>.faq .faqInner{display:grid;grid-template-columns:minmax(0,.56fr) minmax(0,1fr);gap:clamp(3rem,7vw,7rem);width:min(100%,75rem)}
+:global(.saesomangScope) [data-info-section]>.faq .sectionHeader{margin:0}:global(.saesomangScope) [data-info-section]>.faq .faqList{gap:.875rem}
+:global(.saesomangScope) [data-info-section]>.stories{isolation:isolate;padding-block:6rem;background:#fbf8f5}
+:global(.saesomangScope) [data-info-section]>.stories::before,:global(.saesomangScope) [data-info-section]>.stories::after{position:absolute;z-index:-1;right:0;left:0;height:6rem;content:"";pointer-events:none}
+:global(.saesomangScope) [data-info-section]>.stories::before{top:0;background:linear-gradient(to bottom,#6c5275,#fbf8f5)}:global(.saesomangScope) [data-info-section]>.stories::after{bottom:0;background:linear-gradient(to bottom,#fbf8f5,#15031b)}
+:global(.saesomangScope) [data-info-section]>.stories .inner{grid-template-columns:minmax(0,.56fr) minmax(0,1fr);gap:clamp(3rem,7vw,7rem);width:min(100%,75rem)}
+:global(.saesomangScope) [data-info-section]>.stories .storyList+ .story{grid-column:2;width:fit-content;grid-template-columns:minmax(0,1fr) 1.5rem;min-height:2.75rem;margin-top:-2rem;font-size:.875rem}
+:global(.saesomangScope) [data-info-section]>.location{isolation:isolate;padding-block:6rem;background:#fbf8f5}
+:global(.saesomangScope) [data-info-section]>.location::before,:global(.saesomangScope) [data-info-section]>.location::after{position:absolute;z-index:-1;right:0;left:0;height:6rem;content:"";pointer-events:none}
+:global(.saesomangScope) [data-info-section]>.location::before{top:0;background:linear-gradient(to bottom,#15031b,#fbf8f5)}:global(.saesomangScope) [data-info-section]>.location::after{bottom:0;background:linear-gradient(to bottom,#fbf8f5,#15031b)}
+:global(.saesomangScope) [data-info-section]>.location .locationInner{grid-template-columns:minmax(0,.56fr) minmax(0,1fr);gap:clamp(3rem,7vw,7rem);width:min(100%,75rem)}
+:global(.saesomangScope) [data-info-section]>.location .sectionHeader h2{font-size:clamp(2.5rem,5cqi,4rem)}
+:global(.saesomangScope) [data-info-section] [data-info-reveal]{will-change:transform,opacity}
+@container (max-width:900px){:global(.saesomangScope) [data-info-section]>.faq .faqInner,:global(.saesomangScope) [data-info-section]>.stories .inner,:global(.saesomangScope) [data-info-section]>.location .locationInner{grid-template-columns:1fr;gap:2rem}:global(.saesomangScope) [data-info-section]>.stories .storyList+ .story{grid-column:1;margin-top:0}}
+@media(max-width:768px){:global(.saesomangScope) [data-info-section]>.faq{padding-block:4rem}:global(.saesomangScope) [data-info-section]>.stories,:global(.saesomangScope) [data-info-section]>.location{padding-block:6rem}:global(.saesomangScope) [data-info-section]>.stories::before,:global(.saesomangScope) [data-info-section]>.stories::after,:global(.saesomangScope) [data-info-section]>.location::before,:global(.saesomangScope) [data-info-section]>.location::after{height:5rem}}
+@media(prefers-reduced-motion:reduce){:global(.saesomangScope) [data-info-section] [data-info-reveal]{will-change:auto}}

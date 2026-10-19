@@ -21,6 +21,7 @@ import { Why } from "../sections/Why";
 import { CtaSection } from "../sections/CtaSection";
 import { SaesomangWhy } from "../sections/SaesomangWhy";
 import { SaesomangConsultation } from "../sections/SaesomangConsultation";
+import { SaesomangInformationReveal } from "../sections/SaesomangInformationReveal";
 import { Faq } from "../sections/Faq";
 import { Stories } from "../sections/Stories";
 import { Location } from "../sections/Location";
@@ -99,12 +100,12 @@ function FrameInner({ content, variant = "design", extras }: { content: V3Conten
         {variant === "saesomang" && extras ? <>
           <Intro id="about" intro={content.intro} variant="saesomang" /><Feature feature={content.feature} variant="saesomang" /><Services id="services" services={content.services} variant="saesomang" iconAssets={["/v3/saesomang/icons/home.svg", "/v3/saesomang/icons/bath.svg", "/v3/saesomang/icons/chat.svg"]} />
           <Process id="process" process={content.process} showNote />
-          <Faq id="faq" faq={extras.faq} />
+          <SaesomangInformationReveal section="faq"><Faq id="faq" faq={extras.faq} /></SaesomangInformationReveal>
           <SaesomangMission id="promises" mission={content.mission} /><CareTabs id="care" care={content.care} variant="saesomang" />
-          <Stories id="stories" stories={extras.stories} storyNotice={extras.storyNotice} />
+          <SaesomangInformationReveal section="stories"><Stories id="stories" stories={extras.stories} storyNotice={extras.storyNotice} /></SaesomangInformationReveal>
           <SaesomangWhy why={content.why} brand={{ ...content.brand, wordmarkSvg: saesomangBrandAssets.whySvg }} />
           <SaesomangConsultation id="contact-cta" guide={extras.consultation} />
-          <Location id="location" brandName={content.brand.name} location={extras.location} contacts={extras.contacts} />
+          <SaesomangInformationReveal section="location"><Location id="location" brandName={content.brand.name} location={extras.location} contacts={extras.contacts} /></SaesomangInformationReveal>
         </> : content.nav.map((item, index) => {
           const id = decodeURIComponent(item.href.slice(1));
           if (index === 0) return <Fragment key={item.href}><Intro id={id} intro={content.intro} /><Feature feature={content.feature} /></Fragment>;
